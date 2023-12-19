@@ -81,7 +81,7 @@ function HomePage()
             </div>
         </div>
         <Designation mainDivRef={refs[1]} className='sm:-mt-48 z-10'/>
-        <AboutMe className=''/>
+        <AboutMe/>
         <footer className='bg-primary p-4 flex justify-center text-xs md:text-base'>Designed & Developed by AlphaCupcake10 ©</footer>
     </>
   )

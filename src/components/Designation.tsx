@@ -1,4 +1,4 @@
-import { Ref, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { TransitionLink } from "../contexts/PageLoaderContext";
 import Button from "./common/Button";
 import { Canvas, } from "@react-three/fiber";

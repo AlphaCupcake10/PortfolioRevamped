@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei";
-import { ThreeElements, useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useEffect , useRef } from "react";
-import { AnimationMixer, Mesh } from "three";
+import { AnimationMixer } from "three";
 import modelSrc from "../../assets/Models.glb?url";
 import { gsap } from "gsap";
 
@@ -10,10 +10,10 @@ export default function Designation3D(props:{phaseIndex:number})
 
     const gltf = useGLTF(modelSrc);//To Change
     const mixer = useRef<AnimationMixer>();
-    let ref = useRef<ThreeElements["group"] & Mesh>();
+    let ref = useRef<any>();
 
     useFrame((state,delta) => {
-
+        if(!state)
         if(!mixer.current)CreateMixer();
         mixer.current?.update(delta);
     })
