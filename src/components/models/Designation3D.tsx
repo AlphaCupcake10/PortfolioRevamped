@@ -13,7 +13,7 @@ export default function Designation3D(props:{phaseIndex:number})
     let ref = useRef<any>();
 
     useFrame((state,delta) => {
-        if(!state)
+        if(!state)return;
         if(!mixer.current)CreateMixer();
         mixer.current?.update(delta);
     })
