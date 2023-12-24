@@ -20,8 +20,6 @@ export default function Designation3D(props:{phaseIndex:number})
 
     function CreateMixer()
     {
-        console.log("Added Mixer");
-        console.log(gltf)
         if (gltf.animations.length) {
             mixer.current = new AnimationMixer(gltf.scene);
             gltf.animations.forEach(clip => {

@@ -4,12 +4,15 @@ import App from './App.tsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { PageLoaderProvider } from './contexts/PageLoaderContext.tsx'
+import LenisWrapper from './contexts/LenisWrapper.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <PageLoaderProvider>
-        <App />
+        <LenisWrapper>
+          <App />
+        </LenisWrapper>
       </PageLoaderProvider>
     </BrowserRouter>
   </React.StrictMode>,

@@ -44,7 +44,7 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
     
     return <PageLoaderContext.Provider value={value}>
         <div className={`z-50 fixed top-0 left-0 w-screen h-screen flex justify-center items-center pointer-events-none`}>
-            <div className={`bg-primary ${isLoading?"scale-x-100 origin-left":"scale-x-0 origin-right"} pointer-events-auto absolute top-0 left-0 w-screen h-screen transition-transform ${duration_class}`}></div>
+            <div className={`bg-secondary ${isLoading?"scale-x-100 origin-left":"scale-x-0 origin-right"} pointer-events-auto absolute top-0 left-0 w-screen h-screen transition-transform ${duration_class}`}></div>
         </div>
         {props.children}
     </PageLoaderContext.Provider>;

@@ -13,7 +13,7 @@
     "@react-three/drei": "^9.88.17",
     "@react-three/fiber": "^8.15.11",
     "@react-three/postprocessing": "^2.15.11",
-    "@studio-freight/lenis": "^1.0.28",
+    "@studio-freight/react-lenis": "^0.0.38",
     "@types/three": "^0.158.3",
     "gsap": "^3.12.3",
     "lamina": "^1.1.23",
