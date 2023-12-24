@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import ME from "../assets/Me.png?url";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Button from "./common/Button";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutMe()
