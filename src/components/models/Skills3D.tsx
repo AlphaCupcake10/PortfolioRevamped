@@ -29,7 +29,7 @@ export default function Skills3D(props:{scrollRef:React.RefObject<HTMLDivElement
         if(!mixer.current)CreateMixer();
         mixer.current?.update(delta);
 
-        if(scrollPercent.current)scrollMixer.current?.setTime((scrollPercent.current)*10*.999)
+        if(scrollPercent.current)scrollMixer.current?.setTime((scrollPercent.current)*20*.999)
         
         const AnimCamera = gltf.cameras[0];
         state.camera.position.set(AnimCamera.position.x,AnimCamera.position.y,AnimCamera.position.z);
@@ -39,16 +39,17 @@ export default function Skills3D(props:{scrollRef:React.RefObject<HTMLDivElement
 
     function CreateMixer()
     {
+        console.log(gltf.animations);
         if (gltf.animations.length) {
             mixer.current = new AnimationMixer(gltf.scene);
             scrollMixer.current = new AnimationMixer(gltf.scene);
             gltf.animations.forEach(clip => {
-                if(clip.name == "MainCameraAction")
-                {
-                    scrollMixer.current?.clipAction(clip).play();
-                    return;
-                }
-                mixer.current?.clipAction(clip).play()
+                // if(clip.name == "MainCameraAction" || clip.name == "CameraAction" || clip.name == "FocusAction")
+                // {
+                //     scrollMixer.current?.clipAction(clip).play();
+                //     return;
+                // }
+                scrollMixer.current?.clipAction(clip).play()
             });
         }
     }
