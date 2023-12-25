@@ -50,7 +50,7 @@ export default function Designation(props:{className?:string,mainDivRef?:React.R
                 <span ref={textRef}>ASD</span>
             </h1>
             <div className='bg-red flex gap-5 mt-4 relative z-20'>
-                <TransitionLink to='/projects'><Button color='primary' className='md:w-48'>PROJECTS</Button></TransitionLink>
+                <TransitionLink to='/mywork'><Button color='primary' className='md:w-48'>PROJECTS</Button></TransitionLink>
                 <Button color='secondary' className='md:w-48'>CONTACT ME</Button>
             </div>
         </div>
@@ -71,7 +71,7 @@ export default function Designation(props:{className?:string,mainDivRef?:React.R
                 <span ref={frontTextRef}>ASD</span>
             </h1>
             <div className='bg-red flex gap-5 mt-4 relative z-20'>
-                <TransitionLink to='/projects'><Button color='primary' className='md:w-48'>PROJECTS</Button></TransitionLink>
+                <TransitionLink to='/mywork'><Button color='primary' className='md:w-48'>PROJECTS</Button></TransitionLink>
                 <Button color='secondary' className='md:w-48'>CONTACT ME</Button>
             </div>
         </div>

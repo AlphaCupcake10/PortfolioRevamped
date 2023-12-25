@@ -35,12 +35,8 @@ function Skills()
         return () => ctx.revert(); // cleanup! 
       }, []);
     return (
-        <div ref={sectionRef} className="container mx-auto h-[600vh] rounded-3xl border-2 border-text/10 mb-8 shadow-xl">
-            <div className="mx-auto sticky top-0 h-screen flex flex-col pointer-events-none">
-                <div className='p-16'>
-                    <h1 className='text-xl md:text-3xl lg:text-8xl font-extrabold'>MY SKILLS<span className="text-primary">.</span></h1>
-                    <hr ref={progressRef} className='md:border-t-4 origin-left border-primary'/>
-                </div>
+        <div ref={sectionRef} className="h-[600vh] -z-10 relative">
+            <div className="mx-auto sticky top-0 h-screen pointer-events-none">
                 <Canvas camera={{ fov: 25}} className='touch-none w-full grow'>
                     <hemisphereLight groundColor={0x6457c7} color={0xffffff} intensity={2.5}/>
                     <Environment preset="city" />
