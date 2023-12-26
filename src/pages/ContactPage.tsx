@@ -10,7 +10,7 @@ function ContactPage()
     const cardClass = "rounded-3xl hover:grow-[4] transition-grow flex items-center justify-center font-bold text-xl";
     const gapClass = "gap-2";
 
-    const refs = [useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null)];
+    const refs = [useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null)];
 
     useEffect(() => {        
         let ctx = gsap.context(() => {
@@ -53,10 +53,8 @@ function ContactPage()
                             </defs>
                         </svg>
                     </a>
-                    <a target='_blank' href='https://twitter.com/alphacupcake10/' ref={refs[2]} className={`${cardClass} bg-[#14171A] w-64 grow`}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <path d="M36.6526 3.8078H43.3995L28.6594 20.6548L46 43.5797H32.4225L21.7881 29.6759L9.61989 43.5797H2.86886L18.6349 25.56L2 3.8078H15.9222L25.5348 16.5165L36.6526 3.8078ZM34.2846 39.5414H38.0232L13.8908 7.63406H9.87892L34.2846 39.5414Z" fill="white"/>
-                        </svg>
+                    <a target='_blank' href='https://www.fiverr.com/alphacupcake' ref={refs[2]} className={`${cardClass} bg-[#1DBF73] w-64 grow-[4]`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px"><path d="M25,2C12.32,2,2,12.32,2,25s10.32,23,23,23s23-10.32,23-23S37.68,2,25,2z M34,36h-6V25h-4v11h-6V25h-4v-6h4.04 c0.37-4.96,3.54-8,8.46-8h2.53v6H26.5c-0.92,0-2.14,0-2.43,2H34V36z" fill='currentColor'/></svg>
                     </a>
                     <a target='_blank' href='https://github.com/alphacupcake10/' ref={refs[0]} className={`${cardClass} bg-[#222] w-64 grow`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -98,7 +96,7 @@ function ContactPage()
                     </a>
                 </div>
                 <div className={`grow-[1] flex flex-wrap items-stretch hover:grow-[1.5] transition-all duration-500 ${gapClass}`}>
-                    <a target='_blank' href='https://www.artstation.com/alphacupcake10' ref={refs[6]} className={`${cardClass} bg-[#171717] text-[#13AFF0] w-64 grow`}>
+                    <a target='_blank' href='https://www.artstation.com/alphacupcake10' ref={refs[8]} className={`${cardClass} bg-[#171717] text-[#13AFF0] w-64 grow`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                             <g clipPath="url(#clip0_251_21)">
                                 <path d="M-1 35.1508L3.13846 42.2863H3.1405C3.55286 43.1021 4.18423 43.7877 4.96429 44.2668C5.74435 44.746 6.64249 44.9998 7.55867 45H35.0334L29.333 35.1508H-1ZM48 35.2017C48 34.2164 47.708 33.2983 47.2078 32.5267L31.1113 4.62414C30.6903 3.83183 30.0607 3.16889 29.2901 2.70655C28.5196 2.24421 27.6374 1.99995 26.7381 2H18.2305L43.0959 44.9572L47.0159 38.1882C47.7877 36.8914 48 36.3173 48 35.2017ZM25.2783 28.1538L14.1655 8.96037L3.05067 28.1538H25.2783Z" fill="currentColor"/>
@@ -120,6 +118,11 @@ function ContactPage()
                                 <rect width="44" height="44" fill="white"/>
                                 </clipPath>
                             </defs>
+                        </svg>
+                    </a>
+                    <a target='_blank' href='https://twitter.com/alphacupcake10/' ref={refs[6]} className={`${cardClass} bg-[#14171A] w-64 grow`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M36.6526 3.8078H43.3995L28.6594 20.6548L46 43.5797H32.4225L21.7881 29.6759L9.61989 43.5797H2.86886L18.6349 25.56L2 3.8078H15.9222L25.5348 16.5165L36.6526 3.8078ZM34.2846 39.5414H38.0232L13.8908 7.63406H9.87892L34.2846 39.5414Z" fill="white"/>
                         </svg>
                     </a>
                 </div>
