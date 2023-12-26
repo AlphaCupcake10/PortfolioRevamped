@@ -13,7 +13,8 @@ export default function AboutMe()
     const bday = "0XA330XA330XA330XA330XA330XA330XA330XA33";
 
     const refs = [useRef<HTMLHeadingElement>(null),useRef<HTMLHeadingElement>(null),useRef<HTMLHeadingElement>(null),useRef<HTMLHeadingElement>(null),useRef<HTMLHeadingElement>(null)];
-    const MeRef = [useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null)]
+    const MeRef = [useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null)];
+    const imageRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {        
         let ctx = gsap.context(() => {
@@ -38,10 +39,12 @@ export default function AboutMe()
 
             gsap.fromTo(
                 MeRef[0].current,{
-                    xPercent:100
+                    xPercent:-100,
+                    opacity:0,
                 },
                 {
                     xPercent:0,
+                    opacity:1,
                     duration:2,
                     ease: "power4.out",
                     scrollTrigger:{
@@ -55,16 +58,37 @@ export default function AboutMe()
             )
             gsap.fromTo(
                 MeRef[1].current,{
-                    xPercent:100,
+                    xPercent:-100,
                     opacity:0
                 },
                 {
                     xPercent:0,
                     duration:2,
                     opacity:1,
+                    delay:.2,
                     ease: "power4.out",
                     scrollTrigger:{
                         trigger:MeRef[1].current,
+                        start:"top 100%",
+                        end:"bottom top",
+                        // scrub:true,
+                        // markers:true
+                    }
+                }
+            )
+            gsap.fromTo(
+                imageRef.current,{
+                    xPercent:-100,
+                    opacity:0
+                },
+                {
+                    xPercent:0,
+                    duration:2,
+                    opacity:1,
+                    delay:.2,
+                    ease: "power4.out",
+                    scrollTrigger:{
+                        trigger:imageRef.current,
                         start:"top 100%",
                         end:"bottom top",
                         // scrub:true,
@@ -101,7 +125,7 @@ export default function AboutMe()
                         Currently working as a freelance artist, constantly interested in a challenge. I am a kind of person who likes to view things from a neutrally different and virtually inclined perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam leo nisl, luctus at risus eu, fermentum porta nulla.
                     </p>
                 </div>
-                <img className='w-full md:w-1/2 z-10' src={ME} alt="" />
+                <img ref={imageRef} className='w-full md:w-1/2 z-10' src={ME} alt="" />
             </div>
         </div>
     )

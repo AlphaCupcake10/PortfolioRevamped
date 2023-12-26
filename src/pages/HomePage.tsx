@@ -8,6 +8,7 @@ import ParallaxBG from '../components/ParallaxBG';
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Footer from '../components/Footer';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
@@ -55,7 +56,7 @@ function HomePage()
         </ParallaxBG>
         <Designation mainDivRef={desRef} className='sm:-mt-48 z-10'/>
         <AboutMe/>
-        <footer className='bg-primary p-4 flex justify-center text-xs md:text-base'>Designed & Developed by AlphaCupcake10 ©</footer>
+        <Footer />
     </>
   )
 }

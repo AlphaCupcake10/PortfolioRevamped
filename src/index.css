@@ -11,7 +11,10 @@ body
 {
   @apply from-primary to-accent bg-gradient-to-b bg-clip-text text-transparent;
 }
-
+.transition-grow
+{
+  transition: flex-grow 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .animChar
 {
   animation: myfirst 5s cubic-bezier(.69,.13,0,1.39) forwards;

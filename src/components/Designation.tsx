@@ -72,7 +72,7 @@ export default function Designation(props:{className?:string,mainDivRef?:React.R
             </h1>
             <div className='bg-red flex gap-5 mt-4 relative z-20'>
                 <TransitionLink to='/mywork'><Button color='primary' className='md:w-48'>PROJECTS</Button></TransitionLink>
-                <Button color='secondary' className='md:w-48'>CONTACT ME</Button>
+                <TransitionLink to='/contact'><Button color='secondary' className='md:w-48'>CONTACT ME</Button></TransitionLink>
             </div>
         </div>
       </div>

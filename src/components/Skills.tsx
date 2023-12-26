@@ -1,39 +1,12 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, Environment } from "@react-three/drei";
 import Skills3D from "./models/Skills3D";
 
-gsap.registerPlugin(ScrollTrigger);
-
 function Skills()
 {
-    const progressRef = useRef<HTMLHRElement>(null);
     const sectionRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {        
-        let ctx = gsap.context(() => {
-            
-            gsap.fromTo(
-                progressRef.current,{
-                    scaleX:0
-                },
-                {
-                    scaleX:1,
-                    scrollTrigger:{
-                        trigger:sectionRef.current,
-                        start:"top 0%",
-                        end:"bottom 100%",
-                        scrub:true,
-                        // markers:true
-                    }
-                }
-            )
-        });
-        
-        return () => ctx.revert(); // cleanup! 
-      }, []);
     return (
         <div ref={sectionRef} className="h-[600vh] -z-10 relative">
             <div className="mx-auto sticky top-0 h-screen pointer-events-none">
