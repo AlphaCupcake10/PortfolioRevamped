@@ -16,36 +16,49 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
 {
     const navigator = useNavigate();
     const location = useLocation();
-    const [isLoading,setIsLoading] = useState(true);
+    const [isLoading,setIsLoading] = useState(false);
+    const [isAnimating,setIsAnimating] = useState(false);
+    const [loadingText,setLoadingText] = useState("");
 
-    useEffect(() => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 200);
-    }, [])
-    
+    const displayText:{[key:string]:string} = {
+        "/":"HOME",
+        "/3D":"3D EXPERIENCE",
+        "/mywork":"MY WORK",
+        "/contact":"CONTACT ME",
+    }
 
     async function navigateTo(to:To)
     {
+        if(isLoading || isAnimating)return;
         if(location.pathname == to)return;
-        if(isLoading)return;
+        setIsAnimating(true);
         setIsLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 500));
+        setLoadingText(to.toString());
+        await new Promise(resolve => setTimeout(resolve, 1000));
         navigator(to);
-        // await new Promise(resolve => setTimeout(resolve, 50));
         setIsLoading(false);
     }
+    useEffect(()=>{
+        if(isAnimating)
+        {
+            setTimeout(() => {
+                setIsAnimating(false);
+            }, 2000);
+        }
+    },[isAnimating])
 
     const value:PageLoaderContextType = {
         navigateTo
     }
-
-    const duration_class = "duration-500";
     
     return <PageLoaderContext.Provider value={value}>
-        <div className={`z-50 fixed top-0 left-0 w-screen h-screen flex justify-center items-center pointer-events-none`}>
-            <div className={`bg-secondary ${isLoading?"scale-x-100 origin-left":"scale-x-0 origin-right"} pointer-events-auto absolute top-0 left-0 w-screen h-screen transition-transform ${duration_class}`}></div>
-        </div>
+        {
+            isAnimating && (<div className={`z-50 fixed top-0 left-0 w-screen h-screen flex justify-center items-center pointer-events-none`}>
+                                <div className={`bg-primary screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen flex justify-center items-center`}>
+                                    <h1 className="text-8xl font-bold">{displayText[loadingText]}</h1>
+                                </div>
+                            </div>) 
+        }
         {props.children}
     </PageLoaderContext.Provider>;
 }

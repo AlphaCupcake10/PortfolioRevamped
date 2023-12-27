@@ -100,8 +100,7 @@ export default function AboutMe()
         }); // <- optional additional param, scopes all selector text inside the context to this component (default is document)
         
         return () => ctx.revert(); // cleanup! 
-      }, []);
-
+    }, []);
 
     return (
         <div className="lg:-mt-36">
