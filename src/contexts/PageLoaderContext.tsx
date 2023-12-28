@@ -89,7 +89,7 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
                 </div>
             ) 
         }
-        <img ref={catIMG} onClick={()=>{lenis.scrollTo(0)}} className={`fixed right-0 duration-500 bottom-0 z-40 hover:translate-y-0 transition-all`} src={wat} alt="" />
+        <img ref={catIMG} onClick={()=>{lenis.scrollTo(0)}} className={`fixed right-0 translate-y-full duration-500 bottom-0 z-40 hover:translate-y-0 transition-all`} src={wat} alt="" />
         {props.children}
     </PageLoaderContext.Provider>;
 }

@@ -38,8 +38,8 @@ function ContactPage()
     return (
     <>
         <div className="flex flex-col justify-between min-h-screen overflow-x-hidden">
-            <Navbar />
-            <div className={`grow flex flex-col container mx-auto h-160 sm:mt-24 ${gapClass} p-8`}>
+            <Navbar margin/>
+            <div className={`grow flex flex-col container mx-auto h-160 ${gapClass} p-8`}>
                 <div className={`grow-[1] flex flex-wrap items-stretch hover:grow-[1.5] transition-all duration-500 ${gapClass}`}>
                     <a target='_blank' href='https://www.linkedin.com/in/alphacupcake10/' ref={refs[3]} className={`${cardClass} bg-[#0077b5] w-16 grow`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">

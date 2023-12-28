@@ -4,8 +4,8 @@ export default function MyWorkPage()
 {
     return (
     <>
-        <Navbar />
-        <div className='md:container md:mx-auto sm:mt-36'>
+        <Navbar margin/>
+        <div className='md:container md:mx-auto'>
             <h1>UNDER CONSTRUCTION</h1>
         </div>
     </>

@@ -18,13 +18,13 @@ export default function ParallaxBG(props:{children:ReactNode})
             
             gsap.fromTo(
                 refs[0].current,{
-                    y:0
+                    y:50
                 },
                 {
                     y:-500,
                     scrollTrigger:{
                         trigger:refs[0].current,
-                        start:"top 40%",
+                        start:"top 50%",
                         end:"bottom 0%",
                         scrub:true,
                         // markers:true
