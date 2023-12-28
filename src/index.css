@@ -30,6 +30,20 @@ body
 {
   animation: screen-wipe 2s cubic-bezier(.7,0,.3,1) forwards;
 }
+@keyframes screen-wipe {
+  0%   {translate: 0 -100%;}
+  40% {translate: 0 0;}
+  60% {translate: 0 0;}
+  100%   {translate: 0 100%;}
+}
+.screenWipeSmooth
+{
+  animation: screen-wipe-smooth 2s cubic-bezier(.21,.74,.79,.32) forwards;
+}
+@keyframes screen-wipe-smooth {
+  0%   {translate: 0 -100%;}
+  100%   {translate: 0 100%;}
+}
 
 .responsive
 {
@@ -45,15 +59,9 @@ body
   90% {translate: 0 0;}
   100%   {translate: 0 -100%;}
 }
-@keyframes screen-wipe {
-  0%   {translate: 0 -100%;}
-  40% {translate: 0 0;}
-  60% {translate: 0 0;}
-  100%   {translate: 0 100%;}
-}
 @keyframes inception {
-  0%   {letter-spacing: 2rem;}
-  100%   {letter-spacing: .5rem;}
+  0%   {letter-spacing: 2rem;text-indent:2rem}
+  100%   {letter-spacing: .5rem;text-indent:.5rem}
 }
 ::-webkit-scrollbar
 {

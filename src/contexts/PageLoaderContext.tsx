@@ -57,12 +57,12 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
     return <PageLoaderContext.Provider value={value}>
         {
             isAnimating && (<div className={`z-50 fixed top-0 left-0 w-screen h-screen flex justify-center items-center pointer-events-none`}>
-                                <div className={`bg-primary screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen flex justify-center items-center`}>
+                                <div className={`bg-primary screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen`}>
                                 </div>
-                                <div style={{animationDelay:"200ms",translate:"100% 100%"}} className={`bg-primary screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen flex justify-center items-center`}>
+                                <div style={{animationDelay:"100ms",translate:"100% 100%"}} className={`bg-primary screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen`}>
                                 </div>
-                                <div style={{animationDelay:"100ms",translate:"100% 100%"}} className={`bg-background screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen flex justify-center items-center`}>
-                                    <h1 className="text-xs lg:text-3xl font-bold inception-text">{displayText[loadingText]}</h1>
+                                <div style={{animationDelay:"50ms",translate:"100% 100%"}} className={`bg-background screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen flex justify-center items-center`}>
+                                    <h1 className="text-lg lg:text-7xl font-bold inception-text">{displayText[loadingText]}</h1>
                                 </div>
                             </div>) 
         }
