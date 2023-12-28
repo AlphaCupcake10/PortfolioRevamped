@@ -35,7 +35,10 @@ body
 {
   @apply bg-red-500 sm:bg-red-600 lg:bg-red-700 xl:bg-red-800 2xl:bg-red-900;
 }
-
+.inception-text
+{
+  animation: inception 2s linear forwards;
+}
 @keyframes myfirst {
   0%   {translate: 0 100%;}
   10% {translate: 0 0;}
@@ -47,6 +50,10 @@ body
   40% {translate: 0 0;}
   60% {translate: 0 0;}
   100%   {translate: 0 100%;}
+}
+@keyframes inception {
+  0%   {letter-spacing: 2rem;}
+  100%   {letter-spacing: .5rem;}
 }
 ::-webkit-scrollbar
 {

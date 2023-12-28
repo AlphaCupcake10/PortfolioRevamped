@@ -7,10 +7,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 function ContactPage()
 {
-    const cardClass = "rounded-3xl hover:grow-[4] transition-grow flex items-center justify-center font-bold text-xl";
+    const cardClass = "rounded-3xl hover:grow-[6] transition-grow flex items-center justify-center font-bold text-xl";
     const gapClass = "gap-2";
 
-    const refs = [useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null)];
+    const refs = [useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null)];
 
     useEffect(() => {        
         let ctx = gsap.context(() => {
@@ -96,7 +96,7 @@ function ContactPage()
                     </a>
                 </div>
                 <div className={`grow-[1] flex flex-wrap items-stretch hover:grow-[1.5] transition-all duration-500 ${gapClass}`}>
-                    <a target='_blank' href='https://www.artstation.com/alphacupcake10' ref={refs[8]} className={`${cardClass} bg-[#171717] text-[#13AFF0] w-64 grow`}>
+                    <a target='_blank' href='https://www.artstation.com/alphacupcake10' ref={refs[9]} className={`${cardClass} bg-[#171717] text-[#13AFF0] w-64 grow`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                             <g clipPath="url(#clip0_251_21)">
                                 <path d="M-1 35.1508L3.13846 42.2863H3.1405C3.55286 43.1021 4.18423 43.7877 4.96429 44.2668C5.74435 44.746 6.64249 44.9998 7.55867 45H35.0334L29.333 35.1508H-1ZM48 35.2017C48 34.2164 47.708 33.2983 47.2078 32.5267L31.1113 4.62414C30.6903 3.83183 30.0607 3.16889 29.2901 2.70655C28.5196 2.24421 27.6374 1.99995 26.7381 2H18.2305L43.0959 44.9572L47.0159 38.1882C47.7877 36.8914 48 36.3173 48 35.2017ZM25.2783 28.1538L14.1655 8.96037L3.05067 28.1538H25.2783Z" fill="currentColor"/>
@@ -108,7 +108,7 @@ function ContactPage()
                             </defs>
                         </svg>
                     </a>
-                    <a target='_blank' href='https://www.behance.net/AlphaCupcake10' ref={refs[7]} className={`${cardClass} bg-[#1769FF] w-64 grow`}>
+                    <a target='_blank' href='https://www.behance.net/AlphaCupcake10' ref={refs[8]} className={`${cardClass} bg-[#1769FF] w-64 grow`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
                             <g clipPath="url(#clip0_251_32)">
                                 <path d="M40.3333 12.8333H27.5V9.16663H40.3333V12.8333ZM43.4977 31.1666C42.6873 33.5445 39.7778 36.6666 34.1458 36.6666C28.5102 36.6666 23.9452 33.4968 23.9452 26.2625C23.9452 19.0941 28.2077 15.4091 33.9662 15.4091C39.6165 15.4091 43.0668 18.6761 43.8203 23.5235C43.9633 24.4511 44.0202 25.7015 43.9945 27.4468H29.2783C29.5167 33.3336 35.6638 33.5188 37.6897 31.1666H43.4977ZM29.4067 23.8333H38.5092C38.3167 20.9971 36.4265 19.7651 33.968 19.7651C31.2803 19.7651 29.7935 21.1731 29.4067 23.8333ZM11.8543 36.6446H0V9.20513H12.7472C22.7865 9.35363 22.9772 19.1858 17.7338 21.8661C24.079 24.1761 24.2917 36.6446 11.8543 36.6446ZM5.5 20.1666H12.0707C16.6687 20.1666 17.3983 14.6666 11.4987 14.6666H5.5V20.1666ZM11.7168 25.6666H5.5V31.196H11.6252C17.226 31.196 16.8832 25.6666 11.7168 25.6666Z" fill="currentColor"/>
@@ -120,9 +120,14 @@ function ContactPage()
                             </defs>
                         </svg>
                     </a>
-                    <a target='_blank' href='https://twitter.com/alphacupcake10/' ref={refs[6]} className={`${cardClass} bg-[#14171A] w-64 grow`}>
+                    <a target='_blank' href='https://twitter.com/alphacupcake10/' ref={refs[7]} className={`${cardClass} bg-[#14171A] w-64 grow`}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                             <path d="M36.6526 3.8078H43.3995L28.6594 20.6548L46 43.5797H32.4225L21.7881 29.6759L9.61989 43.5797H2.86886L18.6349 25.56L2 3.8078H15.9222L25.5348 16.5165L36.6526 3.8078ZM34.2846 39.5414H38.0232L13.8908 7.63406H9.87892L34.2846 39.5414Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <a target='_blank' href='https://www.youtube.com/c/AlphaCupcake10' ref={refs[6]} className={`${cardClass} bg-[#FF0000] w-64 grow`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M47.5219 14.4001C47.5219 14.4001 47.0531 11.0907 45.6094 9.6376C43.7812 7.7251 41.7375 7.71572 40.8 7.60322C34.0875 7.11572 24.0094 7.11572 24.0094 7.11572H23.9906C23.9906 7.11572 13.9125 7.11572 7.2 7.60322C6.2625 7.71572 4.21875 7.7251 2.39062 9.6376C0.946875 11.0907 0.4875 14.4001 0.4875 14.4001C0.4875 14.4001 0 18.2907 0 22.172V25.8095C0 29.6907 0.478125 33.5813 0.478125 33.5813C0.478125 33.5813 0.946875 36.8907 2.38125 38.3438C4.20937 40.2563 6.60938 40.1907 7.67813 40.397C11.5219 40.7626 24 40.8751 24 40.8751C24 40.8751 34.0875 40.8563 40.8 40.3782C41.7375 40.2657 43.7812 40.2563 45.6094 38.3438C47.0531 36.8907 47.5219 33.5813 47.5219 33.5813C47.5219 33.5813 48 29.7001 48 25.8095V22.172C48 18.2907 47.5219 14.4001 47.5219 14.4001ZM19.0406 30.2251V16.7345L32.0062 23.5032L19.0406 30.2251Z" fill="white"/>
                         </svg>
                     </a>
                 </div>
