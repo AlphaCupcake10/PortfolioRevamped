@@ -6,8 +6,8 @@ function Navbar(props:{className?:string})
 {
   const location = useLocation();
   return (
-    <div className='fixed sm:absolute w-full bottom-0 sm:top-0 z-50 sm:z-auto bg-background border-t-2 rounded-t-3xl border-text/10 shadow-2xl sm:bg-transparent sm:shadow-none'>
-      <header className={`md:container gap-4 sm:gap-0 md:mx-auto flex justify-between p-2 sm:p-8 items-center ${props.className}`}>
+    <div className='fixed sm:absolute w-full bottom-0 sm:top-0 z-50 sm:z-auto bg-background border-t-2 rounded-t-3xl border-text/10 shadow-2xl sm:bg-transparent sm:shadow-none pointer-events-none'>
+      <header className={`md:container gap-4 sm:gap-0 md:mx-auto flex justify-between p-2 sm:p-8 items-center ${props.className} pointer-events-auto`}>
         <div className='w-full flex justify-end gap-4 items-center sm:gap-0 sm:justify-evenly'>
           <TransitionLink to='/'>
             <TextButton className='flex items-center gap-4' defaultActive={location.pathname=='/'}>
