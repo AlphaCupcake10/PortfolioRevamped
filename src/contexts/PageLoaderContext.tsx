@@ -26,7 +26,7 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
         "/":"HOME",
         "/3D":"3D",
         "/mywork":"MY WORK",
-        "/contact":"CONTACT ME",
+        "/contact":"CONTACT",
     }
 
     async function navigateTo(to:To)
