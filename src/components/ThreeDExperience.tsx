@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
-import { ContactShadows, Environment } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import Skills3D from "./models/Experience3D";
 
 function ThreeDExperience()
@@ -14,7 +14,7 @@ function ThreeDExperience()
                     <hemisphereLight groundColor={0x6457c7} color={0xffffff} intensity={2.5}/>
                     <Environment preset="city" />
                     <Skills3D scrollRef={sectionRef}/>
-                    <ContactShadows opacity={.4} scale={5} blur={2.4} position-y={-.75}/>
+                    {/* <ContactShadows opacity={.4} scale={5} blur={2.4} position-y={-.75}/> */}
                 </Canvas>
             </div>
         </div>
