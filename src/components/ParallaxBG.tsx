@@ -22,19 +22,7 @@ export default function ParallaxBG(props:{children:ReactNode})
     useEffect(() => {        
         let ctx = gsap.context(() => {
             
-            gsap.to(
-                mainDiv.current,{
-                    scale:0.5,
-                    // yPercent:10,
-                    scrollTrigger:{
-                        trigger:mainDiv.current,
-                        start:"top 0%",
-                        end:"bottom -100%",
-                        scrub:true,
-                        // markers:true
-                    }
-                }
-            )
+
             gsap.to(
                 centerDiv.current,{
                     width:"20vw",
@@ -93,7 +81,8 @@ export default function ParallaxBG(props:{children:ReactNode})
                     }
                 }
             );
-
+            
+            //intro
             gsap.from(mainDiv.current,
                 {
                     opacity:0,
@@ -120,25 +109,23 @@ export default function ParallaxBG(props:{children:ReactNode})
         <>
             <div className="overflow-x-clip flex justify-center">
                 <div ref={mainDiv} className="flex w-max gap-4 items-end">
-                    <div className="h-[70vh] w-[50vw] border-2 border-white/10 shadow-lg rounded-2xl overflow-clip">
-                        <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-background to-background/50 opacity-10"></div>
-                        <img className="w-full h-full object-cover scale-125" src={Wallpaper1} alt="" />
+                    <div className="h-[70vh] w-[50vw] border-2 border-white/20 shadow-lg rounded-2xl">
+                        <img className="w-full h-full object-cover rounded-2xl" src={Wallpaper1} alt="" />
                     </div>
-                    <div ref={centerDiv} className='relative flex h-screen w-screen flex-col justify-center items-center overflow-clip border-2 border-white/10 shadow-lg rounded-b-2xl'>
+                    <div ref={centerDiv} className='relative flex h-screen w-screen flex-col justify-center items-center overflow-clip border-2 border-white/20 shadow-lg rounded-b-2xl'>
                         <img className='absolute top-0 w-full h-full object-cover' src={BG} alt="" />
-                        <img ref={BGFront2Ref} className='absolute top-0 w-full h-full object-cover' src={BGFront2} alt="" />
-                        <div className='absolute top-0 w-full h-full' ref={BGFrontRef}>
+                        <img ref={BGFront2Ref} className='hidden md:block absolute top-0 w-full h-full object-cover' src={BGFront2} alt="" />
+                        <div className='hidden md:block absolute top-0 w-full h-full' ref={BGFrontRef}>
                             <img className='w-full h-full object-cover' src={BGFront} alt="" />
                             <div className="h-48 bg-background"></div>
                         </div>
-                        <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-background to-background/50 opacity-50"></div>
+                        <div className="h-screen w-full bg-background/50 pointer-events-none absolute top-0 left-0"></div>
                         <div className='' ref={headingRef}>
                             {props.children}
                         </div>
                     </div>
-                    <div className="h-[70vh] w-[50vw] border-2 border-white/10 shadow-lg rounded-2xl overflow-clip">
-                        <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-background to-background/50 opacity-10"></div>
-                        <img className="w-full h-full object-cover scale-125" src={Wallpaper2} alt="" />
+                    <div className="h-[70vh] w-[50vw] border-2 border-white/20 shadow-lg rounded-2xl">
+                        <img className="w-full h-full object-cover rounded-2xl" src={Wallpaper2} alt="" />
                     </div>
                 </div>
             </div>

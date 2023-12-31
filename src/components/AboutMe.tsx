@@ -143,7 +143,7 @@ export default function AboutMe()
                     <path d="M2 28L8 34L14 28" stroke="currentColor" strokeWidth="2"/>
                 </svg>
             </div>
-            <div className='overflow-hidden 2xl:-mb-[28rem] xl:-mb-[20rem] lg:-mb-[8rem] hidden lg:block'>
+            <div className='overflow-clip 2xl:-mb-[28rem] xl:-mb-[20rem] lg:-mb-[8rem] hidden lg:block'>
                 <div ref={parentRef} className='w-max'>
                     <div ref ={refs[0]} className="overflow-clip">
                         <h3 ref ={insideRefs[0]} className='text-xl tracking-[50px] font-extrabold'>{age}</h3>
@@ -175,7 +175,7 @@ export default function AboutMe()
                         Currently working as a freelance artist, constantly interested in a challenge. I am a kind of person who likes to view things from a neutrally different and virtually inclined perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam leo nisl, luctus at risus eu, fermentum porta nulla.
                     </p>
                 </div>
-                <div className="w-full md:w-1/2 overflow-hidden">
+                <div className="w-full md:w-1/2 overflow-clip">
                     <img ref={imageRef} className='w-full h-full' src={ME} alt="" />
                 </div>
             </div>

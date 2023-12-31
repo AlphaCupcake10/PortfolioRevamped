@@ -46,7 +46,7 @@ export default function Designation(props:{className?:string})
         {/* Layer 1 */}
         <div className='absolute w-full h-full top-0 left-0 flex flex-col items-center justify-center z-10 sm:z-auto sm:pointer-events-none'>
             <h2 className='md:text-4xl'>I am a</h2>
-            <h1 className='text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold overflow-hidden'>
+            <h1 className='text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold overflow-clip'>
                 <span ref={textRef}>ASD</span>
             </h1>
             <div className='bg-red flex gap-5 mt-4 relative'>
@@ -67,7 +67,7 @@ export default function Designation(props:{className?:string})
         {/* Layer 3 */}
         <div className='absolute w-full h-full top-0 left-0 flex-col items-center justify-center hidden sm:flex'>
             <h2 className='md:text-4xl'>I am a</h2>
-            <h1 className='text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold overflow-hidden strokeText opacity-70'>
+            <h1 className='text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold overflow-clip strokeText opacity-70'>
                 <span ref={frontTextRef}>ASD</span>
             </h1>
             <div className='bg-red flex gap-5 mt-4 relative'>
