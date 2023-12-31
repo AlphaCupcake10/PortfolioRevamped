@@ -5,7 +5,7 @@ import { AnimationMixer } from "three";
 import modelSrc from "../../assets/Skills.glb?url";
 import { useLenis } from "@studio-freight/react-lenis";
 
-export default function Skills3D(props:{scrollRef:React.RefObject<HTMLDivElement>})
+export default function Experience3D(props:{scrollRef:React.RefObject<HTMLDivElement>})
 {
     const gltf = useGLTF(modelSrc);//To Change
     const mixer = useRef<AnimationMixer>();

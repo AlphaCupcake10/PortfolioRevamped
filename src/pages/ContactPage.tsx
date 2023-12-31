@@ -16,17 +16,14 @@ function ContactPage()
         let ctx = gsap.context(() => {
             
             refs.forEach((ref,index)=>{
-                gsap.fromTo(
+                gsap.from(
                     ref.current,
                     {
                         xPercent:-200,
-                        opacity:0
-                    },
-                    {
-                        xPercent:0,
-                        opacity:1,
-                        delay:.5+.1*index,
-                        ease:"power4.out"
+                        opacity:0,
+                        delay:.5+.25*index,
+                        ease:"power4.out",
+                        duration:1
                     }
                 )
             })

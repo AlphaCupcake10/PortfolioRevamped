@@ -13,38 +13,39 @@ gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
 {
-    const desRef = useRef<HTMLHeadingElement>(null);
-    useEffect(() => {        
-        let ctx = gsap.context(() => {
-            gsap.fromTo(
-                desRef.current,{
-                    yPercent:10
-                },
-                {
-                    yPercent:-10,
-                    scrollTrigger:{
-                        trigger:desRef.current,
-                        start:"top 100%",
-                        end:"bottom 0%",
-                        scrub:true,
-                        // markers:true
-                    }
-                }
-            )
-        });
+    const heroTextRef = [useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null)];
+    useEffect(() => {
         
-        return () => ctx.revert(); // cleanup! 
-      }, []);
+        let ctx = gsap.context(() => {
+            
+            heroTextRef.forEach((ref,index)=>{
+                if(!ref.current)return;
+                gsap.from(ref.current,
+                    {
+                        y:-200,
+                        opacity:0,
+                        ease: "power4.out",
+                        duration:4,
+                        delay:.5 + index*.1
+                    },
+                )
+            })
 
+        }, heroTextRef);
+    
+
+        return () => ctx.revert(); // cleanup! 
+    
+    }, []);
 
     return (
     <>
         <Navbar />
         <ParallaxBG>
             <div className='flex flex-col justify-center items-center'>
-                <h1 className='text-xl md:text-4xl opacity-75'>Hey, I am</h1>
-                <h1 className='text-3xl md:text-7xl font-extrabold uppercase'>AlphaCupcake10</h1>
-                <div className='bg-red flex gap-5 mt-4'>
+                <h1 ref={heroTextRef[2]} className='text-xl md:text-4xl opacity-75'>Hey, I am</h1>
+                <h1 ref={heroTextRef[1]} className='text-3xl md:text-7xl font-extrabold uppercase'>AlphaCupcake10</h1>
+                <div ref={heroTextRef[0]} className='bg-red flex gap-5 mt-4'>
                     <TransitionLink to='/3D'>
                         <Button color='primary' className='md:w-48'>EXPLORE IN 3D</Button>
                     </TransitionLink>
@@ -54,7 +55,7 @@ function HomePage()
                 </div>
             </div>
         </ParallaxBG>
-        <Designation mainDivRef={desRef} className='sm:-mt-48 z-10'/>
+        <Designation className='sm:-mt-48 z-10'/>
         <AboutMe/>
         <Footer />
     </>

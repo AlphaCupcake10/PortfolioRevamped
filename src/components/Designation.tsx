@@ -6,7 +6,7 @@ import { Environment } from "@react-three/drei";
 import Designation3D from "./models/Designation3D";
 
 
-export default function Designation(props:{className?:string,mainDivRef?:React.RefObject<HTMLDivElement>})
+export default function Designation(props:{className?:string})
 {
     const title1Data = ['FRONT-END  DEVELOPER','3D  ANIMATOR',"GAME  DEVELOPER","UI  |  UX  DESIGNER"];
     let interval:number;
@@ -42,21 +42,21 @@ export default function Designation(props:{className?:string,mainDivRef?:React.R
     },[phaseIndex])
 
     return (
-      <div className={`h-64 md:h-screen relative ${props.className}`}>
+      <div className={`h-160 md:h-screen relative ${props.className}`}>
         {/* Layer 1 */}
-        <div className='absolute w-full h-full top-0 left-0 -z-10 flex flex-col items-center justify-center pointer-events-none'>
+        <div className='absolute w-full h-full top-0 left-0 flex flex-col items-center justify-center z-10 sm:z-auto sm:pointer-events-none'>
             <h2 className='md:text-4xl'>I am a</h2>
             <h1 className='text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold overflow-hidden'>
                 <span ref={textRef}>ASD</span>
             </h1>
-            <div className='bg-red flex gap-5 mt-4 relative z-20'>
+            <div className='bg-red flex gap-5 mt-4 relative'>
                 <TransitionLink to='/mywork'><Button color='primary' className='md:w-48'>PROJECTS</Button></TransitionLink>
                 <Button color='secondary' className='md:w-48'>CONTACT ME</Button>
             </div>
         </div>
 
         {/* Layer 2 */}
-        <div ref={props.mainDivRef} className='absolute w-full h-full top-0 left-0 z-0 pointer-events-none'>
+        <div className='absolute w-full h-full top-0 left-0 pointer-events-none'>
             <Canvas camera={{ fov: 35 , position:[0,0,8]}} className='touch-none w-full h-full'>
                 <hemisphereLight groundColor={0x6457c7} color={0xffffff} intensity={2.5}/>
                 <Environment preset="city" />
@@ -65,12 +65,12 @@ export default function Designation(props:{className?:string,mainDivRef?:React.R
         </div>
 
         {/* Layer 3 */}
-        <div className='absolute w-full h-full top-0 left-0 z-10 flex flex-col items-center justify-center'>
+        <div className='absolute w-full h-full top-0 left-0 flex-col items-center justify-center hidden sm:flex'>
             <h2 className='md:text-4xl'>I am a</h2>
             <h1 className='text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold overflow-hidden strokeText opacity-70'>
                 <span ref={frontTextRef}>ASD</span>
             </h1>
-            <div className='bg-red flex gap-5 mt-4 relative z-20'>
+            <div className='bg-red flex gap-5 mt-4 relative'>
                 <TransitionLink to='/mywork'><Button color='primary' className='md:w-48'>MY WORK</Button></TransitionLink>
                 <TransitionLink to='/contact'><Button color='secondary' className='md:w-48'>CONTACT ME</Button></TransitionLink>
             </div>

@@ -1,12 +1,12 @@
 import Navbar from '../components/Navbar';
-import Skills from '../components/Skills';
+import ThreeDExperience from '../components/ThreeDExperience';
 
 function ThreeDWorld()
 {
     return (
     <>
         <Navbar />
-        <Skills/>
+        <ThreeDExperience/>
     </>
   )
 }

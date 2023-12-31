@@ -13,7 +13,7 @@ function Button(props:{
         "accent":"bg-accent",
     }
     return (
-        <button className={`${props.className} ${color[props.color]} rounded-xl py-4 px-6 hover:scale-105 transition-transform active:scale-95 text-xs md:text-base`}>{props.children}</button>
+        <button className={`${props.className} ${color[props.color]} rounded-xl px-4 py-2.5 md:py-4 md:px-6 hover:scale-105 transition-transform active:scale-95 text-xs md:text-base`}>{props.children}</button>
     )
 }
 
