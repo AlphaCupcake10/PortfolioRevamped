@@ -26,7 +26,7 @@ function HomePage()
                         opacity:0,
                         ease: "power4.out",
                         duration:4,
-                        delay:.5 + index*.1
+                        delay:.5 + index*.25
                     },
                 )
             })
