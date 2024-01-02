@@ -9,6 +9,7 @@ import ParallaxBG from '../components/ParallaxBG';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from '../components/Footer';
+import ScrollIndicator from '../components/common/ScrollIndicator';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
@@ -53,6 +54,7 @@ function HomePage()
                     <Button color='secondary' className='md:w-48'>CONTACT ME</Button>
                     </TransitionLink>
                 </div>
+                <ScrollIndicator />
             </div>
         </ParallaxBG>
         <Designation className='sm:-mt-48 z-10'/>
