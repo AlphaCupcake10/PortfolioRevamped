@@ -3,7 +3,6 @@ import { useFrame } from "@react-three/fiber";
 import { useEffect , useRef } from "react";
 import { AnimationMixer } from "three";
 import modelSrc from "../../assets/Models.glb?url";
-import { gsap } from "gsap";
 
 export default function Designation3D(props:{phaseIndex:number})
 {

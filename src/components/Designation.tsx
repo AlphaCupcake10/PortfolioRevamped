@@ -96,7 +96,7 @@ export default function Designation()
                 phases.map((value,index)=>
                 {
                     return(
-                        <div onClick={()=>{setPhase(index)}} className={`cursor-pointer w-3 h-3 rounded-full transition-colors duration-700 ${(index==phaseIndex)?"bg-primary":"bg-primary/50"}`} key={index}></div>
+                        <div onClick={()=>{setPhase(index)}} className={`cursor-pointer w-3 h-3 rounded-full transition-colors duration-700 ${(index==phaseIndex)?"bg-primary":"bg-primary/50"}`} key={value}></div>
                     )
                 })
             }
