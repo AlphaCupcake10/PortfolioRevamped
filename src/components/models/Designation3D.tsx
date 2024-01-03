@@ -16,6 +16,7 @@ export default function Designation3D(props:{phaseIndex:number})
         if(!state)return;
         if(!mixer.current)CreateMixer();
         mixer.current?.update(delta);
+        ref.current.position.x += ((-20 * props.phaseIndex) - ref.current.position.x)/8;
     })
 
     function CreateMixer()
@@ -31,14 +32,6 @@ export default function Designation3D(props:{phaseIndex:number})
 
     useEffect(() => {
         
-        let ctx = gsap.context(() => {
-            if(!ref.current)return;
-            gsap.to(ref.current.position, { x: (props.phaseIndex*-20),ease: "power4.inOut", repeatRefresh: true,duration:2.5,repeat:-1})
-        }, ref);
-    
-
-        return () => ctx.revert(); // cleanup! 
-    
     }, [props.phaseIndex]);
 
     return (

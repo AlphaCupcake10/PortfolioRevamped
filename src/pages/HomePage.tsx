@@ -5,16 +5,18 @@ import AboutMe from '../components/AboutMe';
 import { useEffect, useRef } from 'react';
 import { TransitionLink } from '../contexts/PageLoaderContext';
 import ParallaxBG from '../components/ParallaxBG';
-
+import tempest from '../assets/DivingTempest.gif?url'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from '../components/Footer';
 import ScrollIndicator from '../components/common/ScrollIndicator';
+import Marquee from 'react-fast-marquee';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
 {
     const heroTextRef = [useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null)];
+
     useEffect(() => {
         
         let ctx = gsap.context(() => {
@@ -54,11 +56,17 @@ function HomePage()
                     <Button color='secondary' className='md:w-48'>CONTACT ME</Button>
                     </TransitionLink>
                 </div>
-                <ScrollIndicator />
             </div>
         </ParallaxBG>
-        <Designation className='sm:-mt-48 z-10'/>
         <AboutMe/>
+        <div className="container mx-auto border-2 border-white/20 rounded-2xl">
+            <Marquee direction='right' speed={300}>
+                <img src={tempest} alt=""  className='h-16 mr-96'/>
+                <img src={tempest} alt=""  className='h-16 ml-96'/>
+            </Marquee>
+        </div>
+        <ScrollIndicator />
+        <Designation/>
         <Footer />
     </>
   )

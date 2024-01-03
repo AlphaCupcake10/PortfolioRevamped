@@ -117,7 +117,7 @@ export default function ParallaxBG(props:{children:ReactNode})
                         <img ref={BGFront2Ref} className='hidden md:block absolute top-0 w-full h-full object-cover' src={BGFront2} alt="" />
                         <div className='hidden md:block absolute top-0 w-full h-full' ref={BGFrontRef}>
                             <img className='w-full h-full object-cover' src={BGFront} alt="" />
-                            <div className="h-48 bg-background"></div>
+                            <div className="h-96 bg-background"></div>
                         </div>
                         <div className="h-screen w-full bg-background/50 pointer-events-none absolute top-0 left-0"></div>
                         <div className='' ref={headingRef}>

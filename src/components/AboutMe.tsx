@@ -9,8 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutMe()
 {
     const age = "XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI";
-    const about_me = "ABOUT ME ABOUT ME ABOUT ME ABOUT ME ABOUT ME ABOUT ME ABOUT ME ABOUT ME ABOUT ME ";
-    const alias = "IAMALPHACUPCAKE10IAMALPHACUPCAKE10IAMALPHACUPCAKE10IAMALPHACUPCAKE10";
+    const about_me = "ABOUT ME ABOUT ME ABOUT ME ABOUT ME ABOUT ME";
+    const alias = "IAMALPHACUPCAKE10IAMALPHACUPCAKE10IAMALPHACUPCAKE10";
     const bday = "0XA330XA330XA330XA330XA330XA330XA330XA33";
 
     const parentRef = useRef<HTMLDivElement>(null);
@@ -26,7 +26,7 @@ export default function AboutMe()
             refs.forEach((ref,index)=>{
                 gsap.fromTo(
                     ref.current,{
-                        xPercent:-10 - 2 * index
+                        xPercent:-5 - 2 * index
                     },
                     {
                         xPercent:0,
@@ -116,23 +116,25 @@ export default function AboutMe()
     }, []);
 
     return (
-        <div className="lg:-mt-36">
-            <ScrollIndicator />
-            <div className='overflow-clip 2xl:-mb-[28rem] xl:-mb-[20rem] lg:-mb-[8rem] hidden lg:block'>
+        <div className="">
+            <ScrollIndicator>
+                <h1 className="text-xs opacity-50">Heyy Vsauce</h1>
+            </ScrollIndicator>
+            <div className='overflow-x-clip 2xl:-mb-[28rem] xl:-mb-[20rem] lg:-mb-[8rem] hidden lg:block'>
                 <div ref={parentRef} className='w-max'>
-                    <div ref ={refs[0]} className="overflow-clip">
+                    <div ref ={refs[0]} className="overflow-y-clip">
                         <h3 ref ={insideRefs[0]} className='text-xl tracking-[50px] font-extrabold'>{age}</h3>
                     </div>
-                    <div ref ={refs[1]} className="overflow-clip">
+                    <div ref ={refs[1]} className="overflow-y-clip">
                         <h3 ref ={insideRefs[1]} className='mt-4 text-9xl font-extrabold'>{about_me}</h3>
                     </div>
-                    <div ref ={refs[2]} className="overflow-clip">
+                    <div ref ={refs[2]} className="overflow-y-clip">
                         <h3 ref ={insideRefs[2]} className='-mt-4 text-9xl font-extrabold opacity-75'>{alias}</h3>
                     </div>
-                    <div ref ={refs[3]} className="overflow-clip">
+                    <div ref ={refs[3]} className="overflow-y-clip">
                         <h3 ref ={insideRefs[3]} className='-mt-4 text-9xl font-extrabold opacity-50'>{bday}</h3>
                     </div>
-                    <div ref ={refs[4]} className="overflow-clip">
+                    <div ref ={refs[4]} className="overflow-y-clip">
                         <h3 ref ={insideRefs[4]} className='mt-4 text-xl tracking-[50px] font-extrabold'>{age}</h3>
                     </div>
                 </div>
@@ -142,7 +144,7 @@ export default function AboutMe()
             </div>
             <div className="md:container md:mx-auto flex flex-col-reverse md:flex-row-reverse lg:flex-row items-end gap-8 px-8">
                 <div className='w-full md:w-3/4'>
-                    <div className="overflow-clip">
+                    <div className="overflow-y-clip">
                         <h1 ref={MeRef[0]} className='text-xl sm:text-5xl lg:text-6xl font-extrabold mt-1'>LAKSHMAN <span className='gradient-text'>SUNDAR</span></h1>
                     </div>
                     <hr className='border-primary border-2 mt-4'/>
@@ -150,7 +152,7 @@ export default function AboutMe()
                         Currently working as a freelance artist, constantly interested in a challenge. I am a kind of person who likes to view things from a neutrally different and virtually inclined perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam leo nisl, luctus at risus eu, fermentum porta nulla.
                     </p>
                 </div>
-                <div className="w-full md:w-1/2 overflow-clip">
+                <div className="w-full md:w-1/2 overflow-y-clip">
                     <img ref={imageRef} className='w-full h-full' src={ME} alt="" />
                 </div>
             </div>

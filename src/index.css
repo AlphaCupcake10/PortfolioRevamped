@@ -15,11 +15,25 @@ body
 {
   transition: flex-grow 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.animChar
+.anim-char-in
 {
-  animation: myfirst 5s cubic-bezier(.69,.13,0,1.39) forwards;
+  animation: char-anim .5s cubic-bezier(.69,.13,0,1.39) forwards;
   display: inline-block;
   translate: 0 100%;
+}
+.anim-char-out
+{
+  animation: char-anim-2 .5s cubic-bezier(.69,.13,0,1.39) forwards;
+  display: inline-block;
+  /* translate: 0 100%; */
+}
+@keyframes char-anim {
+  0%   {translate: 0 100%;}
+  100% {translate: 0 0;}
+}
+@keyframes char-anim-2 {
+  0%   {translate: 0 0;}
+  100% {translate: 0 -100%;}
 }
 .container
 {
@@ -56,12 +70,6 @@ body
 .inception-text
 {
   animation: inception 2s linear forwards;
-}
-@keyframes myfirst {
-  0%   {translate: 0 100%;}
-  10% {translate: 0 0;}
-  90% {translate: 0 0;}
-  100%   {translate: 0 -100%;}
 }
 @keyframes inception {
   0%   {letter-spacing: 2rem;text-indent:2rem}
