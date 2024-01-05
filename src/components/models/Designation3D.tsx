@@ -15,7 +15,7 @@ export default function Designation3D(props:{phaseIndex:number})
         if(!state)return;
         if(!mixer.current)CreateMixer();
         mixer.current?.update(delta);
-        ref.current.position.x += ((-20 * props.phaseIndex) - ref.current.position.x)/8;
+        ref.current.position.x += ((-20 * props.phaseIndex) - ref.current.position.x)/25;
     })
 
     function CreateMixer()

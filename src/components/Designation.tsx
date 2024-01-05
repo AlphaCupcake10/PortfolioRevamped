@@ -15,10 +15,20 @@ export default function Designation()
     const phases = ['FRONT-END  DEVELOPER','3D  ANIMATOR',"GAME  DEVELOPER","UI  |  UX  DESIGNER"];
 
     useEffect(()=>{
-        deltaPhase(0)
+        deltaPhase(0);
+        resetTimer();
     },[])
 
     const isTransitioning = useRef(false);
+    const intervalId = useRef(0);
+
+    function resetTimer()
+    {
+        clearInterval(intervalId.current);
+        intervalId.current = setInterval(()=>{
+            deltaPhase(1)
+        },5000)   
+    }
 
     function deltaPhase(delta:number)
     {
@@ -52,7 +62,7 @@ export default function Designation()
     }
 
     return (
-      <div className={`h-screen relative flex flex-col justify-center items-center`}>
+      <div className={`h-screen relative flex flex-col justify-center items-center -mb-12 z-10`}>
         {/* Layer 1 */}
         <div className='absolute w-full h-full top-0 left-0 flex-col items-center justify-center flex z-10 sm:z-auto'>
             <h2 className='md:text-4xl'>I am a</h2>
@@ -84,10 +94,10 @@ export default function Designation()
             </div>
         </div>
         <div className="container mx-auto flex justify-evenly md:justify-between items-end md:items-center z-10 h-128 pointer-events-none">
-            <svg onClick={()=>{deltaPhase(-1)}} className="cursor-pointer pointer-events-auto hover:scale-125 hover:text-accent transition-all active:scale-90 active:text-primary" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <svg onClick={()=>{deltaPhase(-1);resetTimer()}} className="cursor-pointer pointer-events-auto hover:scale-125 hover:text-accent transition-all active:scale-90 active:text-primary" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                 <path d="M30 12L19.4142 22.5858C18.6332 23.3668 18.6332 24.6332 19.4142 25.4142L30 36" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <svg onClick={()=>{deltaPhase(1)}} className="cursor-pointer pointer-events-auto hover:scale-125 hover:text-accent transition-all active:scale-90 active:text-primary" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <svg onClick={()=>{deltaPhase(1);resetTimer()}} className="cursor-pointer pointer-events-auto hover:scale-125 hover:text-accent transition-all active:scale-90 active:text-primary" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                 <path d="M18 12L28.5858 22.5858C29.3668 23.3668 29.3668 24.6332 28.5858 25.4142L18 36" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
         </div>
@@ -96,7 +106,7 @@ export default function Designation()
                 phases.map((value,index)=>
                 {
                     return(
-                        <div onClick={()=>{setPhase(index)}} className={`cursor-pointer w-3 h-3 rounded-full transition-colors duration-700 ${(index==phaseIndex)?"bg-primary":"bg-primary/50"}`} key={value}></div>
+                        <div onClick={()=>{setPhase(index);resetTimer()}} className={`cursor-pointer w-3 h-3 rounded-full transition-colors duration-700 ${(index==phaseIndex)?"bg-primary":"bg-primary/50"}`} key={value}></div>
                     )
                 })
             }

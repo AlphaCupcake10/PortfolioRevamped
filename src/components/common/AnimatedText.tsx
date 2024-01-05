@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
 
-export default function AnimatedText(props:{text:string})
+export default function AnimatedText(props:{text:string,delay?:number})
 {
     const textRef = useRef<HTMLSpanElement>(null);
 
     useEffect(()=>{
         mount()
-    },[props.text])
+    },[props])
 
     async function mount()
     {
@@ -21,9 +21,10 @@ export default function AnimatedText(props:{text:string})
             if(!textRef.current)return;
             setTimeout(resolve, 200 + textRef.current.children.length * 25)
         })
-
+        let extra = 0;
+        if(props.delay)extra = props.delay;
         //split text
-        let html = props.text.split("").map((val,index)=>{return `<span class='anim-char-in' style='animation-delay: ${index * 25}ms;'>${val}</span>`;}).join("");
+        let html = props.text.split("").map((val,index)=>{return `<span class='anim-char-in' style='animation-delay: ${index * 25 + extra}ms;'>${val}</span>`;}).join("");
         textRef.current.innerHTML = html;
     }
 

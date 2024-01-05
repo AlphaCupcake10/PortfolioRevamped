@@ -11,6 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from '../components/Footer';
 import ScrollIndicator from '../components/common/ScrollIndicator';
 import Marquee from 'react-fast-marquee';
+import AnimatedText from '../components/common/AnimatedText';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
@@ -46,8 +47,9 @@ function HomePage()
         <Navbar />
         <ParallaxBG>
             <div className='flex flex-col justify-center items-center'>
-                <h1 ref={heroTextRef[2]} className='text-xl md:text-4xl opacity-75'>Hey, I am</h1>
-                <h1 ref={heroTextRef[1]} className='text-3xl md:text-7xl font-extrabold uppercase'>AlphaCupcake10</h1>
+                <div ref={heroTextRef[2]} className='overflow-y-clip'><h1 className='text-xl md:text-4xl opacity-75'>Hey, I am</h1></div>
+                <div ref={heroTextRef[1]} className='overflow-y-clip'><h1 className='text-3xl md:text-7xl font-extrabold uppercase'><AnimatedText delay={200} text='AlphaCupcake10'/></h1></div>
+                
                 <div ref={heroTextRef[0]} className='bg-red flex gap-5 mt-4'>
                     <TransitionLink to='/3D'>
                         <Button color='primary' className='md:w-48'>EXPLORE IN 3D</Button>
@@ -61,8 +63,7 @@ function HomePage()
         <AboutMe/>
         <div className="container mx-auto border-2 border-white/20 rounded-2xl">
             <Marquee direction='right' speed={300}>
-                <img src={tempest} alt=""  className='h-16 mr-96'/>
-                <img src={tempest} alt=""  className='h-16 ml-96'/>
+                <img src={tempest} alt=""  className='h-16'/>
             </Marquee>
         </div>
         <ScrollIndicator />
