@@ -7,6 +7,10 @@ body
 {
   @apply bg-background text-text font-poppins;
 }
+.fill-hover
+{
+  @apply [&>*]:z-10 [&>*]:relative hover:before:w-[150%] before:w-0 before:absolute before:duration-300 before:top-0 before:left-0 before:rounded-r-full overflow-clip before:h-full before:bg-primary 
+}
 .gradient-text
 {
   @apply from-primary to-accent bg-gradient-to-b bg-clip-text text-transparent;
@@ -83,4 +87,21 @@ body
 ::-webkit-scrollbar-thumb
 {
   @apply bg-primary rounded-full;
+}
+
+.white-outline
+{  
+  -webkit-filter: drop-shadow(2px 2px 0 white)
+                  drop-shadow(-2px 2px 0 white)
+                  drop-shadow(2px -2px 0 white)
+                  drop-shadow(-2px -2px 0 white);
+
+  filter: drop-shadow(2px 2px 0 white)
+          drop-shadow(-2px 2px 0 white)
+          drop-shadow(2px -2px 0 white)
+          drop-shadow(-2px -2px 0 white);
+}
+.white-outline
+{
+  transition: -webkit-filter,filter 300ms ease-in-out;
 }

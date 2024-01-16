@@ -1,12 +1,20 @@
 import { useEffect, useRef } from "react";
+import useIntersectionObserver from "../../hooks/useInterSectionObsever";
 
-export default function AnimatedText(props:{text:string,delay?:number})
+export default function AnimatedText(props:{text:string,delay?:number,refresh?:boolean})
 {
     const textRef = useRef<HTMLSpanElement>(null);
+
+    let isVisible = useIntersectionObserver(textRef);
 
     useEffect(()=>{
         mount()
     },[props])
+    useEffect(()=>{
+        if(props.refresh)
+            mount()
+    },[isVisible])
+
 
     async function mount()
     {

@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
-import ME from "../assets/Me1.png?url";
+import ME1 from "../assets/Me1.png?url";
+import ME from "../assets/Me.png?url";
 // import ME from "../assets/Me.png?url";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollIndicator from "./common/ScrollIndicator";
+import useIntersectionObserver from "../hooks/useInterSectionObsever";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutMe()
@@ -115,12 +117,14 @@ export default function AboutMe()
         return () => ctx.revert(); // cleanup! 
     }, []);
 
+    let isIntersecting = useIntersectionObserver(imageRef,{threshold:.7});
+
     return (
-        <div className="">
+        <div className="relative">
             <ScrollIndicator>
                 <h1 className="text-xs opacity-50">Heyy Vsauce</h1>
             </ScrollIndicator>
-            <div className='overflow-x-clip 2xl:-mb-[28rem] xl:-mb-[20rem] lg:-mb-[8rem] hidden lg:block'>
+            <div className='overflow-x-clip 2xl:-mb-[24rem] xl:-mb-[15rem] lg:-mb-[4rem] hidden lg:block'>
                 <div ref={parentRef} className='w-max'>
                     <div ref ={refs[0]} className="overflow-y-clip">
                         <h3 ref ={insideRefs[0]} className='text-xl tracking-[50px] font-extrabold'>{age}</h3>
@@ -139,21 +143,28 @@ export default function AboutMe()
                     </div>
                 </div>
             </div>
-            <div className="md:container md:mx-auto lg:hidden px-8">
-                <h3 className="text-2xl md:text-5xl font-extrabold">ABOUT <span className="gradient-text">ME.</span></h3>
-            </div>
-            <div className="md:container md:mx-auto flex flex-col-reverse md:flex-row-reverse lg:flex-row items-end gap-8 px-8">
-                <div className='w-full md:w-3/4'>
+            <div className="md:container md:mx-auto flex flex-row items-end gap-8 px-8">
+                <div className='w-full lg:w-3/4'>
                     <div className="overflow-y-clip">
-                        <h1 ref={MeRef[0]} className='text-xl sm:text-5xl lg:text-6xl font-extrabold mt-1'>LAKSHMAN <span className='gradient-text'>SUNDAR</span></h1>
+                        <h1 ref={MeRef[0]} className='text-xl sm:text-5xl font-extrabold mt-1'>LAKSHMAN <span className='gradient-text'>SUNDAR</span></h1>
                     </div>
                     <hr className='border-primary border-2 mt-4'/>
+                    <div className="mt-4 flex flex-wrap gap-1">
+                        {
+                            ["3D Generalist","Frontend Developer","Designer","Game Developer"].map((value,index)=>{
+                                return <div key={index} className="cursor-pointer fill-hover relative grow border-2 border-white/10 rounded-lg flex p-2 lg:p-4 justify-center hover:grow-[2] duration-300 text-xs"><span>{value}</span></div>
+                            })
+                        }
+                    </div>
                     <p ref={MeRef[1]} className='text-justify mt-6 text-xs font-light md:text-base mb-12'>
                         Currently working as a freelance artist, constantly interested in a challenge. I am a kind of person who likes to view things from a neutrally different and virtually inclined perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam leo nisl, luctus at risus eu, fermentum porta nulla.
                     </p>
                 </div>
-                <div className="w-full md:w-1/2 overflow-y-clip">
-                    <img ref={imageRef} className='w-full h-full' src={ME} alt="" />
+                <div className="w-full md:w-1/2 overflow-y-clip hidden lg:block relative">
+                    <div className="group" ref={imageRef}>
+                        <img className={`absolute top-0 left-0 z-10 w-full h-full duration-700 ${isIntersecting?"opacity-0":""}`} src={ME} alt="" />
+                        <img className='w-full h-full white-outline' src={ME1} alt="" />
+                    </div>
                 </div>
             </div>
         </div>
