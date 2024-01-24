@@ -5,6 +5,7 @@ import wat from "../assets/wat.png?url";
 
 type PageLoaderContextType = {
     navigateTo:(to:To)=>Promise<void>
+    setHasToRefresh:React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const PageLoaderContext = React.createContext<PageLoaderContextType | null>(null);
@@ -17,13 +18,15 @@ export function usePageLoader()
 export function PageLoaderProvider(props:{children:React.ReactNode})
 {
     const navigator = useNavigate();
-    const location = useLocation();
+    const reactLocation = useLocation();
     const lenis = useLenis();
     const [isLoading,setIsLoading] = useState(false);
     const [isAnimating,setIsAnimating] = useState(false);
     const [loadingText,setLoadingText] = useState("");
     const showCat = useRef<boolean>(false);
     const catIMG = useRef<HTMLImageElement>(null);
+    
+    const [hasToRefresh,setHasToRefresh] = useState(false);
 
     useEffect(()=>{
         lenis?.on("scroll",(lenis)=>{
@@ -53,7 +56,7 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
     async function navigateTo(to:To)
     {
         if(isLoading || isAnimating)return;
-        if(location.pathname == to)return;
+        if(reactLocation.pathname == to)return;
         setIsAnimating(true);
         setIsLoading(true);
         setLoadingText(to.toString());
@@ -61,6 +64,10 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
         navigator(to);
         setIsLoading(false);
         lenis.scrollTo(0);
+        if(hasToRefresh)
+        {
+            location.reload();
+        }
     }
     useEffect(()=>{
         if(isAnimating)
@@ -72,7 +79,8 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
     },[isAnimating])
 
     const value:PageLoaderContextType = {
-        navigateTo
+        navigateTo,
+        setHasToRefresh
     }
     
     return <PageLoaderContext.Provider value={value}>
@@ -99,7 +107,7 @@ export function TransitionLink(props:LinkProps)
     const pageLoader = usePageLoader();
 
     return <>
-        <div onClick={()=>{pageLoader?.navigateTo(props.to);}}>
+        <div className={props.className} onClick={()=>{pageLoader?.navigateTo(props.to);}}>
             {props.children}
         </div>
     </>

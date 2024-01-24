@@ -16,9 +16,6 @@ export default {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif']
       },
-      maxWidth:{
-        'container':"1180px"
-      },
       width: {
         '128': '32rem',
         '160': '40rem',

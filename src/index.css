@@ -9,7 +9,11 @@ body
 }
 .fill-hover
 {
-  @apply [&>*]:z-10 [&>*]:relative hover:before:w-[150%] before:w-0 before:absolute before:duration-300 before:top-0 before:left-0 before:rounded-r-full overflow-clip before:h-full before:bg-primary 
+  @apply [&>*]:z-10 [&>*]:relative hover:before:w-full before:w-0 before:absolute before:duration-300 before:top-0 before:right-0 hover:before:left-0 before:scale-150 before:rounded-full overflow-clip before:h-full before:bg-primary 
+}
+.fill-hover-absolute
+{
+  @apply [&>*]:z-10 [&>*]:absolute hover:before:w-full before:w-0 before:absolute before:duration-300 before:top-0 before:right-0 hover:before:left-0 before:scale-150 before:rounded-full overflow-clip before:h-full before:bg-primary 
 }
 .gradient-text
 {

@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from '../components/common/AnimatedText';
 import video from '../assets/Banner.mp4?url'
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
@@ -110,6 +111,40 @@ function HomePage()
                                 Satisfied Clients
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="relative py-48">
+            <div className="absolute right-0 top-0 h-full w-full lg:w-4/5 -z-10">
+                <video src={video} className="w-full h-full object-cover" autoPlay muted loop/>
+                <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-full h-full"/>
+            </div>
+            <div className='mx-auto container h-full flex flex-col justify-center p-4'>
+                <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>GAME <span className='gradient-text'>DEV</span></h1>
+                <div className="max-w-2xl flex flex-col flex-wrap gap-4 mt-16">
+                    <div className='flex flex-wrap gap-4'>
+                        <div className={`${cardClass} w-48 grow`}>
+                            <div className='font-bold'>
+                                <span className="text-4xl">4</span> <span className='text-xl'>Years</span>
+                            </div>
+                            <div className='text-sm opacity-70'>
+                                of Experience
+                            </div>
+                        </div>
+                        <div className={`${cardClass} w-72 grow text-sm px-8`}>
+                            <span className='opacity-70'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fuga voluptates aspernatur quisquam facilis ad!</span>
+                        </div>
+                    </div>
+                    <div className={`cursor-pointer border-2 p-4 h-64 border-white/10 rounded-lg fill-hover-absolute relative z-0 bg-background/20 backdrop-blur-xl grow group`}>
+                        <div className='absolute top-0 left-0 w-full h-full group-hover:opacity-0 flex flex-col justify-center items-center duration-300'>
+                            <h1 className='text-3xl opacity-70'>LATEST PROJECT</h1>
+                            <h1 className='text-5xl font-bold'>ABYSSAL DECENT</h1>
+                        </div>
+                        <TransitionLink to={'/mywork'} className='absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center duration-300'>
+                            <h1 className='text-2xl font-bold'>PLAY ON YOUR</h1>
+                            <h1 className='text-6xl font-bold'>BROWSER</h1>
+                        </TransitionLink>
                     </div>
                 </div>
             </div>
