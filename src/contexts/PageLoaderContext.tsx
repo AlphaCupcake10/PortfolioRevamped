@@ -66,7 +66,7 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
         lenis.scrollTo(0);
         if(hasToRefresh)
         {
-            location.reload();
+            window.location.href = window.location.href;
         }
     }
     useEffect(()=>{
