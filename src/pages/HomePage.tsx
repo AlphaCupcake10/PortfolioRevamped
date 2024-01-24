@@ -9,7 +9,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from '../components/common/AnimatedText';
 import video from '../assets/Banner.mp4?url'
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()

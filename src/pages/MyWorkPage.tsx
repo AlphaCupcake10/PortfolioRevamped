@@ -5,7 +5,7 @@ import { usePageLoader } from '../contexts/PageLoaderContext';
 
 export default function MyWorkPage()
 {
-    const { unityProvider, loadingProgression, isLoaded ,unload } = useUnityContext({
+    const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
         loaderUrl: "Build/Build/Build.loader.js",
         dataUrl: "Build/Build/Build.data",
         frameworkUrl: "Build/Build/Build.framework.js",
