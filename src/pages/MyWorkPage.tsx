@@ -13,9 +13,7 @@ export default function MyWorkPage()
     })
     const pageLoaderContext = usePageLoader();
     useEffect(()=>{
-        return ()=>{
-                pageLoaderContext?.setHasToRefresh(true);
-            }
+        pageLoaderContext?.setHasToRefresh(true);
     },[])
     return (
     <>
