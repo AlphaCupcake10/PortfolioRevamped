@@ -70,7 +70,7 @@ export default function Designation()
                 <AnimatedText text={textRef}/>
             </h1>
             <div className='bg-red flex gap-5 mt-4 relative'>
-                <TransitionLink to='/mywork'><Button color='primary' className='md:w-48'>MY WORK</Button></TransitionLink>
+                <TransitionLink to='/projects'><Button color='primary' className='md:w-48'>MY WORK</Button></TransitionLink>
                 <TransitionLink to='/contact'><Button color='secondary' className='md:w-48'>CONTACT ME</Button></TransitionLink>
             </div>
         </div>
@@ -89,7 +89,7 @@ export default function Designation()
                 <AnimatedText text={textRef}/>
             </h1>
             <div className='bg-red flex gap-5 mt-4 relative'>
-                <TransitionLink to='/mywork'><Button color='primary' className='md:w-48'>MY WORK</Button></TransitionLink>
+                <TransitionLink to='/projects'><Button color='primary' className='md:w-48'>MY WORK</Button></TransitionLink>
                 <TransitionLink to='/contact'><Button color='secondary' className='md:w-48'>CONTACT ME</Button></TransitionLink>
             </div>
         </div>

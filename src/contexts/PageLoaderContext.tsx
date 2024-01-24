@@ -50,8 +50,9 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
     const displayText:{[key:string]:string} = {
         "/":"HOME",
         "/3D":"3D",
-        "/mywork":"MY WORK",
+        "/projects":"PROJECTS",
         "/contact":"CONTACT",
+        "/game":"ABYSSAL DECENT",
     }
     async function navigateTo(to:To)
     {

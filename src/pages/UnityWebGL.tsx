@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { usePageLoader } from '../contexts/PageLoaderContext';
 
-export default function MyWorkPage()
+export default function UnityWebGL()
 {
     const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
         loaderUrl: "Build/Build/Build.loader.js",
