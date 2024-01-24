@@ -109,3 +109,19 @@ body
 {
   transition: -webkit-filter,filter 300ms ease-in-out;
 }
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 10% 0;
+  }
+}
+
+.css-pattern {
+  background:radial-gradient(rgba(255,255,255,.07) 8%,transparent 8%);
+  background-position: 0% 0%;
+  background-size: 5vmin 5vmin;
+  animation: moveBackground 1s cubic-bezier(.1,0,.06,1) infinite; 
+}

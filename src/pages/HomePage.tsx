@@ -7,7 +7,8 @@ import ParallaxBG from '../components/ParallaxBG';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from '../components/common/AnimatedText';
-import video from '../assets/Banner.mp4?url'
+import Banner3D from '../assets/Banner.mp4?url'
+import BannerGaem from '../assets/Gaem.mp4?url'
 import Footer from '../components/Footer';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,6 +41,7 @@ function HomePage()
     }, []);
 
     const cardClass = "border-2 p-4 h-36 border-white/10 rounded-lg fill-hover relative z-0 flex flex-col justify-center items-center bg-background/20 backdrop-blur-xl";
+    const cardClass2 = "border-2 p-4 h-12 border-white/10 rounded-lg fill-hover relative z-0 flex flex-col justify-center items-center bg-background/20 backdrop-blur-xl";
 
     return (
     <>
@@ -67,7 +69,7 @@ function HomePage()
         </div>
         <div className="relative py-48">
             <div className="absolute right-0 top-0 h-full w-full lg:w-4/5 -z-10">
-                <video src={video} className="w-full h-full object-cover" autoPlay muted loop/>
+                <video src={Banner3D} className="w-full h-full object-cover" autoPlay muted loop/>
                 <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-full h-full"/>
             </div>
             <div className='mx-auto container h-full flex flex-col justify-center p-4'>
@@ -84,7 +86,7 @@ function HomePage()
                             </div>
                         </div>
                         <div className={`${cardClass} w-72 grow text-sm px-8`}>
-                            <span className='opacity-70'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fuga voluptates aspernatur quisquam facilis ad!</span>
+                            <span className='opacity-70'>I create stylized product animations, infusing dynamic motion and vibrant colors to highlight unique features, ensuring effective brand communication.</span>
                         </div>
                     </div>
                     <div className='flex flex-wrap gap-4'>
@@ -96,12 +98,12 @@ function HomePage()
                                 Complete Projects
                             </div>
                         </div>
-                        <div className={`${cardClass} grow-[4] font-bold text-2xl`}>
+                        <a target='_blank' href='https://www.fiverr.com/alphacupcake' className={`${cardClass} grow-[4] font-bold text-2xl`}>
                             <span className='text-center leading-[1]'>
                                 3D PRODUCT<br/>
                                 ANIMATION
                             </span>
-                        </div>
+                        </a>
                         <div className={`${cardClass} grow`}>
                             <div className='font-bold'>
                                 <span className="text-5xl">50+</span>
@@ -114,13 +116,53 @@ function HomePage()
                 </div>
             </div>
         </div>
+        <div className="relative py-48 text-xs css-pattern">
+            <div className='mx-auto container h-full flex flex-col justify-center p-4'>
+                <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>WEB <span className='gradient-text'>DEVELOPMENT</span></h1>
+                <div className="max-w-2xl flex flex-col flex-wrap gap-4 mt-16">
+                    <div className='flex flex-wrap gap-4'>
+                        <div className={`${cardClass} w-48 grow`}>
+                            <div className='font-bold'>
+                                <span className="text-4xl">1</span> <span className='text-xl'>Year</span>
+                            </div>
+                            <div className='text-sm opacity-70'>
+                                of Experience
+                            </div>
+                        </div>
+                        <div className={`${cardClass} w-72 grow text-sm px-8`}>
+                            <span className='opacity-70'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fuga voluptates aspernatur quisquam facilis ad!</span>
+                        </div>
+                    </div>
+                    <div className='flex flex-wrap gap-4'>
+                        <div className={`${cardClass2} w-24 grow`}><div>
+                            ReactJS
+                        </div></div>
+                        <div className={`${cardClass2} w-24 grow`}><div>
+                            ThreeJS
+                        </div></div>
+                        <div className={`${cardClass2} w-24 grow`}><div>
+                            Tailwind CSS
+                        </div></div>
+                        <div className={`${cardClass2} w-24 grow`}><div>
+                            React 3 Fiber
+                        </div></div>
+                    </div>
+                    <div className={`cursor-pointer border-2 p-4 h-24 border-white/10 rounded-lg fill-hover-absolute relative z-0 bg-background/20 backdrop-blur-xl grow group before:duration-500`}>
+                        <TransitionLink to={'/mywork'} className='absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center duration-300'>
+                            <h1 className='text-lg md:text-2xl'>VIEW ALL</h1>
+                            <h1 className='text-xl md:text-3xl font-bold'>PROJECTS</h1>
+                        </TransitionLink>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div className="relative py-48">
             <div className="absolute right-0 top-0 h-full w-full lg:w-4/5 -z-10">
-                <video src={video} className="w-full h-full object-cover" autoPlay muted loop/>
+                <video src={BannerGaem} className="w-full h-full object-cover" autoPlay muted loop/>
                 <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-full h-full"/>
             </div>
             <div className='mx-auto container h-full flex flex-col justify-center p-4'>
-                <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>GAME <span className='gradient-text'>DEV</span></h1>
+                <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>GAME <span className='gradient-text'>DEVELOPMENT</span></h1>
                 <div className="max-w-2xl flex flex-col flex-wrap gap-4 mt-16">
                     <div className='flex flex-wrap gap-4'>
                         <div className={`${cardClass} w-48 grow`}>
@@ -137,12 +179,12 @@ function HomePage()
                     </div>
                     <div className={`cursor-pointer border-2 p-4 h-64 border-white/10 rounded-lg fill-hover-absolute relative z-0 bg-background/20 backdrop-blur-xl grow group`}>
                         <div className='absolute top-0 left-0 w-full h-full group-hover:opacity-0 flex flex-col justify-center items-center duration-300'>
-                            <h1 className='text-3xl opacity-70'>LATEST PROJECT</h1>
-                            <h1 className='text-5xl font-bold'>ABYSSAL DECENT</h1>
+                            <h1 className='text-xl md:text-3xl opacity-70'>LATEST PROJECT</h1>
+                            <h1 className='text-3xl md:text-5xl font-bold'>ABYSSAL DECENT</h1>
                         </div>
                         <TransitionLink to={'/mywork'} className='absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center duration-300'>
-                            <h1 className='text-2xl font-bold'>PLAY ON YOUR</h1>
-                            <h1 className='text-6xl font-bold'>BROWSER</h1>
+                            <h1 className='text-lg md:text-2xl md:font-bold'>PLAY ON YOUR</h1>
+                            <h1 className='text-4xl md:text-6xl font-bold'>BROWSER</h1>
                         </TransitionLink>
                     </div>
                 </div>
