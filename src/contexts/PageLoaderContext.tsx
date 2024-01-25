@@ -108,7 +108,7 @@ export function TransitionLink(props:LinkProps)
     const pageLoader = usePageLoader();
 
     return <>
-        <div className={props.className} onClick={()=>{pageLoader?.navigateTo(props.to);}}>
+        <div tabIndex={0} className={props.className} onClick={()=>{pageLoader?.navigateTo(props.to);}}>
             {props.children}
         </div>
     </>

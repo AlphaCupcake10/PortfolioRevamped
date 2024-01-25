@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*
+{
+  /* outline: solid red 2px; */
+}
 body
 {
   @apply bg-background text-text font-poppins;

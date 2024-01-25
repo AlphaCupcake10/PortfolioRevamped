@@ -21,8 +21,10 @@ export default function LenisWrapper(props:{children:ReactNode})
   })
   
   return (
-    <ReactLenis root>
-      { props.children }
-    </ReactLenis>
+    <>
+      <ReactLenis root ref={lenisRef} autoRaf={false}>
+        { props.children }
+      </ReactLenis>
+    </>
   )
 }
