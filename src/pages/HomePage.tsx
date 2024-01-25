@@ -191,7 +191,7 @@ function HomePage()
                             React 3 Fiber
                         </div></div>
                     </div>
-                    <div className={`cursor-pointer border-2 p-4 h-24 border-white/10 rounded-lg fill-hover-absolute relative z-0 bg-background/20 backdrop-blur-xl grow group before:duration-500`}>
+                    <div className={`cursor-pointer border-2 p-4 h-36 border-white/10 rounded-lg fill-hover-absolute relative z-0 bg-background/20 backdrop-blur-xl grow group before:duration-500`}>
                         <TransitionLink to={'/projects'} className='absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center duration-300'>
                             <h1 className='text-lg md:text-2xl'>VIEW ALL</h1>
                             <h1 className='text-xl md:text-3xl font-bold'>PROJECTS</h1>
