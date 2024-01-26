@@ -28,7 +28,7 @@ export default function ParallaxBG(props:{children:ReactNode})
                     width:"10vw",
                     scrollTrigger:{
                         trigger:mainDiv.current,
-                        start:"top 0%",
+                        start:"-1% 0%",
                         end:"bottom -100%",
                         scrub:true,
                         // markers:true

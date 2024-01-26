@@ -17,7 +17,7 @@ export default function UnityWebGL()
     },[])
     return (
     <>
-        <Navbar margin/>
+        {/* <Navbar margin/> */}
         {!isLoaded && (
             <div className='w-full h-screen grid place-items-center'>
                 <p>Loading Application... {Math.round(loadingProgression * 100)}%</p>

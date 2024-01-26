@@ -129,3 +129,13 @@ body
   background-size: 5vmin 5vmin;
   animation: moveBackground 1s cubic-bezier(.1,0,.06,1) infinite; 
 }
+.accent-gradient
+{
+  @apply bg-gradient-to-r from-[#ffcc4a] to-[#faa214];
+  /* text-shadow: 0px 0px 60px 0px rgba(250, 162, 20, 0.671); */
+}
+.background-clip-text
+{
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

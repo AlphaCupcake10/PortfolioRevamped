@@ -1,6 +1,6 @@
 import { useLenis } from "@studio-freight/react-lenis";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { LinkProps ,To,useLocation,useNavigate } from "react-router-dom";
+import { Link, LinkProps ,To,useLocation,useNavigate, useParams } from "react-router-dom";
 import wat from "../assets/wat.png?url";
 
 type PageLoaderContextType = {
@@ -45,7 +45,14 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
                 catIMG.current.classList.remove("translate-y-10");
             }
         })
-    },[lenis])
+    },[lenis]);
+
+    useEffect(()=>{
+        if(hasToRefresh)
+        {
+            window.location.href = window.location.href;
+        }
+    },[reactLocation.pathname])
 
     const displayText:{[key:string]:string} = {
         "/":"HOME",
@@ -65,10 +72,6 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
         navigator(to);
         setIsLoading(false);
         lenis.scrollTo(0);
-        if(hasToRefresh)
-        {
-            window.location.href = window.location.href;
-        }
     }
     useEffect(()=>{
         if(isAnimating)
@@ -106,10 +109,9 @@ export function PageLoaderProvider(props:{children:React.ReactNode})
 export function TransitionLink(props:LinkProps)
 {
     const pageLoader = usePageLoader();
-
     return <>
-        <div tabIndex={0} className={props.className} onClick={()=>{pageLoader?.navigateTo(props.to);}}>
+        <a href={props.to.toString()} tabIndex={0} className={props.className} onClick={(e)=>{e.preventDefault();pageLoader?.navigateTo(props.to);}}>
             {props.children}
-        </div>
+        </a>
     </>
 }
