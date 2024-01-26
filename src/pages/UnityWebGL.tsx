@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Navbar from '../components/Navbar';
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { usePageLoader } from '../contexts/PageLoaderContext';
 

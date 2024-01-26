@@ -1,6 +1,6 @@
 import { useLenis } from "@studio-freight/react-lenis";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link, LinkProps ,To,useLocation,useNavigate, useParams } from "react-router-dom";
+import { LinkProps ,To,useLocation,useNavigate } from "react-router-dom";
 import wat from "../assets/wat.png?url";
 
 type PageLoaderContextType = {

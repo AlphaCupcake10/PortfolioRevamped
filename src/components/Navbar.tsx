@@ -31,7 +31,7 @@ function Navbar(props:{className?:string,margin?:boolean})
   return (
     <>
       {props.margin && <div className="sm:h-28"></div>}
-      <div className={`fixed w-full bottom-0 sm:top-0 z-50 sm:z-40 bg-background border-t-2 rounded-t-3xl sm:rounded-t-none border-text/10 pointer-events-none h-min sm:border-b-2 ${hasScrolledUp?`${isOnTop?"sm:bg-transparent border-b-text/0":"sm:bg-background/50 sm:backdrop-blur-md"}`:"bg-transparent -translate-y-full"} duration-500`}>
+      <div className={`fixed w-full bottom-0 sm:top-0 z-50 sm:z-40 bg-background border-t-2 rounded-t-3xl sm:rounded-t-none border-text/10 pointer-events-none h-min sm:border-b-2 ${hasScrolledUp?`${isOnTop?"sm:bg-transparent border-b-text/0":"sm:bg-background/50 sm:backdrop-blur-md"}`:"sm:bg-transparent sm:-translate-y-full"} duration-500`}>
         <header className={`md:container relative gap-4 sm:gap-0 md:mx-auto flex justify-between p-2 sm:p-8 items-center ${props.className} pointer-events-auto`}>
           <div className='w-full flex justify-end gap-4 items-center sm:gap-0 sm:justify-evenly'>
             <TransitionLink to='/'>
