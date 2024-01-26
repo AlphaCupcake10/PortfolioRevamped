@@ -9,13 +9,13 @@ import Bee from '../models/Bee';
 
 export default function FeaturedSection()
 {
-    const [phaseIndex,setPhaseIndex] = useState(2);
+    const [phaseIndex,setPhaseIndex] = useState(0);
     const ref = useRef<HTMLDivElement>(null)
     const phases = ['GAEM','BUZZUP',"CHROMA"];
 
     useEffect(()=>{
-        // deltaPhase(0);
-        // resetTimer();
+        deltaPhase(0);
+        resetTimer();
     },[])
 
     const isTransitioning = useRef(false);

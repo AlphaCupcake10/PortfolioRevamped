@@ -1,15 +1,38 @@
 import TextButton from './common/TextButton';
 import { TransitionLink } from '../contexts/PageLoaderContext';
 import { useLocation } from 'react-router';
+import { useLenis } from '@studio-freight/react-lenis';
+import { useEffect, useState } from 'react';
 
 function Navbar(props:{className?:string,margin?:boolean})
 {
   const location = useLocation();
+  const lenis = useLenis();
+
+  const [hasScrolledUp,setHasScrolledUp] = useState(true);
+  const [isOnTop,setisOnTop] = useState(true);
+
+  useEffect(()=>{
+    if(!lenis)return;
+    lenis.on("scroll",(e)=>{
+      setisOnTop(lenis.targetScroll == 0);
+      if(e.direction == 1)
+        setHasScrolledUp(false);
+      if(e.direction == -1)
+        setHasScrolledUp(true);
+    })
+    return ()=>
+    {
+      //cleanup how?? TODO
+      // lenis.destroy();
+    }
+  },[lenis])
+
   return (
     <>
       {props.margin && <div className="sm:h-28"></div>}
-      <div className='fixed sm:absolute w-full bottom-0 sm:top-0 z-50 sm:z-40 bg-background border-t-2 rounded-t-3xl border-text/10 sm:bg-transparent pointer-events-none'>
-        <header className={`md:container gap-4 sm:gap-0 md:mx-auto flex justify-between p-2 sm:p-8 items-center ${props.className} pointer-events-auto`}>
+      <div className={`fixed w-full bottom-0 sm:top-0 z-50 sm:z-40 bg-background border-t-2 rounded-t-3xl sm:rounded-t-none border-text/10 pointer-events-none h-min sm:border-b-2 ${hasScrolledUp?`${isOnTop?"sm:bg-transparent border-b-text/0":"sm:bg-background/50 sm:backdrop-blur-md"}`:"bg-transparent -translate-y-full"} duration-500`}>
+        <header className={`md:container relative gap-4 sm:gap-0 md:mx-auto flex justify-between p-2 sm:p-8 items-center ${props.className} pointer-events-auto`}>
           <div className='w-full flex justify-end gap-4 items-center sm:gap-0 sm:justify-evenly'>
             <TransitionLink to='/'>
               <TextButton className='flex items-center gap-4' defaultActive={location.pathname=='/'}>
