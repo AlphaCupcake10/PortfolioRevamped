@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react"
-import { TransitionLink } from "../contexts/PageLoaderContext";
-import Button from "./common/Button";
-import AnimatedText from "./common/AnimatedText";
+import { TransitionLink } from "../../contexts/PageLoaderContext";
+import Button from "../common/Button";
+import AnimatedText from "../common/AnimatedText";
 import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Designation3D from "./models/Designation3D";
+import Designation3D from "../models/Designation3D";
 
 export default function Designation()
 {    
