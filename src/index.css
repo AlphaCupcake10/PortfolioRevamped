@@ -21,7 +21,7 @@ body
 }
 .gradient-text
 {
-  @apply from-primary to-accent bg-gradient-to-b bg-clip-text text-transparent;
+  @apply from-primary to-accent bg-gradient-to-t bg-clip-text text-transparent;
 }
 .transition-grow
 {

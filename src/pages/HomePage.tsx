@@ -62,19 +62,81 @@ function HomePage()
             </div>
         </ParallaxBG>
         <AboutMe/>
+        <section className='container relative mx-auto py-24 px-4'>
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold relative">WORK EXPERIENCE<span className='gradient-text'>.</span>
+                <div className="bg-gradient-to-r from-primary to-accent h-1 w-full mt-2"/>
+            </h1>
+            <div className="flex flex-wrap mt-8 gap-6 justify-center items-center">
+                <div className="bg-background rounded-xl border-2 border-text/10 p-8 w-160 group flex flex-col justify-between">
+                    <div>
+                        <h1 className='text-sm md:text-md opacity-70'>SEPT 2021 - PRESENT</h1>
+                        <h1 className='text-xl md:text-3xl font-bold'>Freelance</h1>
+                        <h1 className='text-base md:text-xl text-primary'>3D Product Animation</h1>
+                        <ul className='opacity-70 list-disc p-8 text-xs md:text-base'>
+                            <li>Seller in the 3D Product Animations Sub Category.</li>
+                            <li>Worked on 50+ individual Projects with 40+ different clients.</li>
+                            <li>The trailers were covered in reputable online articles and reached 100k + views on YouTube</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.fiverr.com/alphacupcake" target='_blank'>
+                        <Button className='w-full' color={'primary'}>
+                            View Details
+                        </Button>
+                    </a>
+                </div>
+                <div className="bg-background rounded-xl border-2 border-text/10 p-8 w-160 group flex flex-col justify-between">
+                    <div>
+                        <h1 className='text-sm md:text-md opacity-70'>AUG 2023 - OCT 2023</h1>
+                        <h1 className='text-xl md:text-3xl font-bold'>Studio Four Eight Seven</h1>
+                        <h1 className='text-base md:text-xl text-primary'>Frontend Developer Intern</h1>
+                        <ul className='opacity-70 list-disc p-8 text-xs md:text-base'>
+                            <li>
+                                Shopify Ecosystem, Shopify Liquid Templating, Shopify Ajax API,
+                                Component Creation for Shopify Theme Editor
+                            </li>
+                            <li>
+                                Brands I've worked with :
+                                <br/>
+                                <a href="https://getvitalplus.com/" target='_blank'>GetVitalPlus</a>, <a href="https://yesyoucandrinks.com/" target='_blank'>YesYouCanDrinks</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="https://www.linkedin.com/company/foureightseven/about/" target='_blank'>
+                        <Button className='w-full' color={'primary'}>
+                            View Details
+                        </Button>
+                    </a>
+                </div>
+                <div className="bg-background rounded-xl border-2 border-text/10 p-8 w-160 group flex flex-col justify-between">
+                    <div>
+                        <h1 className='text-sm md:text-md opacity-70'>APRIL 2023 - JUNE 2023</h1>
+                        <h1 className='text-xl md:text-3xl font-bold'>Troppolo</h1>
+                        <h1 className='text-base md:text-xl text-primary'>UI | UX Intern</h1>
+                        <ul className='opacity-70 list-disc p-8 text-xs md:text-base'>
+                            <li>Designed 14+ screens for the mobile app in Figma.</li>
+                            <li>Devised an elaborate UX system for the specific needs of the Mobile App.</li>
+                        </ul>
+                    </div>
+                    <Button className='w-full' color={'primary'}>
+                        View Details
+                    </Button>
+                </div>
+            </div>
+        </section>
         <div ref={servicesRef} className="h-128 bg-gradient-to-t from-primary to-accent grid items-center justify-center">
             <h1 className='text-xl sm:text-5xl lg:text-8xl font-extrabold mt-1 overflow-clip'>
                 <AnimatedText refresh text='MY SERVICES'/>
             </h1>       
         </div>
-        <div className="relative py-48">
+        <div className="relative py-36">
             <div className="absolute right-0 top-0 h-full w-full lg:w-4/5 -z-10 flex items-center overflow-y-clip">
                 <div className="h-[300%]">
                     <video src={Banner3D} className="w-full top-0 sticky h-screen object-cover" autoPlay muted loop/>
                 </div>
-                <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-full h-full"/>
+                <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-1/2 h-full"/>
             </div>
             <div className='mx-auto container h-full flex flex-col justify-center p-4'>
+                <h1 className='text-lg lg:text-2xl opacity-50'>MY SERVICES</h1>
                 <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>3D <span className='gradient-text'>ANIMATION</span></h1>
                 <h1 className='text-2xl lg:text-4xl opacity-50'>FREELANCE</h1>
                 <div className="max-w-2xl flex flex-col flex-wrap gap-4 mt-16">
@@ -118,14 +180,15 @@ function HomePage()
                 </div>
             </div>
         </div>
-        <div className="relative py-48">
+        <div className="relative py-36">
             <div className="absolute right-0 top-0 h-full w-full lg:w-4/5 -z-10 flex items-center overflow-y-clip">
                 <div className="h-[300%]">
                     <video src={BannerGaem} className="w-full top-0 sticky h-screen object-cover" autoPlay muted loop/>
                 </div>
-                <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-full h-full"/>
+                <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-1/2 h-full"/>
             </div>
             <div className='mx-auto container h-full flex flex-col justify-center p-4'>
+                <h1 className='text-lg lg:text-2xl opacity-50'>MY SERVICES</h1>
                 <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>GAME <span className='gradient-text'>DEVELOPMENT</span></h1>
                 <div className="max-w-2xl flex flex-col flex-wrap gap-4 mt-16">
                     <div className='flex flex-wrap gap-4'>
@@ -154,14 +217,15 @@ function HomePage()
                 </div>
             </div>
         </div>
-        <div className="relative py-48">
+        <div className="relative py-36">
             <div className="absolute right-0 top-0 h-full w-full lg:w-4/5 -z-10 flex items-center overflow-y-clip">
                 <div className="h-[300%]">
                     <img src="https://i.vimeocdn.com/video/626610457-503991c15fbd9d9221390f50d174c67dfd65d52037a79560b4a454916e21784a-d?mw=1300&mh=731" className="w-full top-0 sticky h-screen object-cover"/>
                 </div>
-                <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-full h-full"/>
+                <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-1/2 h-full"/>
             </div>
             <div className='mx-auto container h-full flex flex-col justify-center p-4'>
+                <h1 className='text-lg lg:text-2xl opacity-50'>MY SERVICES</h1>
                 <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>WEB <span className='gradient-text'>DEVELOPMENT</span></h1>
                 <div className="max-w-2xl flex flex-col flex-wrap gap-4 mt-16">
                     <div className='flex flex-wrap gap-4'>
