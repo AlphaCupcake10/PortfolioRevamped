@@ -3,7 +3,7 @@ import Button from '../common/Button'
 function WorkExperience()
 {
   return (
-    <section className='container relative mx-auto py-24 px-4'>
+    <section className='container relative mx-auto p-16 rounded-xl bg-background border-text/10 border-2'>
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold relative">WORK EXPERIENCE<span className='gradient-text'>.</span>
                 <div className="bg-gradient-to-r from-primary to-accent h-1 w-full mt-2"/>
             </h1>
@@ -61,6 +61,22 @@ function WorkExperience()
                     <Button className='w-full' color={'primary'}>
                         View Details
                     </Button>
+                </div>
+                <div className="bg-background rounded-xl border-2 border-text/10 p-8 w-160 group flex flex-col justify-between">
+                    <div>
+                        <h1 className='text-sm md:text-md opacity-70'>FEB 2022 - CURRENT</h1>
+                        <h1 className='text-xl md:text-3xl font-bold'>Team Hash Define</h1>
+                        <h1 className='text-base md:text-xl text-primary'>Assistant Vice President</h1>
+                        <ul className='opacity-70 list-disc p-8 text-xs md:text-base'>
+                            <li>Lorem Ipsum</li>
+                            <li>LAMO</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.linkedin.com/company/defineweare/mycompany/" target='_blank'>
+                        <Button className='w-full' color={'primary'}>
+                            View Details
+                        </Button>
+                    </a>
                 </div>
             </div>
         </section>

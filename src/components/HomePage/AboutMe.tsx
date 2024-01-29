@@ -159,23 +159,6 @@ export default function AboutMe()
                     <p ref={MeRef[1]} className='text-justify mt-6 text-xs font-light md:text-base mb-4'>
                         Currently working as a freelance artist, constantly interested in a challenge. I am a kind of person who likes to view things from a neutrally different and virtually inclined perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam leo nisl, luctus at risus eu, fermentum porta nulla.
                     </p>
-                    <div className="flex gap-4">
-                        <a className="hover:text-primary transition-colors" href="https://www.linkedin.com/in/alphacupcake10/" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <g clipPath="url(#clip0_17_68)">
-                                    <path d="M44.4469 0H3.54375C1.58437 0 0 1.54688 0 3.45938V44.5312C0 46.4437 1.58437 48 3.54375 48H44.4469C46.4062 48 48 46.4438 48 44.5406V3.45938C48 1.54688 46.4062 0 44.4469 0ZM14.2406 40.9031H7.11563V17.9906H14.2406V40.9031ZM10.6781 14.8688C8.39062 14.8688 6.54375 13.0219 6.54375 10.7437C6.54375 8.46562 8.39062 6.61875 10.6781 6.61875C12.9563 6.61875 14.8031 8.46562 14.8031 10.7437C14.8031 13.0125 12.9563 14.8688 10.6781 14.8688ZM40.9031 40.9031H33.7875V29.7656C33.7875 27.1125 33.7406 23.6906 30.0844 23.6906C26.3812 23.6906 25.8187 26.5875 25.8187 29.5781V40.9031H18.7125V17.9906H25.5375V21.1219H25.6312C26.5781 19.3219 28.9031 17.4188 32.3625 17.4188C39.5719 17.4188 40.9031 22.1625 40.9031 28.3313V40.9031Z" fill="currentColor"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_17_68">
-                                    <rect width="48" height="48" fill="currentColor"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </a>
-                        <a className="hover:text-primary transition-colors" href='https://linktr.ee/AlphaCupcake10' target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px"><path fill="currentColor" d="M18.89,32H21v8c0,1.1-0.9,2-2,2h-4c-1.1,0-2-0.9-2-2v-8H4.89c-1.52,0-2.48-1.64-1.75-2.97 L15.25,7.16c0.76-1.37,2.74-1.37,3.5,0l4.85,9.74l-6.46,12.13C16.41,30.36,17.37,32,18.89,32z"/><path fill="currentColor" d="M43.11,32H35v8c0,1.1-0.9,2-2,2h-4c-1.1,0-2-0.9-2-2v-8h2.11c1.52,0,2.48-1.64,1.75-2.97L24.3,16.9 l4.95-9.74c0.76-1.37,2.74-1.37,3.5,0l12.11,21.87C45.59,30.36,44.63,32,43.11,32z"/></svg>
-                        </a>
-                    </div>
                 </div>
                 <div className="w-full md:w-1/2 overflow-y-clip hidden lg:block relative">
                     <div className="group" ref={imageRef}>

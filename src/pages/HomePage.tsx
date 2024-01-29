@@ -3,7 +3,7 @@ import Button from '../components/common/Button';
 import AboutMe from '../components/HomePage/AboutMe';
 import { useEffect, useRef } from 'react';
 import { TransitionLink } from '../contexts/PageLoaderContext';
-import ParallaxBG from '../components/ParallaxBG';
+import ParallaxBG from '../components/HomePage/ParallaxBG';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from '../components/common/AnimatedText';

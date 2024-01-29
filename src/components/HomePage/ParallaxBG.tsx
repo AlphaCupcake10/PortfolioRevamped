@@ -1,9 +1,9 @@
 import { useRef, useEffect, ReactNode } from "react";
-import BG from "../assets/BG.jpg?url";
-import BGFront from "../assets/Front.png?url";
-import BGFront2 from "../assets/Front2.png?url";
-import Wallpaper1 from "../assets/wallpaper1.jpg?url";
-import Wallpaper2 from "../assets/wallpaper2.jpg?url";
+import BG from "../../assets/BG.jpg?url";
+import BGFront from "../../assets/Front.png?url";
+import BGFront2 from "../../assets/Front2.png?url";
+import Wallpaper1 from "../../assets/wallpaper1.jpg?url";
+import Wallpaper2 from "../../assets/wallpaper2.jpg?url";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
