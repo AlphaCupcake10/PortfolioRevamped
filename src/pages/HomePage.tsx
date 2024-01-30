@@ -76,7 +76,7 @@ function HomePage()
                 </div>
                 <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-1/2 h-full"/>
             </div>
-            <div className='mx-auto container h-full flex flex-col justify-center p-4'>
+            <div className='mx-auto container h-full flex flex-col justify-center p-4 md:p-8 lg:p-12'>
                 <h1 className='text-lg lg:text-2xl opacity-50'>MY SERVICES</h1>
                 <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>3D <span className='gradient-text'>ANIMATION</span></h1>
                 <h1 className='text-2xl lg:text-4xl opacity-50'>FREELANCE</h1>
@@ -128,7 +128,7 @@ function HomePage()
                 </div>
                 <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-1/2 h-full"/>
             </div>
-            <div className='mx-auto container h-full flex flex-col justify-center p-4'>
+            <div className='mx-auto container h-full flex flex-col justify-center p-4 md:p-8 lg:p-12'>
                 <h1 className='text-lg lg:text-2xl opacity-50'>MY SERVICES</h1>
                 <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>GAME <span className='gradient-text'>DEVELOPMENT</span></h1>
                 <div className="max-w-2xl flex flex-col flex-wrap gap-4 mt-16">
@@ -165,7 +165,7 @@ function HomePage()
                 </div>
                 <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-1/2 h-full"/>
             </div>
-            <div className='mx-auto container h-full flex flex-col justify-center p-4'>
+            <div className='mx-auto container h-full flex flex-col justify-center p-4 md:p-8 lg:p-12'>
                 <h1 className='text-lg lg:text-2xl opacity-50'>MY SERVICES</h1>
                 <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>WEB <span className='gradient-text'>DEVELOPMENT</span></h1>
                 <div className="max-w-2xl flex flex-col flex-wrap gap-4 mt-16">

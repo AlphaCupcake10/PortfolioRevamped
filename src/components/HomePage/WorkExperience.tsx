@@ -3,7 +3,7 @@ import Button from '../common/Button'
 function WorkExperience()
 {
   return (
-    <section className='container relative mx-auto p-16 rounded-xl bg-background border-text/10 border-2'>
+    <section className='container relative mx-auto p-16'>
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold relative">WORK EXPERIENCE<span className='gradient-text'>.</span>
                 <div className="bg-gradient-to-r from-primary to-accent h-1 w-full mt-2"/>
             </h1>
