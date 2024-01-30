@@ -125,9 +125,6 @@ export default function FeaturedSection()
             </div>
             </div>
         </section>
-        <section className='py-24 container mx-auto'>
-            MORE PROJECTS TO BE ADDED HERE
-        </section>
     </>
   )
 }

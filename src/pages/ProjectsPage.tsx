@@ -1,12 +1,16 @@
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import FeaturedSection from "../components/ProjectsPage/FeaturedSection";
+import ProjectsList from "../components/ProjectsPage/ProjectsList";
 
-export default function ProjectsPage()
-{
-    return (
+export default function ProjectsPage() {
+
+  return (
     <>
-        <Navbar/>
-        <FeaturedSection />
+      <Navbar />
+      <FeaturedSection />
+      <ProjectsList />
+      <Footer />
     </>
   )
 }
