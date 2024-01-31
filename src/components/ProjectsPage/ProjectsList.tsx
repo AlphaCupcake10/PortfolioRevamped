@@ -90,22 +90,22 @@ export default function ProjectsList() {
     return (
         <>
             {
-                Projects.map((project) => {
+                Projects.map((project,index) => {
                     return (
-                        <section className="my-24">
+                        <section key={index} className="my-24">
                             <section className="container mx-auto p-4">
                                 <h1 className="font-bold text-xl text-primary">{project.sectionTitle}</h1>
                             </section>
                             {
-                                project.data.map(val => {
+                                project.data.map((val,key) => {
                                     return (
-                                        <a href={val.link} target="_blank" className="px-4 md:px-8 block overflow-clip group border-b-2 border-text/10 cursor-pointer relative after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-primary after:origin-bottom hover:after:origin-left after:-z-10 after:duration-500 after:transition-transform after:scale-y-0 hover:after:scale-y-100">
+                                        <a key={key} href={val.link} target="_blank" className="px-4 md:px-8 block overflow-clip group border-b-2 border-text/10 cursor-pointer relative after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-primary after:origin-bottom hover:after:origin-left after:-z-10 after:duration-500 after:transition-transform after:scale-y-0 hover:after:scale-y-100">
                                             <div className="container relative mx-auto flex justify-between items-center">
                                                 <div className="h-full w-full relative">
                                                     <h1 className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter py-12 group-hover:-translate-y-full duration-500">{val.title}</h1>
                                                     <h1 className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter absolute h-full top-0 left-0 grid place-items-center group-hover:translate-y-0 translate-y-full duration-500">{val.hoverTitle}</h1>
                                                 </div>
-                                                <p className="text-text/70 w-2/5 md:group-hover:opacity-70 md:opacity-0 transition-opacity text-xs md:text-base">
+                                                <p className="text-text/70 w-3/5 lg:group-hover:opacity-70 lg:opacity-0 transition-opacity text-xs md:text-base">
                                                     {val.subTitle}
                                                 </p>
                                             </div>
