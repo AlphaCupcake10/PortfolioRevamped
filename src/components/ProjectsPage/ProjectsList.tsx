@@ -1,3 +1,6 @@
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap";
+
 export default function ProjectsList() {
     const Projects = [
         {
@@ -52,7 +55,7 @@ export default function ProjectsList() {
                 {
                     title: "FRESCO XL",
                     hoverTitle: "FREELANCE",
-                    subTitle: "The trailer wa covered in reputable online articles and reached 100k + views on YouTube",
+                    subTitle: "The trailer was covered in reputable online articles and reached 100k + views on YouTube",
                     link: "https://youtu.be/jbCRmvzX6rg?si=FabNkOsJFhtBCrgY"
                 },
                 {
@@ -87,6 +90,7 @@ export default function ProjectsList() {
             ]
         }
     ]
+
     return (
         <>
             {
@@ -99,17 +103,7 @@ export default function ProjectsList() {
                             {
                                 project.data.map((val,key) => {
                                     return (
-                                        <a key={key} href={val.link} target="_blank" className="px-4 md:px-8 block overflow-clip group border-b-2 border-text/10 cursor-pointer relative after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-primary after:origin-bottom hover:after:origin-left after:-z-10 after:duration-500 after:transition-transform after:scale-y-0 hover:after:scale-y-100">
-                                            <div className="container relative mx-auto flex justify-between items-center">
-                                                <div className="h-full w-full relative">
-                                                    <h1 className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter py-12 group-hover:-translate-y-full duration-500">{val.title}</h1>
-                                                    <h1 className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter absolute h-full top-0 left-0 grid place-items-center group-hover:translate-y-0 translate-y-full duration-500">{val.hoverTitle}</h1>
-                                                </div>
-                                                <p className="text-text/70 w-3/5 lg:group-hover:opacity-70 lg:opacity-0 transition-opacity text-xs md:text-base">
-                                                    {val.subTitle}
-                                                </p>
-                                            </div>
-                                        </a>
+                                        <Comp key={key} val={val}></Comp>
                                     )
                                 })
                             }
@@ -118,5 +112,53 @@ export default function ProjectsList() {
                 })
             }
         </>
+    )
+}
+
+function Comp(props:{val:{
+    title: string;
+    hoverTitle: string;
+    subTitle: string;
+    link: string;
+} | {
+    title: string;
+    hoverTitle: string;
+    link: string;
+    subTitle?: undefined;
+}})
+{
+    const compRef = useRef<HTMLAnchorElement>(null);
+    useEffect(()=>{
+        let ctx = gsap.context(() => {
+            gsap.from(
+                compRef.current,{
+                    yPercent:100,
+                    opacity:0,
+                    ease:"power4.out",
+                    duration:1,
+                    scrollTrigger:{
+                        trigger:compRef.current,
+                        start:"top 100%",
+                        end:"bottom top",
+                        // scrub:true,
+                        // markers:true
+                    }
+                }
+            )
+        })
+        return () => ctx.revert(); // cleanup! 
+    },[])
+    return(
+        <a ref={compRef} href={props.val.link} target="_blank" className="info-tile px-4 md:px-8 block overflow-clip group border-b-2 border-text/10 cursor-pointer relative after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-primary after:origin-bottom hover:after:origin-left after:-z-10 after:duration-500 after:transition-transform after:scale-y-0 hover:after:scale-y-100">
+            <div className="container relative mx-auto flex justify-between items-center">
+                <div className="h-full w-full relative">
+                    <h1 className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter py-12 group-hover:-translate-y-full duration-500">{props.val.title}</h1>
+                    <h1 className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter absolute h-full top-0 left-0 grid place-items-center group-hover:translate-y-0 translate-y-full duration-500">{props.val.hoverTitle}</h1>
+                </div>
+                <p className="text-text/70 w-3/5 lg:group-hover:opacity-70 lg:opacity-0 transition-opacity text-xs md:text-base">
+                    {props.val.subTitle}
+                </p>
+            </div>
+        </a>
     )
 }

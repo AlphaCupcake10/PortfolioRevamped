@@ -1,4 +1,5 @@
-import { ReactNode } from "react"
+import { ReactNode, RefObject, useEffect, useRef } from "react"
+import { gsap } from "gsap";
 
 function WorkExperience()
 {
@@ -45,13 +46,38 @@ function WorkExperience()
             link: ""
         }
     ]
+    const compRefs = [useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null)]
+    useEffect(()=>{
+        let ctx = gsap.context(() => {
+            compRefs.forEach((ref,index)=>{
+                gsap.from(
+                    ref.current,{
+                        yPercent:100,
+                        opacity:0,
+                        ease:"power4.out",
+                        delay:index*.1,
+                        duration:1,
+                        scrollTrigger:{
+                            trigger:ref.current,
+                            start:"top 100%",
+                            end:"bottom top",
+                            // scrub:true,
+                            // markers:true
+                        }
+                    }
+                )
+            })
+        })
+        return () => ctx.revert(); // cleanup! 
+    },[])
+
     return (
         <section className="my-24">
             <h1 className="container px-8 mx-auto font-bold text-primary text-3xl mb-8">WORK EXPERIENCE</h1>
             {
                 experience.map((val, key) => {
                     return (
-                        <Comp val={val} key={key}></Comp>
+                        <Comp refElement={compRefs[key]} val={val} key={key}></Comp>
                     )
                 })
             }
@@ -59,10 +85,10 @@ function WorkExperience()
     )
 }
 
-function Comp(props:{val:{title: string,hoverTitle: string,subTitle: ReactNode,link: string,type:string}})
+function Comp(props:{val:{title: string,hoverTitle: string,subTitle: ReactNode,link: string,type:string},refElement:RefObject<HTMLAnchorElement>})
 {
   return (
-    <a  href={props.val.link} target="_blank" className="py-8 px-4 2xl:py-0 block overflow-clip group border-b-2 border-text/10 cursor-pointer relative after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-primary after:origin-bottom hover:after:origin-left after:-z-10 after:duration-500 after:transition-transform after:scale-y-0 hover:after:scale-y-100">
+    <a ref={props.refElement} href={props.val.link} target="_blank" className="py-8 px-4 2xl:py-0 block overflow-clip group border-b-2 border-text/10 cursor-pointer relative after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-primary after:origin-bottom hover:after:origin-left after:-z-10 after:duration-500 after:transition-transform after:scale-y-0 hover:after:scale-y-100">
         <div className="container relative mx-auto flex flex-col 2xl:flex-row 2xl:justify-between 2xl:items-center">
             <div className="2xl:py-8 2xl:group-hover:-translate-y-full duration-500">
                 <h1 className="flex items-center gap-8"><span className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter">{props.val.title}</span><span className="font-bold opacity-70">{props.val.type}</span></h1>

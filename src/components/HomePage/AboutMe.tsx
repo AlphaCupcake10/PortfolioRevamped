@@ -22,6 +22,8 @@ export default function AboutMe()
     const MeRef = [useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null)];
     const imageRef = useRef<HTMLImageElement>(null);
 
+
+    const tagsRef = [useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null)]
     useEffect(() => {        
         let ctx = gsap.context(() => {
             
@@ -112,6 +114,25 @@ export default function AboutMe()
                     }
                 }
             )
+
+            tagsRef.forEach((ref,index)=>{
+                gsap.from(
+                    ref.current,{
+                        yPercent:100,
+                        opacity:0,
+                        ease:"power2.out",
+                        delay:index*.25,
+                        scrollTrigger:{
+                            trigger:ref.current,
+                            start:"top 100%",
+                            end:"bottom top",
+                            // scrub:true,
+                            // markers:true
+                        }
+                    }
+                )
+            })
+
         }); // <- optional additional param, scopes all selector text inside the context to this component (default is document)
         
         return () => ctx.revert(); // cleanup! 
@@ -152,7 +173,7 @@ export default function AboutMe()
                     <div className="mt-4 flex flex-wrap gap-1">
                         {
                             ["3D Generalist","Frontend Developer","Designer","Game Developer"].map((value,index)=>{
-                                return <div key={index} className="cursor-pointer fill-hover relative grow border-2 border-white/10 rounded-lg flex p-2 lg:p-4 justify-center hover:grow-[2] duration-300 text-xs"><span>{value}</span></div>
+                                return <div key={index} ref={tagsRef[index]} className="cursor-pointer fill-hover relative grow border-2 border-white/10 rounded-lg flex p-2 lg:p-4 justify-center hover:grow-[2] transition-[flex-grow] duration-300 text-xs"><span>{value}</span></div>
                             })
                         }
                     </div>
