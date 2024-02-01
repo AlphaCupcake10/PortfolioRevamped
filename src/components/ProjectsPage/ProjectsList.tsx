@@ -16,7 +16,8 @@ export default function ProjectsList() {
                     title: "PORTFOLIO SITE",
                     hoverTitle: "RECURSION?",
                     subTitle: "A website to showcase all my skills and work.",
-                    link: "https://alphacupcake10-iframe-test.vercel.app/"
+                    link: "https://alphacupcake10-iframe-test.vercel.app/",
+                    notBlank:true
                 },
                 {
                     title: "JIVANAM",
@@ -119,11 +120,13 @@ function Comp(props:{val:{
     title: string;
     hoverTitle: string;
     subTitle: string;
+    notBlank?:boolean,
     link: string;
 } | {
     title: string;
     hoverTitle: string;
     link: string;
+    notBlank?:boolean,
     subTitle?: undefined;
 }})
 {
@@ -149,7 +152,7 @@ function Comp(props:{val:{
         return () => ctx.revert(); // cleanup! 
     },[])
     return(
-        <a ref={compRef} href={props.val.link} target="_blank" className="info-tile px-4 md:px-8 block overflow-clip group border-b-2 border-text/10 cursor-pointer relative after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-primary after:origin-bottom hover:after:origin-left after:-z-10 after:duration-500 after:transition-transform after:scale-y-0 hover:after:scale-y-100">
+        <a ref={compRef} href={props.val.link} target={props.val.notBlank?"":"_blank"} className="info-tile px-4 md:px-8 block overflow-clip group border-b-2 border-text/10 cursor-pointer relative after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-primary after:origin-bottom hover:after:origin-left after:-z-10 after:duration-500 after:transition-transform after:scale-y-0 hover:after:scale-y-100">
             <div className="container relative mx-auto flex justify-between items-center">
                 <div className="h-full w-full relative">
                     <h1 className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter py-12 group-hover:-translate-y-full duration-500">{props.val.title}</h1>
