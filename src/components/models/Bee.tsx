@@ -33,7 +33,6 @@ export default function Bee(props:{CanvasRef:React.RefObject<HTMLDivElement>})//
     }
     function CreateMixer()
     {
-        console.log("Ad")
         if (gltf.animations.length) {
             mixer.current = new AnimationMixer(gltf.scene);
             gltf.animations.forEach(clip => {

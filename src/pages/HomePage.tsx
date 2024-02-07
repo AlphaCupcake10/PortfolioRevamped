@@ -56,8 +56,8 @@ function HomePage()
                     <TransitionLink to='/3D'>
                         <Button color='primary' className='md:w-48'>EXPLORE IN 3D</Button>
                     </TransitionLink>
-                    <TransitionLink to='/contact'>
-                    <Button color='secondary' className='md:w-48'>CONTACT ME</Button>
+                    <TransitionLink to='/projects'>
+                    <Button color='secondary' className='md:w-48'>PROJECTS</Button>
                     </TransitionLink>
                 </div>
             </div>
