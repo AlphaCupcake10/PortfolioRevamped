@@ -96,8 +96,9 @@ function Comp(props:{val:{title: string,hoverTitle: string,subTitle: ReactNode,l
             <div className="2xl:py-8 2xl:hidden opacity-70">
                 <h1 className="flex items-center gap-8"><span className="text-md md:text-xl lg:text-3xl font-bold tracking-tighter">{props.val.hoverTitle}</span></h1>
             </div>
-            <div className="hidden 2xl:flex translate-y-full group-hover:translate-y-0 absolute top-0 left-0 w-full h-full duration-500 items-center">
-                <h1 className="flex items-center gap-8"><span className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter">{props.val.hoverTitle}</span></h1>
+            <div className="hidden 2xl:flex flex-col justify-center translate-y-full group-hover:translate-y-0 absolute top-0 left-0 w-full h-full duration-500">
+                <h1 className="flex items-center gap-8"><span className="text-xl md:text-5xl lg:text-7xl font-bold tracking-tighter">{props.val.title}</span><span className="font-bold opacity-70">{props.val.type}</span></h1>
+                <h1 className="flex items-center gap-8 opacity-80"><span className="text-md md:text-xl lg:text-3xl font-bold tracking-tighter">{props.val.hoverTitle}</span></h1>
             </div>
             <div className="2xl:py-8 w-full 2xl:w-96 text-xs md:text-sm opacity-90">
                 {props.val.subTitle}
