@@ -8,7 +8,7 @@ import ScrollIndicator from "../common/ScrollIndicator";
 import useIntersectionObserver from "../../hooks/useInterSectionObsever";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AboutMe()
+export default function AboutMe(props:{sectionRef:React.RefObject<HTMLDivElement>})
 {
     const age = "XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI";
     const about_me = "ABOUT ME ABOUT ME ABOUT ME ABOUT ME ABOUT ME";
@@ -141,7 +141,7 @@ export default function AboutMe()
     let isIntersecting = useIntersectionObserver(imageRef,{threshold:.7});
 
     return (
-        <div className="relative">
+        <div ref={props.sectionRef} className="relative">
             <ScrollIndicator>
                 <h1 className="text-xs opacity-50">Heyy Vsauce</h1>
             </ScrollIndicator>
@@ -178,7 +178,7 @@ export default function AboutMe()
                         }
                     </div>
                     <p ref={MeRef[1]} className='text-justify mt-6 text-xs font-light md:text-base mb-4'>
-                        Currently working as a freelance artist, constantly interested in a challenge. I am a kind of person who likes to view things from a neutrally different and virtually inclined perspective. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam leo nisl, luctus at risus eu, fermentum porta nulla.
+                        Currently working as a freelance artist, constantly interested in a challenge. I am a kind of person who likes to view things from a neutrally different and virtually inclined perspective.
                     </p>
                 </div>
                 <div className="w-full md:w-1/2 overflow-y-clip hidden lg:block relative">
