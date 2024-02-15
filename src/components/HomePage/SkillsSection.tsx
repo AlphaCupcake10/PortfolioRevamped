@@ -19,12 +19,20 @@ export function SkillsSection()
                             }
                         },
                         {
+                            title:"Languages",
+                            fields:{
+                                "C++":.7,
+                                "Python":.65,
+                                "Javascript":.6,
+                                "Typescript":.56,
+                            }
+                        },
+                        {
                             title:"Design",
                             fields:{
                                 "UI Design":.8,
                                 "UX Design":.7,
                                 "Graphic Design":.8,                    
-                                "Motion Design":.75,                    
                             }
                         },
                         {
@@ -33,7 +41,6 @@ export function SkillsSection()
                                 "3D Modelling":.5,
                                 "Lighting & Composition":.7,
                                 "Product Animation":.9,
-                                "Color Theory":.7,
                             }
                         },
                         {
@@ -43,6 +50,14 @@ export function SkillsSection()
                                 "2D / 3D Asset Creation":.7,
                                 "Game Design":.85,
                                 "VR / AR Development":.7,      
+                            }
+                        },
+                        {
+                            title:"Other Skills",
+                            fields:{
+                                "Motion Graphics":.6,
+                                "Video Editing":.5,
+                                "VFX":.4,
                             }
                         }
                     ].map((category,index)=>{
@@ -85,7 +100,7 @@ function SkillFill(props:{fields:{[key:string]:number|undefined},field:string,ca
     return(
         <div ref={fillRef} className={`fill-ref-class h-full absolute left-0 top-0 bg-primary rounded-lg origin-left duration-1000 ${isIntersecting?"scale-x-100":"scale-x-0"} flex items-center justify-end px-4`} style={{...props.style,width:props.fields[props.field]! * 100 + "%"}}>
             <div className="absolute w-full h-full left-0 top-0 bg-gradient-to-tr from-primary to-accent duration-300 opacity-0 group-hover:opacity-100 rounded-lg"></div>
-            <div className="relative z-10 hidden md:block">{props.fields[props.field]!*100}%</div>
+            <div className="relative z-10 hidden md:block">{(props.fields[props.field]!*100).toFixed(0)}%</div>
         </div>
     )
 }
