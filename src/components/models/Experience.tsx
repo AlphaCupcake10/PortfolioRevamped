@@ -1,8 +1,9 @@
-import { useGLTF, Environment } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
+import { useGLTF, Environment, Html } from '@react-three/drei';
+import { RootState, useFrame } from '@react-three/fiber';
 import { Suspense, useEffect, useRef } from 'react'
 import { Mesh, AnimationMixer, Object3D } from 'three';
-import modelSrc from "../../assets/Experience.glb?url";
+import modelSrc from "/experience.glb?url";
+import Button from '../common/Button';
 
 function Experience() {
     const gltf = useGLTF(modelSrc);
@@ -14,10 +15,7 @@ function Experience() {
         if(!state)return;//IDK WHY TODO CHANGE
         if(!mixer.current)CreateMixer();
         mixer.current?.update(delta);
-        // if(AnimCamera == null)return;
-        // state.camera.position.set(AnimCamera.position.x,AnimCamera.position.y,AnimCamera.position.z);
-        // state.camera.rotation.set(AnimCamera.rotation.x,AnimCamera.rotation.y,AnimCamera.rotation.z);
-        // state.camera.updateMatrixWorld();
+        SetCameraPosition(state);
     })
     
     function CreateMixer()
@@ -35,9 +33,34 @@ function Experience() {
         AnimCamera.current = gltf.scene.getObjectByName("CameraPivot")?.getObjectByName("MainCamera");
     },[gltf])
 
+    function SetCameraPosition(state:RootState)
+    {
+        if(!AnimCamera.current)return;
+        AnimCamera.current.getWorldPosition(state.camera.position);
+        AnimCamera.current.getWorldQuaternion(state.camera.quaternion);
+        state.camera.updateMatrixWorld();
+    }
+
+    function SetPosition(ObjectName:string,el:Mesh|null)
+    {
+        if(el)
+        {
+            gltf.scene.getObjectByName(ObjectName)?.getWorldPosition(el.position);
+            gltf.scene.getObjectByName(ObjectName)?.getWorldQuaternion(el.quaternion);
+            gltf.scene.getObjectByName(ObjectName)?.getWorldScale(el.scale);
+        }
+    }
+
     return(
         <Suspense fallback={null}>                    
             <primitive ref={ref} object={gltf.scene}/>
+            <mesh ref={el => { SetPosition("WebDev",el) }}>
+                <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
+                    <a href='/projects' className="p-1">
+                        <Button color={'primary'} className='w-48'>VIEW PROJECTS</Button>
+                    </a>
+                </Html>
+            </mesh>
             <Environment preset="city"/>
         </Suspense>
     )

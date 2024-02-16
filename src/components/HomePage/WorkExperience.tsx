@@ -46,10 +46,11 @@ function WorkExperience()
             link: ""
         }
     ]
-    const compRefs = [useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null)]
+    const compRefs = [useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null),useRef<HTMLAnchorElement>(null)]
     useEffect(()=>{
         let ctx = gsap.context(() => {
             compRefs.forEach((ref,index)=>{
+                if(ref.current === null)return;
                 gsap.from(
                     ref.current,{
                         yPercent:100,

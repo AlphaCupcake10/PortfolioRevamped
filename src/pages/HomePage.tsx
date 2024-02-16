@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 import WorkExperience from '../components/HomePage/WorkExperience';
 import ServicesSection from '../components/HomePage/ServicesSection';
 import { SkillsSection } from '../components/HomePage/SkillsSection';
-import { useLenis } from '@studio-freight/react-lenis';
+// import { useLenis } from '@studio-freight/react-lenis';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
@@ -41,7 +41,7 @@ function HomePage()
     
     }, []);
 
-    const lenis = useLenis();
+    // const lenis = useLenis();
     const aboutMeRef = useRef<HTMLDivElement>(null);
 
     return (
@@ -53,15 +53,19 @@ function HomePage()
                 <div ref={heroTextRef[1]} className='overflow-y-clip'><h1 className='text-3xl md:text-7xl font-extrabold uppercase'><AnimatedText delay={200} text='AlphaCupcake10'/></h1></div>
                 
                 <div ref={heroTextRef[0]} className='bg-red flex gap-5 mt-4'>
-                    <Button onClick={()=>{
+                    {/* <Button onClick={()=>{
                         aboutMeRef.current && lenis.scrollTo(aboutMeRef.current,{
                             duration: 2,
                             offset: -160,
                             force: true
                         });
-                    }} color='primary' className='md:w-48'>ABOUT ME</Button>
+                    }} color='primary' className='md:w-48'>ABOUT ME</Button> */}
+
+                    <TransitionLink to='/game'>
+                        <Button color='primary' className='md:w-48'>ABYSSAL DECENT</Button>
+                    </TransitionLink>
                     <TransitionLink to='/projects'>
-                    <Button color='secondary' className='md:w-48'>PROJECTS</Button>
+                        <Button color='secondary' className='md:w-48'>PROJECTS</Button>
                     </TransitionLink>
                 </div>
             </div>

@@ -125,7 +125,7 @@ function MyComponent()
                             </div>
                         </div>
                         <div className={`${cardClass} w-72 grow text-sm px-8`}>
-                            <span className='opacity-70'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas fuga voluptates aspernatur quisquam facilis ad!</span>
+                            <span className='opacity-70'>Creative Frontend Web Developer specializing in captivating design elements to enhance user experience. Experienced in blending aesthetic appeal with functional interfaces to bring visions to life.</span>
                         </div>
                     </div>
                     <div className='flex flex-wrap gap-4'>

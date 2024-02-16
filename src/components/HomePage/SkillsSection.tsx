@@ -14,8 +14,8 @@ export function SkillsSection()
                             fields:{
                                 "React":.5,
                                 "React Three Fiber | ThreeJS":.7,                      
-                                "CSS":.9,                    
-                                "TailwindCSS":.8,
+                                "CSS":.75,                    
+                                "TailwindCSS":.9,
                             }
                         },
                         {

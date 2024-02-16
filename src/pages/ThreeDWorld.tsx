@@ -1,7 +1,6 @@
 import { Canvas } from "@react-three/fiber"
 import Navbar from "../components/Navbar"
 import Experience from "../components/models/Experience"
-import { OrbitControls } from "@react-three/drei"
 
 export default function ThreeDWorld() {
     return (
@@ -9,10 +8,9 @@ export default function ThreeDWorld() {
             <Navbar/>
             <div className="h-screen w-screen">
                 <Canvas
-                    camera={{position:[2,4,2]}}
+                    camera={{position:[2,4,2],fov:35}}
                     className="h-screen w-screen"
                 >
-                    <OrbitControls/>
                     <Experience />
                 </Canvas>
             </div>
