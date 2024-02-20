@@ -1,7 +1,7 @@
 import { useGLTF, Environment, Html } from '@react-three/drei';
 import { RootState, useFrame } from '@react-three/fiber';
-import { Suspense, useEffect, useRef } from 'react'
-import THREE, { Mesh, AnimationMixer, Object3D, LoopOnce } from 'three';
+import { Suspense, useEffect, useRef, useState } from 'react'
+import { Mesh, AnimationMixer, Object3D } from 'three';
 import modelSrc from "/experience.glb?url";
 import Button from '../common/Button';
 
@@ -12,14 +12,17 @@ function Experience() {
     const cameraMixer = useRef<AnimationMixer>();
     const AnimCamera = useRef<Object3D>();
 
-    const CameraClips = ["MainCameraAction","CameraPivotAction.001"];
+    const CameraClips = ["MainCameraAction","CameraPivotAction.001","ProductAnim.001Action"];
     const CameraDuration = 20;
     const CameraStopRatios = [0,1/3,2/3,1];
     const targetProgressIndex = useRef(0);
     const currentProgress = useRef(0);
 
+    const [isAnimating,setIsAnimating] = useState(false)
+
     function deltaIndex(value:number)
     {
+        if(isAnimating)return;
         targetProgressIndex.current += value;
         if(targetProgressIndex.current < 0)targetProgressIndex.current = CameraStopRatios.length - 1;
         if(targetProgressIndex.current > CameraStopRatios.length - 1)targetProgressIndex.current = 0;
@@ -36,17 +39,22 @@ function Experience() {
         
         if(currentProgress.current < targetProgress)
         {
+            if(!isAnimating)setIsAnimating(true);
             currentProgress.current += delta;
             if(currentProgress.current > targetProgress)currentProgress.current = targetProgress;
         }
         else if(currentProgress.current > targetProgress)
         {
+            if(!isAnimating)setIsAnimating(true);
             currentProgress.current -= delta;
             if(currentProgress.current < targetProgress)currentProgress.current = targetProgress;
         }
+        else
+        {
+            if(isAnimating)setIsAnimating(false);
+        }
         cameraMixer.current?.setTime(currentProgress.current*.99);
 
-        console.log(currentProgress.current,targetProgress);
         SetCameraPosition(state);
     })
     
@@ -102,15 +110,28 @@ function Experience() {
             <primitive ref={ref} object={gltf.scene}/>
             <mesh ref={el => { SetPosition("WebDev",el) }}>
                 <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
-                    <Button onClick={()=>deltaIndex(1)}  color={'primary'} className='w-48'>VIEW PROJECTS</Button>
-                    {/* <a href='/projects' className="p-1">
-                        <Button color={'primary'} className='w-48'>VIEW PROJECTS</Button>
-                    </a> */}
+                    <div className="w-160 flex p-4 bg-background border-text/20 border justify-between">
+                        <a href="/projects" className="w-48"><Button color={'secondary'} className='w-48'>{"PROJECTS"}</Button></a>
+                        <Button onClick={()=>deltaIndex(1)}  color={'primary'} className='w-48'>{"NEXT >"}</Button>
+                    </div>
                 </Html>
             </mesh>
             <mesh ref={el => { SetPosition("ProductAnim",el) }}>
                 <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
-                    <Button onClick={()=>deltaIndex(-1)}  color={'primary'} className='w-48'>VIEW PROJECTS</Button>
+                    <div className="w-160 flex p-4 bg-background border-text/20 border justify-between">
+                        <Button onClick={()=>deltaIndex(-1)}  color={'primary'} className='w-48'>{"< PREV"}</Button>
+                        <a href="/projects" className="w-48"><Button color={'secondary'} className='w-48'>{"PROJECTS"}</Button></a>
+                        <Button onClick={()=>deltaIndex(1)}  color={'primary'} className='w-48'>{"NEXT >"}</Button>
+                    </div>
+                </Html>
+            </mesh>
+            <mesh ref={el => { SetPosition("GameDev",el) }}>
+                <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
+                    <div className="w-160 flex p-4 bg-background border-text/20 border justify-between">
+                        <Button onClick={()=>deltaIndex(-1)}  color={'primary'} className='w-48'>{"< PREV"}</Button>
+                        <a href="/projects" className="w-48"><Button color={'secondary'} className='w-48'>{"PROJECTS"}</Button></a>
+                        <Button onClick={()=>deltaIndex(1)}  color={'primary'} className='w-48'>{"NEXT >"}</Button>
+                    </div>
                 </Html>
             </mesh>
             <Environment preset="city"/>
