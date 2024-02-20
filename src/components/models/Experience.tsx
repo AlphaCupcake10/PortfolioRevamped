@@ -111,7 +111,7 @@ function Experience() {
             <mesh ref={el => { SetPosition("WebDev",el) }}>
                 <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
                     <div className="w-160 flex p-4 bg-background border-text/20 border justify-between">
-                        <a href="/projects" className="w-48"><Button color={'secondary'} className='w-48'>{"PROJECTS"}</Button></a>
+                        <a href="/" className="w-48"><Button color={'secondary'} className='w-48'>{"EXIT"}</Button></a>
                         <Button onClick={()=>deltaIndex(1)}  color={'primary'} className='w-48'>{"NEXT >"}</Button>
                     </div>
                 </Html>
@@ -120,7 +120,7 @@ function Experience() {
                 <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
                     <div className="w-160 flex p-4 bg-background border-text/20 border justify-between">
                         <Button onClick={()=>deltaIndex(-1)}  color={'primary'} className='w-48'>{"< PREV"}</Button>
-                        <a href="/projects" className="w-48"><Button color={'secondary'} className='w-48'>{"PROJECTS"}</Button></a>
+                        <a href="/" className="w-48"><Button color={'secondary'} className='w-48'>{"EXIT"}</Button></a>
                         <Button onClick={()=>deltaIndex(1)}  color={'primary'} className='w-48'>{"NEXT >"}</Button>
                     </div>
                 </Html>
@@ -129,7 +129,7 @@ function Experience() {
                 <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
                     <div className="w-160 flex p-4 bg-background border-text/20 border justify-between">
                         <Button onClick={()=>deltaIndex(-1)}  color={'primary'} className='w-48'>{"< PREV"}</Button>
-                        <a href="/projects" className="w-48"><Button color={'secondary'} className='w-48'>{"PROJECTS"}</Button></a>
+                        <a href="/" className="w-48"><Button color={'secondary'} className='w-48'>{"EXIT"}</Button></a>
                     </div>
                 </Html>
             </mesh>
