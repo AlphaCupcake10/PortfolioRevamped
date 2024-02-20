@@ -13,8 +13,8 @@ function Experience() {
     const AnimCamera = useRef<Object3D>();
 
     const CameraClips = ["MainCameraAction","CameraPivotAction.001","ProductAnim.001Action"];
-    const CameraDuration = 20;
-    const CameraStopRatios = [0,1/3,2/3,1];
+    const CameraDuration = 400/30;
+    const CameraStopRatios = [0,1/2,1];
     const targetProgressIndex = useRef(0);
     const currentProgress = useRef(0);
 
@@ -130,7 +130,6 @@ function Experience() {
                     <div className="w-160 flex p-4 bg-background border-text/20 border justify-between">
                         <Button onClick={()=>deltaIndex(-1)}  color={'primary'} className='w-48'>{"< PREV"}</Button>
                         <a href="/projects" className="w-48"><Button color={'secondary'} className='w-48'>{"PROJECTS"}</Button></a>
-                        <Button onClick={()=>deltaIndex(1)}  color={'primary'} className='w-48'>{"NEXT >"}</Button>
                     </div>
                 </Html>
             </mesh>
