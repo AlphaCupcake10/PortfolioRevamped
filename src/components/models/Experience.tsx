@@ -1,7 +1,7 @@
 import { useGLTF, Environment, Html } from '@react-three/drei';
 import { RootState, useFrame } from '@react-three/fiber';
 import { Suspense, useEffect, useRef } from 'react'
-import { Mesh, AnimationMixer, Object3D } from 'three';
+import THREE, { Mesh, AnimationMixer, Object3D, LoopOnce } from 'three';
 import modelSrc from "/experience.glb?url";
 import Button from '../common/Button';
 
@@ -13,7 +13,17 @@ function Experience() {
     const AnimCamera = useRef<Object3D>();
 
     const CameraClips = ["MainCameraAction","CameraPivotAction.001"];
-    // const CameraStopFrames = [0,200];
+    const CameraDuration = 20;
+    const CameraStopRatios = [0,1/3,2/3,1];
+    const targetProgressIndex = useRef(0);
+    const currentProgress = useRef(0);
+
+    function deltaIndex(value:number)
+    {
+        targetProgressIndex.current += value;
+        if(targetProgressIndex.current < 0)targetProgressIndex.current = CameraStopRatios.length - 1;
+        if(targetProgressIndex.current > CameraStopRatios.length - 1)targetProgressIndex.current = 0;
+    }
 
     useFrame((state,delta) => {
         if(!state)return;//IDK WHY TODO CHANGE
@@ -21,9 +31,22 @@ function Experience() {
         if(!cameraMixer.current)CreateCameraMixer();
         globalMixer.current?.update(delta);
 
-        
+        const targetProgress  = CameraDuration * CameraStopRatios[targetProgressIndex.current];
 
-        cameraMixer.current?.update(delta);
+        
+        if(currentProgress.current < targetProgress)
+        {
+            currentProgress.current += delta;
+            if(currentProgress.current > targetProgress)currentProgress.current = targetProgress;
+        }
+        else if(currentProgress.current > targetProgress)
+        {
+            currentProgress.current -= delta;
+            if(currentProgress.current < targetProgress)currentProgress.current = targetProgress;
+        }
+        cameraMixer.current?.setTime(currentProgress.current*.99);
+
+        console.log(currentProgress.current,targetProgress);
         SetCameraPosition(state);
     })
     
@@ -45,6 +68,7 @@ function Experience() {
             gltf.animations.forEach(clip => {
                 if(!CameraClips.includes(clip.name))return;
                 const action = cameraMixer.current?.clipAction(clip)
+                // action?.setLoop(LoopOnce,1);
                 action?.play();
             });
         }
@@ -78,16 +102,15 @@ function Experience() {
             <primitive ref={ref} object={gltf.scene}/>
             <mesh ref={el => { SetPosition("WebDev",el) }}>
                 <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
-                    <a href='/projects' className="p-1">
+                    <Button onClick={()=>deltaIndex(1)}  color={'primary'} className='w-48'>VIEW PROJECTS</Button>
+                    {/* <a href='/projects' className="p-1">
                         <Button color={'primary'} className='w-48'>VIEW PROJECTS</Button>
-                    </a>
+                    </a> */}
                 </Html>
             </mesh>
             <mesh ref={el => { SetPosition("ProductAnim",el) }}>
                 <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
-                    <a href='/projects' className="p-1">
-                        <Button color={'primary'} className='w-48'>VIEW PROJECTS</Button>
-                    </a>
+                    <Button onClick={()=>deltaIndex(-1)}  color={'primary'} className='w-48'>VIEW PROJECTS</Button>
                 </Html>
             </mesh>
             <Environment preset="city"/>
