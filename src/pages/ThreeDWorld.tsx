@@ -2,20 +2,21 @@ import { Canvas } from "@react-three/fiber"
 // import Navbar from "../components/Navbar"
 import Experience from "../components/models/Experience"
 import Button from "../components/common/Button";
+import { TransitionLink } from "../contexts/PageLoaderContext";
 
 export default function ThreeDWorld() {
 
     function toggleFullScreen() {
         if (!document.fullscreenElement) {
-          if (document.documentElement.requestFullscreen) {
+            if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen();
-          }
+            }
         } else {
-          if (document.exitFullscreen) {
+            if (document.exitFullscreen) {
             document.exitFullscreen();
-          }
+            }
         }
-      }
+    }
 
     return (
         <>
@@ -34,6 +35,7 @@ export default function ThreeDWorld() {
                 <h1 className="text-xl font-bold">For Best Experience</h1>
                 <p className="opacity-70">Toggle fullscreen and change to landscape</p>
                 <Button className="mt-8 w-full" onClick={()=>toggleFullScreen()} color={"primary"}>Toggle Fullscreen</Button>
+                <TransitionLink to={'/'}><Button className="mt-2 w-full" color={"secondary"}>Exit</Button></TransitionLink>
             </div>
         </>
     )
