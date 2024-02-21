@@ -3,8 +3,6 @@ import { Canvas } from "@react-three/fiber"
 import Experience from "../components/models/Experience"
 import Button from "../components/common/Button";
 import { TransitionLink } from "../contexts/PageLoaderContext";
-import { Bloom, EffectComposer, SSAO } from "@react-three/postprocessing";
-import { AdaptiveDpr } from "@react-three/drei";
 
 export default function ThreeDWorld() {
 
