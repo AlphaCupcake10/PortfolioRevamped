@@ -50,7 +50,7 @@ export default function UnityWebGL()
         if(!element) return;
 
         canvas.height = element.offsetHeight * ratio;
-        canvas.width = window.innerWidth * ratio;
+        canvas.width = element.offsetWidth * ratio;
     }
 
     const [graphics, setGraphics] = useState(2);
@@ -58,8 +58,9 @@ export default function UnityWebGL()
     const canvasContainer = useRef<HTMLDivElement>(null);
 
     useEffect(()=>{
+        if(isLoaded)
         setPixelRatio(1);
-    },[]);
+    },[isLoaded]);
 
     useEffect(()=>{
         window.addEventListener("resize",()=>{
