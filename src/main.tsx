@@ -7,7 +7,7 @@ import { PageLoaderProvider } from './contexts/PageLoaderContext.tsx'
 import LenisWrapper from './contexts/LenisWrapper.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
       <PageLoaderProvider>
         <LenisWrapper>
@@ -15,5 +15,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </LenisWrapper>
       </PageLoaderProvider>
     </BrowserRouter>
-  // </React.StrictMode>
+   </React.StrictMode>
 ,)
