@@ -43,7 +43,7 @@ export default function UnityWebGL()
     }
 
     function setPixelRatio(ratio:number){
-        const canvas = document.getElementById("react-unity-webgl-canvas-2") as HTMLCanvasElement;
+        const canvas = document.getElementsByTagName("canvas")[0] as HTMLCanvasElement;
         if(!canvas) return;
 
         const element = canvasContainer.current as HTMLDivElement;
@@ -54,7 +54,7 @@ export default function UnityWebGL()
     }
 
     const [graphics, setGraphics] = useState(2);
-    const pixelRatios = [0.5,0.75,1];
+    const pixelRatios = [0.5,0.75,1,1.5];
     const canvasContainer = useRef<HTMLDivElement>(null);
 
     useEffect(()=>{
@@ -110,7 +110,7 @@ export default function UnityWebGL()
             <h1 className="text-xl font-bold">Pixel Ratio</h1>
             <p className="opacity-70">Lower pixel ratio for better performance.</p>
             {
-                ["Low","Medium","High"].map((item,index)=>(
+                ["Low","Medium","High","Ultra"].map((item,index)=>(
                     <Button key={index} className="mt-2 w-full" onClick={()=>setGraphics(index)} color={graphics===index?"primary":"secondary"}>{item}</Button>
                 ))
             }
