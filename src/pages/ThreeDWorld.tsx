@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber"
 import Experience from "../components/models/Experience"
 import Button from "../components/common/Button";
 import { TransitionLink } from "../contexts/PageLoaderContext";
+import { Suspense } from "react";
 
 export default function ThreeDWorld() {
 
@@ -26,11 +27,18 @@ export default function ThreeDWorld() {
                     <div
                         className="z-10 w-full h-full"
                     >
-                        <Canvas
-                            camera={{fov:35,aspect:1}}
-                        >
-                            <Experience />
-                        </Canvas>
+                       <Suspense fallback={
+                            <div className="w-full h-full flex items-center justify-center">
+                                  <h1>Loading...</h1>
+                            </div>
+                       }>
+                            <Canvas
+                                
+                                camera={{fov:35,aspect:1}}
+                            >
+                                <Experience />
+                            </Canvas>
+                       </Suspense>
                     </div>
                 </div>
             </div>

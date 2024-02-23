@@ -12,7 +12,7 @@ function Experience() {
     const cameraMixer = useRef<AnimationMixer>();
     const AnimCamera = useRef<Object3D>();
 
-    const CameraClips = ["MainCameraAction","CameraPivotAction.001","ProductAnim.001Action"];
+    const CameraClips = ["MainCameraAction","CameraPivotAction.001","ProductAnim.001Action","Plane.003Action","Empty.002Action"];
     const CameraDuration = 400/30;
     const CameraStopRatios = [0,1/2,1];
     const targetProgressIndex = useRef(0);
@@ -60,6 +60,7 @@ function Experience() {
     
     function CreateGlobalMixer()
     {
+        console.log(gltf.animations)
         if (gltf.animations.length) {
             globalMixer.current = new AnimationMixer(gltf.scene);
             gltf.animations.forEach(clip => {
@@ -106,7 +107,8 @@ function Experience() {
     }
 
     return(
-        <Suspense fallback={null}>                    
+        <Suspense fallback={null}>    
+                            
             <primitive ref={ref} object={gltf.scene}/>
             <mesh ref={el => { SetPosition("WebDev",el) }}>
                 <Html transform wrapperClass="" distanceFactor={2} occlude="blending">
@@ -133,6 +135,7 @@ function Experience() {
                     </div>
                 </Html>
             </mesh>
+            <fog attach="fog" args={['#0a1015', 0, 40]} />
             <Environment preset="city"/>
         </Suspense>
     )
