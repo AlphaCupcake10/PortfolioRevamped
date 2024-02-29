@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Unity, useUnityContext } from "react-unity-webgl";
-import { TransitionLink, usePageLoader } from '../contexts/PageLoaderContext';
-import Button from '../components/common/Button';
+import { TransitionLink, usePageLoader } from '../../contexts/PageLoaderContext';
+import Button from '../common/Button';
 
-export default function UnityWebGL()
+export default function WebGLPlayer()
 {
     const { unityProvider, loadingProgression, isLoaded , addEventListener, removeEventListener} = useUnityContext({
         loaderUrl: "Build/Build/Build.loader.js",
@@ -19,7 +19,7 @@ export default function UnityWebGL()
 
     const handleQuit =() => {
         console.log("Quit Game");
-        pageLoaderContext?.navigateTo("/");
+        pageLoaderContext?.navigateTo("/game");
     }
     
     useEffect(() => {
