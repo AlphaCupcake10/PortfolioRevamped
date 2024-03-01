@@ -77,7 +77,7 @@ function Navbar(props: { className?: string, margin?: boolean }) {
             </svg>
           </TextButton>
         </TransitionLink>
-        <TransitionLink to='/3D'>
+        <TransitionLink to='/game'>
           <TextButton defaultActive={location.pathname == '/game'}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
