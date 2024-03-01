@@ -1,4 +1,4 @@
-import { ReactNode, RefObject, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Navbar from '../Navbar'
 import axios from '../../axios'
 import { gsap } from "gsap";
