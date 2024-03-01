@@ -2,58 +2,78 @@ import { Canvas } from '@react-three/fiber'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { TransitionLink } from '../../contexts/PageLoaderContext'
 import Cursor from '../common/Cursor'
-import ScrollIndicator from '../common/ScrollIndicator'
 import TextButton from '../common/TextButton'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import AbysalDecent from '../models/AbysalDecent'
 import Button from '../common/Button'
+import UserModal from './UserModal'
+import { LeaderboardIcon , UserIcon , PlayIcon} from './Icons'
+import Footer from '../Footer'
 
 function LandingPage() {
     const scrollRef = useRef<HTMLDivElement>(null);
+    const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    function openModal() {
+        setIsModalOpen(true);
+    }
 
     return (
         <>
+            <UserModal 
+                className='' 
+                isOpen={isModalOpen} 
+                closeModal={() => setIsModalOpen(false)}
+                isSignedIn={isSignedIn} 
+                setisSignedIn={(val:boolean)=>{
+                    setIsSignedIn(val);
+                }}
+            />
             <Cursor />
-            <section className='md:hidden h-screen flex flex-col justify-center items-center'>
+            <div className="h-screen fixed top-0 left-0 p-16 z-40 flex items-end justify-center w-full pointer-events-none">
+                <div className='gap-8 flex items-end justify-center pointer-events-auto'>
+                    <UserIcon onClick={()=>{
+                        openModal();
+                    }}/>
+                    <LeaderboardIcon/>
+                    <PlayIcon/>
+                </div>
+            </div>
+            {/* PHONE VERSION */}
+            <section className={`${isModalOpen?"hidden":""} md:hidden h-screen flex flex-col justify-center items-center`}>
                 <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DECENT</h1>
                 <div className="flex flex-col gap-4 mt-8">
-                    <TransitionLink to={'/game/signup'}>
-                        <Button className='w-64' color={'primary'}>CREATE AN ACCOUNT</Button>
-                    </TransitionLink>
+                    <span onClick={()=>openModal()}>
+                            <Button className='w-64' color={'primary'}>CREATE AN ACCOUNT</Button>
+                    </span>
                     <TransitionLink to={'/game/play'}>
                         <Button className='w-64' color={'secondary'}>PLAYTEST NOW</Button>
                     </TransitionLink>
                 </div>
             </section>
-            <section className="hidden md:block h-[1000vh] w-full absolute top-0 left-0 z-10" ref={scrollRef}>
+            {/* DESKTOP */}
+            <section className="hidden md:block h-[1000vh] w-full relative z-10" ref={scrollRef}>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center strokeText leading-[.75]">ABYSSAL<br />DECENT</h1>
-                    <div className="flex">
-                        <TransitionLink to={'/game/signup'}>
-                            <TextButton className='mt-8 w-64'>CREATE AN ACCOUNT</TextButton>
-                        </TransitionLink>
-                        <TransitionLink to={'/game/play'}>
-                            <TextButton className='mt-8 w-64'>PLAYTEST NOW</TextButton>
-                        </TransitionLink>
+                    <div className="flex h-0">
+                        <div>
+                            {
+                                !isSignedIn && 
+                                <TextButton className='mt-8 w-64 inline' onClick={()=>openModal()}>CREATE AN ACCOUNT</TextButton>
+                            }
+                            <TransitionLink to={'/game/play'}>
+                                <TextButton className='mt-8 w-64'>PLAYTEST NOW</TextButton>
+                            </TransitionLink>
+                        </div>
                     </div>
-                    <ScrollIndicator>
-                        MORE
-                    </ScrollIndicator>
                 </div>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75] strokeText">LOREM<br />IPSUM</h1>
                 </div>
-                <div className="h-[700vh]" />
+                <div className="h-[700vh]"/>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75] strokeText">ABYSSAL<br />DECENT</h1>
-                    <div className="flex">
-                        <TransitionLink to={'/game/signup'}>
-                            <TextButton className='mt-8 w-64'>CREATE AN ACCOUNT</TextButton>
-                        </TransitionLink>
-                        <TransitionLink to={'/game/play'}>
-                            <TextButton className='mt-8 w-64'>PLAYTEST NOW</TextButton>
-                        </TransitionLink>
-                    </div>
                 </div>
             </section>
             <div className="h-screen w-screen fixed z-0 top-0 left-0 pointer-events-none hidden md:block">
@@ -70,17 +90,7 @@ function LandingPage() {
             <section className="hidden md:block h-[1000vh] w-full absolute top-0 left-0 bg-black -z-10" >
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DECENT</h1>
-                    <div className="flex">
-                        <TransitionLink to={'/game/signup'}>
-                            <TextButton className='mt-8 w-64'>CREATE AN ACCOUNT</TextButton>
-                        </TransitionLink>
-                        <TransitionLink to={'/game/play'}>
-                            <TextButton className='mt-8 w-64'>PLAYTEST NOW</TextButton>
-                        </TransitionLink>
-                    </div>
-                    <ScrollIndicator>
-                        MORE
-                    </ScrollIndicator>
+                    <div className="flex h-0"/>
                 </div>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">LOREM<br />IPSUM</h1>
@@ -141,21 +151,12 @@ function LandingPage() {
                         <h1 className="mb-4 text-[1vw] leading-[1] opacity-70">Manipulate Space and Time</h1>
                     </div>
                 </div>
-                <div className="h-screen">
-
-                </div>
+                <div className="h-screen"/>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DECENT</h1>
-                    <div className="flex">
-                        <TransitionLink to={'/game/signup'}>
-                            <TextButton className='mt-8 w-64'>CREATE AN ACCOUNT</TextButton>
-                        </TransitionLink>
-                        <TransitionLink to={'/game/play'}>
-                            <TextButton className='mt-8 w-64'>PLAYTEST NOW</TextButton>
-                        </TransitionLink>
-                    </div>
                 </div>
             </section>
+            <Footer/>
         </>
     )
 }

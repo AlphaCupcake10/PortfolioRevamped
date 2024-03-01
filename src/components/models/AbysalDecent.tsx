@@ -48,7 +48,6 @@ function AbysalDecent(props:{scrollRef:RefObject<HTMLDivElement>}) {
     function CreateGlobalMixer() {
         if (gltf.animations.length) {
             globalMixer.current = new AnimationMixer(gltf.scene);
-            console.log(gltf.animations)
             gltf.animations.forEach(clip => {
                 if (CameraClips.includes(clip.name)) return;
                 const action = globalMixer.current?.clipAction(clip)
@@ -70,7 +69,6 @@ function AbysalDecent(props:{scrollRef:RefObject<HTMLDivElement>}) {
 
     useEffect(() => {
         AnimCamera.current = gltf.scene.getObjectByName("CameraPivot")?.getObjectByName("MainCamera");
-        console.log(gltf.scene);
     }, [gltf])
 
     function SetCameraPosition(state: RootState) {

@@ -47,11 +47,6 @@ body
   0%   {translate: 0 0;}
   100% {translate: 0 -100%;}
 }
-.container
-{
-  @apply transition-all duration-1000;
-}
-
 @media (min-width: 640px) {
   .strokeText {
     -webkit-text-stroke: 4px rgb(255, 255, 255);
