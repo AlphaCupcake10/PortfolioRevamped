@@ -47,8 +47,8 @@ function Navbar(props: { className?: string, margin?: boolean }) {
             <TransitionLink to='/'>
               <TextButton defaultActive={location.pathname == '/'}>HOME</TextButton>
             </TransitionLink>
-            <TransitionLink to='/3D'>
-              <TextButton defaultActive={location.pathname == '/3D'}>3D EXPERIENCE</TextButton>
+            <TransitionLink to='/game'>
+              <TextButton defaultActive={location.pathname == '/game'}>ABBYSAL DECENT</TextButton>
             </TransitionLink>
           </div>
           <div>
@@ -78,9 +78,26 @@ function Navbar(props: { className?: string, margin?: boolean }) {
           </TextButton>
         </TransitionLink>
         <TransitionLink to='/3D'>
-          <TextButton defaultActive={location.pathname == '/3D'}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path fillRule="evenodd" clipRule="evenodd" d="M9.67505 19.3393L6.67505 17.1964C5.8539 16.6099 5.44333 16.3167 5.22166 15.8859C5 15.4552 5 14.9506 5 13.9415V10.0585C5 9.73711 5 9.46693 5.00716 9.234L11 13.5146V20.2313C10.6433 20.0309 10.227 19.7335 9.67505 19.3393ZM13 20.2313C13.3567 20.0309 13.773 19.7335 14.325 19.3393L17.325 17.1964C18.1461 16.6099 18.5567 16.3167 18.7783 15.8859C19 15.4552 19 14.9506 19 13.9415V10.0585C19 9.73711 19 9.46693 18.9928 9.234L13 13.5146V20.2313ZM18.1276 7.39426L12 11.7711L5.87244 7.39426C6.08372 7.2259 6.34653 7.03818 6.67505 6.80352L9.67505 4.66067C10.7977 3.85875 11.3591 3.45779 12 3.45779C12.6409 3.45779 13.2023 3.85875 14.325 4.66067L17.325 6.80352C17.6535 7.03818 17.9163 7.2259 18.1276 7.39426Z" fill="currentColor" />
+          <TextButton defaultActive={location.pathname == '/game'}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M18.05 15a.75.75 0 01-.145-1.484.78.78 0 01.435.034.7.7 0 01.24.17.731.731 0 01.16.81.6.6 0 01-.16.25.67.67 0 01-.24.16.72.72 0 01-.29.06zM5.27 15a.75.75 0 01-.53-.22.6.6 0 01-.16-.25.71.71 0 010-.57.74.74 0 01.4-.4.73.73 0 01.58 0 .75.75 0 01.46.69.71.71 0 01-.02.25.72.72 0 01-.16.25.749.749 0 01-.57.25zM12 10.33a.75.75 0 01-.73-.61A4.83 4.83 0 0112.23 6a5.25 5.25 0 014.25-1.63.75.75 0 110 1.5A3.85 3.85 0 0013.39 7a3.37 3.37 0 00-.61 2.47.76.76 0 01-.6.87l-.18-.01z"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M6 19.61A5.39 5.39 0 016 8.83a.75.75 0 010 1.5 3.859 3.859 0 00-2.8 1.13 3.91 3.91 0 000 5.5 4 4 0 005.49 0 .75.75 0 011.06 1.06A5.36 5.36 0 016 19.61zM18.05 19.61A5.36 5.36 0 0114.24 18a.75.75 0 011.06-1.06 4 4 0 005.49 0 3.91 3.91 0 000-5.5 3.86 3.86 0 00-2.75-1.13.75.75 0 110-1.5 5.39 5.39 0 110 10.78l.01.02z"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M14.78 18.24H9.22a.75.75 0 110-1.5h5.56a.75.75 0 010 1.5zM18.05 10.33H6a.75.75 0 110-1.5h12.1a.75.75 0 110 1.5h-.05z"
+              ></path>
             </svg>
           </TextButton>
         </TransitionLink>

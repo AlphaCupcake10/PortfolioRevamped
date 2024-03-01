@@ -61,8 +61,8 @@ function HomePage()
                         });
                     }} color='primary' className='md:w-48'>ABOUT ME</Button> */}
 
-                    <TransitionLink to='/game'>
-                        <Button color='primary' className='md:w-48'>ABYSSAL DECENT</Button>
+                    <TransitionLink to='/3D'>
+                        <Button color='primary' className='md:w-48'>EXPLORE IN 3D</Button>
                     </TransitionLink>
                     <TransitionLink to='/projects'>
                         <Button color='secondary' className='md:w-48'>PROJECTS</Button>
