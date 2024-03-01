@@ -5,6 +5,7 @@ import ContactPage from "./pages/ContactPage"
 import ProjectsPage from "./pages/ProjectsPage"
 import Game from "./pages/Game"
 import Page404 from "./pages/Page404"
+import { ModalProvier } from "./contexts/ModalContext"
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Route path="/projects" element={<ProjectsPage/>}/>
         <Route path="/3D" element={<ThreeDWorld/>}/>
         <Route path="/contact" element={<ContactPage/>}/>
-        <Route path="/game/*" element={<Game/>}/>
+        <Route path="/game/*" element={<ModalProvier><Game/></ModalProvier>}/>
         <Route path="/*" element={<Page404/>}/>
       </Routes>
     </>

@@ -4,6 +4,7 @@ import Button from '../common/Button';
 import Input from '../common/Input';
 import TextButton from '../common/TextButton';
 import axios from '../../axios';
+import { useModal } from '../../contexts/ModalContext';
 
 export default function UserModal(props: { className?: string, isOpen: boolean, closeModal: () => void, isSignedIn: boolean, setisSignedIn:(val:boolean)=>void}) {
 
@@ -14,6 +15,8 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
     const [displayName, setDisplayName] = useState<string>("");
 
     const [isSignInPage, setIsSignInPage] = useState<boolean>(true);
+
+    const modal = useModal();
 
     useEffect(()=>{
         GetUserName();
@@ -113,9 +116,12 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
         }
     }
 
-    const handleSignOut = async () => {
-        props.setisSignedIn(false);
-        RemoveToken();
+    const handleSignOut = async (force:boolean) => {
+        if(force || await modal?.CreateModal('SIGN OUT', 'Are you sure you want to sign out?',"Yes","No"))
+        {
+            props.setisSignedIn(false);
+            RemoveToken();
+        }
     }
 
     const handleDeleteUser = async () => {
@@ -123,9 +129,10 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
         {
             let token = GetToken();
             if(!token){
-                handleSignOut()
+                handleSignOut(true)
                 return;
             }
+            if(!await modal?.CreateModal('DELETE ACCOUNT', 'Are you sure you want to delete your account?',"Yes","No"))return;  
             let res = await axios.delete('user/', {
                 headers: {
                     Authorization: `${token}`
@@ -133,7 +140,7 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
             });
             if(res.status !== 200)return;
             toast.success('Account deleted successfully');
-            handleSignOut();
+            handleSignOut(true);
             ClearFields();
         }
         catch(err:any)
@@ -161,13 +168,16 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
                     Authorization: `${token}`
                 }
             });
-
             if(res.status !== 200)return;
             setDisplayName(res.data.username);
         }
         catch(err:any)
         {
             console.log(err);
+            if(err?.response?.data == "User not found")
+            {
+                handleSignOut(true);
+            }
             toast.error(err);
         }
     }
@@ -193,8 +203,8 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
     }
 
     return (
-        <div className={`${props.className} backdrop-blur bg-background/80 transition-opacity duration-500 ${props.isOpen ? "" : "opacity-0 pointer-events-none"} w-screen h-screen fixed z-50`}>
-            <svg className="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-70 w-16 h-16 hover:text-primary duration-100 cursor-pointer hover:scale-105 active:scale-95" onClick={() => props.closeModal()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <div className={`${props.className} backdrop-blur bg-background/80 transition-opacity duration-500 ${props.isOpen ? "" : "opacity-0 pointer-events-none"} w-screen h-screen fixed z-40`}>
+            <svg className="absolute bottom-4 2xl:bottom-16 left-1/2 -translate-x-1/2 opacity-70 w-16 h-16 hover:text-primary duration-100 cursor-pointer hover:scale-105 active:scale-95" onClick={() => props.closeModal()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
             {
@@ -202,7 +212,7 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
                     <div className="flex flex-col justify-center items-center h-screen w-full md:w-128 mx-auto">
                         <h1 className="text-xl md:text-2xl">Signed in as</h1>
                         <h1 className="text-2xl md:text-4xl font-bold">{displayName}</h1>
-                        <Button onClick={() => handleSignOut()} className="mt-8 w-64" color={'primary'}>SIGN OUT</Button>
+                        <Button onClick={() => handleSignOut(false)} className="mt-8 w-64" color={'primary'}>SIGN OUT</Button>
                         <TextButton onClick={()=>handleDeleteUser()} className="mt-8 w-64">DELETE ACCOUNT</TextButton>
                     </div>
                 ) : (

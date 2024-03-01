@@ -31,8 +31,8 @@ function LandingPage() {
                 }}
             />
             <Cursor />
-            <div className="h-screen fixed top-0 left-0 p-16 z-40 flex items-end justify-center w-full pointer-events-none">
-                <div className='gap-8 flex items-end justify-center pointer-events-auto'>
+            <div className="h-screen fixed top-0 left-0 p-4 2xl:p-16 z-30 flex items-end justify-center w-full pointer-events-none">
+                <div className='gap-8 flex items-end justify-center pointer-events-auto scale-50 2xl:scale-100'>
                     <UserIcon onClick={()=>{
                         openModal();
                     }}/>
