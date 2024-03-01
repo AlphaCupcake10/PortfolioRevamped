@@ -17,7 +17,7 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
 
     useEffect(()=>{
         GetUserName();
-    },[])
+    },[props.isSignedIn])
 
     function checkUsername()
     {
