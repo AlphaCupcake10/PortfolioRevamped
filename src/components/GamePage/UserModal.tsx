@@ -154,7 +154,7 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
     {
         try
         {
-            let token = localStorage.getItem('token');
+            let token = GetToken();
             if(!token){
                 props.setisSignedIn(false);
                 return;

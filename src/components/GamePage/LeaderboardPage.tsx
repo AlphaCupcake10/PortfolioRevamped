@@ -76,10 +76,10 @@ function Comp(props:{val:{username: string,time: number},index:number})
         <div ref={ref} className="py-8 px-4 2xl:py-0 block overflow-clip group border-b-2 border-text/10 cursor-pointer relative after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-primary after:origin-bottom hover:after:origin-left after:-z-10 after:duration-500 after:transition-transform after:scale-y-0 hover:after:scale-y-100">
             <div className="container p-4 md:p-8 relative mx-auto flex justify-between items-center">
                 <div className="flex items-center gap-8">
-                    <h1 className='md:text-xl font-bold'>{props.index}</h1>
+                    <h1 className='md:text-xl font-bold'>{props.index+1}</h1>
                     <h1 className='md:text-4xl font-bold'>{props.val.username}</h1>
                 </div>
-                <h1 className='md:text-3xl'>{Math.floor(props.val.time/60)}:{props.val.time%60}</h1>
+                <h1 className='md:text-3xl'>{`${(Math.floor(props.val.time/60)).toString().padStart(2, '0')}:${(Math.floor(props.val.time%60)).toString().padStart(2, '0')}`}</h1>
             </div>
         </div>
     )

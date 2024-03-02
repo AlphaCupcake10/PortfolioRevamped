@@ -6,9 +6,17 @@ import Page404 from "./Page404";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import LeaderboardPage from "../components/GamePage/LeaderboardPage";
+import { useEffect } from "react";
 
 export default function Game()
 {
+    useEffect(()=>{
+        document.title = 'Abyssal Decent';
+
+        return () => {
+            document.title = 'AlphaCupcake10';
+        }
+    },[])
     return (
         <>
             <ToastContainer

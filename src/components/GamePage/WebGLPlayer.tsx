@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { TransitionLink, usePageLoader } from '../../contexts/PageLoaderContext';
 import Button from '../common/Button';
+import axios from '../../axios';
+import { toast } from 'react-toastify';
 
-export default function WebGLPlayer()
-{
-    const { unityProvider, loadingProgression, isLoaded , addEventListener, removeEventListener} = useUnityContext({
+export default function WebGLPlayer() {
+    const { unityProvider, loadingProgression, isLoaded, addEventListener, removeEventListener } = useUnityContext({
         loaderUrl: "Build/Build/Build.loader.js",
         dataUrl: "Build/Build/Build.data",
         frameworkUrl: "Build/Build/Build.framework.js",
@@ -13,48 +14,82 @@ export default function WebGLPlayer()
     })
 
     const pageLoaderContext = usePageLoader();
-    useEffect(()=>{
+    useEffect(() => {
         pageLoaderContext?.setHasToRefresh(true);
-    },[]);
+    }, []);
 
-    const handleQuit =() => {
+    function GetToken() {
+        return localStorage.getItem('token');
+    }
+
+    const uploadTime = async (time?: number) => {
+        toast.dismiss();
+        const token = GetToken();
+        if (!token) {
+            toast.error('You are not logged in');
+            return;
+        }
+        if (time) {
+            try {
+                let token = GetToken();
+                let res = await axios.post('/leaderboard', { time }, { headers: { Authorization: `${token}` } });
+                if (res.status !== 200) return;
+                console.log(res.data);
+            }
+            catch (err: any) {
+                console.log(err);
+                toast.error(err);
+            }
+
+        }
+    }
+
+    const handleSetScore: (recordTime: any) => any = useCallback((recordTime: Number) => {
+        const time = recordTime as number;
+        if (time && time > 0) {
+            uploadTime(time);
+        }
+    }, []);
+    const handleQuit = useCallback(() => {
         console.log("Quit Game");
         pageLoaderContext?.navigateTo("/game");
-    }
-    
+    }, []);
+
     useEffect(() => {
-        if(addEventListener && handleQuit)
-        addEventListener("QuitGame", handleQuit);
+        if (addEventListener && handleQuit)
+            addEventListener("QuitGame", handleQuit);
+        addEventListener("SetTime", handleSetScore);
         return () => {
             removeEventListener("QuitGame", handleQuit);
+            removeEventListener("SetTime", handleSetScore);
         };
-    }, [addEventListener, removeEventListener, handleQuit]);
+    }, [addEventListener, removeEventListener, handleQuit, handleSetScore]);
 
     function toggleFullScreen() {
         if (!document.fullscreenElement) {
             if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
+                document.documentElement.requestFullscreen();
             }
         } else {
             if (document.exitFullscreen) {
-            document.exitFullscreen();
+                document.exitFullscreen();
             }
         }
     }
 
-    function setPixelRatio(ratio:number){
+    function setPixelRatio(ratio: number) {
         const canvas = document.getElementsByTagName("canvas")[0] as HTMLCanvasElement;
-        if(!canvas) return;
+        if (!canvas) return;
 
         const element = canvasContainer.current as HTMLDivElement;
-        if(!element) return;
+        if (!element) return;
 
         canvas.height = element.offsetHeight * ratio;
         canvas.width = element.offsetWidth * ratio;
     }
 
     const [graphics, setGraphics] = useState(2);
-    const pixelRatios = [0.5,0.75,1,1.5];
+    const pixelRatios = [0.5, 0.75, 1, 1.5];
     const canvasContainer = useRef<HTMLDivElement>(null);
 
     useEffect(()=>{
@@ -62,59 +97,59 @@ export default function WebGLPlayer()
         setPixelRatio(1);
     },[isLoaded]);
 
-    useEffect(()=>{
-        window.addEventListener("resize",()=>{
+    useEffect(() => {
+        window.addEventListener("resize", () => {
             setPixelRatio(pixelRatios[graphics]);
         });
         setPixelRatio(pixelRatios[graphics]);
-        return ()=>{
-            window.removeEventListener("resize",()=>{
+        return () => {
+            window.removeEventListener("resize", () => {
                 setPixelRatio(pixelRatios[graphics]);
             });
         }
-    },[graphics])
+    }, [graphics])
 
     return (
-    <>
-        {/* <Navbar margin/> */}
-        {!isLoaded && (
-            <div className='w-full h-screen bg-black flex flex-col justify-center items-center'>
-            <div className='max-w-sm w-full'>
-                <div className="flex justify-between opacity-50">
-                    <h1>Loading...</h1>
-                    <h1>{`${Math.floor(loadingProgression * 100)}%`}</h1>
+        <>
+            {/* <Navbar margin/> */}
+            {!isLoaded && (
+                <div className='w-full h-screen bg-black flex flex-col justify-center items-center'>
+                    <div className='max-w-sm w-full'>
+                        <div className="flex justify-between opacity-50">
+                            <h1>Loading...</h1>
+                            <h1>{`${Math.floor(loadingProgression * 100)}%`}</h1>
+                        </div>
+                        <div className="h-2 bg-primary/50">
+                            <div style={{ width: `${loadingProgression * 100}%` }} className="duration-700 h-full bg-primary"></div>
+                        </div>
+                    </div>
                 </div>
-                <div className="h-2 bg-primary/50">
-                    <div style={{width:`${loadingProgression * 100}%`}} className="duration-700 h-full bg-primary"></div>
+            )}
+
+            <div className={`${isLoaded ? "block" : "hidden"} flex flex-col z-20 relative justify-center`}>
+                <div ref={canvasContainer} className="h-64 sm:h-96 z-30 relative md:h-screen">
+                    <Unity
+                        unityProvider={unityProvider}
+                        className={`h-full w-full object-contain`}
+                        matchWebGLToCanvasSize={false}
+                    />
                 </div>
             </div>
-        </div>
-        )}
-        
-        <div className={`${isLoaded?"block":"hidden"} flex flex-col z-20 relative justify-center`}>
-            <div ref={canvasContainer} className="h-64 sm:h-96 z-30 relative md:h-screen">
-                <Unity
-                    unityProvider={unityProvider}
-                    className={`h-full w-full object-contain`}
-                    matchWebGLToCanvasSize={false}
-                />
+            <div className="md:hidden p-8">
+                <h1 className="text-xl font-bold">For Best Experience</h1>
+                <p className="opacity-70">Toggle fullscreen and change to landscape</p>
+                <Button className="mt-8 w-full" onClick={() => toggleFullScreen()} color={"primary"}>Toggle Fullscreen</Button>
+                <TransitionLink to={'/'}><Button className="mt-2 w-full" color={"secondary"}>Exit</Button></TransitionLink>
             </div>
-        </div>
-        <div className="md:hidden p-8">
-            <h1 className="text-xl font-bold">For Best Experience</h1>
-            <p className="opacity-70">Toggle fullscreen and change to landscape</p>
-            <Button className="mt-8 w-full" onClick={()=>toggleFullScreen()} color={"primary"}>Toggle Fullscreen</Button>
-            <TransitionLink to={'/'}><Button className="mt-2 w-full" color={"secondary"}>Exit</Button></TransitionLink>
-        </div>
-        <div className="md:hidden p-8">
-            <h1 className="text-xl font-bold">Pixel Ratio</h1>
-            <p className="opacity-70">Lower pixel ratio for better performance.</p>
-            {
-                ["Low","Medium","High","Ultra"].map((item,index)=>(
-                    <Button key={index} className="mt-2 w-full" onClick={()=>setGraphics(index)} color={graphics===index?"primary":"secondary"}>{item}</Button>
-                ))
-            }
-        </div>
-    </>
-  )
+            <div className="md:hidden p-8">
+                <h1 className="text-xl font-bold">Pixel Ratio</h1>
+                <p className="opacity-70">Lower pixel ratio for better performance.</p>
+                {
+                    ["Low", "Medium", "High", "Ultra"].map((item, index) => (
+                        <Button key={index} className="mt-2 w-full" onClick={() => setGraphics(index)} color={graphics === index ? "primary" : "secondary"}>{item}</Button>
+                    ))
+                }
+            </div>
+        </>
+    )
 }
