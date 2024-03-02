@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { TransitionLink, usePageLoader } from '../../contexts/PageLoaderContext';
 import Button from '../common/Button';
