@@ -2,6 +2,7 @@ import { useLenis } from "@studio-freight/react-lenis";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { LinkProps, To, useLocation, useNavigate } from "react-router-dom";
 import wat from "../assets/wat.png?url";
+import axios from "../axios";
 
 type PageLoaderContextType = {
     navigateTo: (to: To,force?:boolean) => Promise<void>
@@ -77,6 +78,27 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
             }, 2100);
         }
     }, [isAnimating])
+
+    const visitUpdate = async() => {
+        if(localStorage.getItem("HasVisited") == null)
+        {
+            try
+            {
+                let response = await axios.get("/stats/increment");
+                console.log(response);
+                if(response.status == 200)
+                {
+                    localStorage.setItem("HasVisited", "true");
+                }
+            }
+            catch(e)
+            {
+                console.error(e);
+            }
+        }
+    }
+
+    useEffect(()=>{visitUpdate()}, []);
 
     const value: PageLoaderContextType = {
         navigateTo,

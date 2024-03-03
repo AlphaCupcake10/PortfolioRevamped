@@ -19,12 +19,30 @@ export function SkillsSection()
                             }
                         },
                         {
+                            title:"Backend Development",
+                            fields:{
+                                "NODEJS":.4,
+                                "EXPRESSJS":.5,                      
+                                "MONGODB":.6,                    
+                                "SQL":.65,
+                            }
+                        },
+                        {
                             title:"Languages",
                             fields:{
                                 "C++":.7,
                                 "Python":.65,
                                 "Javascript":.6,
                                 "Typescript":.56,
+                            }
+                        },
+                        {
+                            title:"Game Development",
+                            fields:{
+                                "C# with Unity":.9,
+                                "2D / 3D Asset Creation":.7,
+                                "Game Design":.85,
+                                "VR / AR Development":.7,      
                             }
                         },
                         {
@@ -41,15 +59,6 @@ export function SkillsSection()
                                 "3D Modelling":.5,
                                 "Lighting & Composition":.7,
                                 "Product Animation":.9,
-                            }
-                        },
-                        {
-                            title:"Game Development",
-                            fields:{
-                                "C# with Unity":.9,
-                                "2D / 3D Asset Creation":.7,
-                                "Game Design":.85,
-                                "VR / AR Development":.7,      
                             }
                         },
                         {

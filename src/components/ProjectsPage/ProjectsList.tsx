@@ -59,12 +59,12 @@ export default function ProjectsList() {
         {
             sectionTitle: "3D Animation Projects",
             data: [
-                // {
-                //     title: "FRESCO XL",
-                //     hoverTitle: "FREELANCE",
-                //     subTitle: "The trailer was covered in reputable online articles and reached 100k + views on YouTube",
-                //     link: "https://youtu.be/jbCRmvzX6rg?si=FabNkOsJFhtBCrgY"
-                // },
+                {
+                    title: "FRESCO XL",
+                    hoverTitle: "FREELANCE",
+                    subTitle: "The trailer was covered in reputable online articles and reached 100k + views on YouTube",
+                    link: "https://youtu.be/jbCRmvzX6rg?si=FabNkOsJFhtBCrgY"
+                },
                 {
                     title: "MEET EGGZY",
                     hoverTitle: "EGGZY GOT LEGGZY",
