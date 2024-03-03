@@ -69,7 +69,7 @@ function Navbar(props: { className?: string, margin?: boolean }) {
           </div>
         </div>
       </header>
-      <header className='md:hidden fixed z-50 p-2 border-t-2 border-text/10 rounded-t-xl bottom-0 w-full bg-background flex justify-center gap-4'>
+      <header className='md:hidden fixed z-30 p-2 border-t-2 border-text/10 rounded-t-xl bottom-0 w-full bg-background flex justify-center gap-4'>
         <TransitionLink to='/'>
           <TextButton defaultActive={location.pathname == '/'}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

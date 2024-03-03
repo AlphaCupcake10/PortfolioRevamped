@@ -5,7 +5,6 @@ import Cursor from '../common/Cursor'
 import TextButton from '../common/TextButton'
 import { useRef, useState } from 'react'
 import AbysalDecent from '../models/AbysalDecent'
-import Button from '../common/Button'
 import UserModal from './UserModal'
 import { LeaderboardIcon , UserIcon , PlayIcon} from './Icons'
 import Footer from '../Footer'
@@ -31,8 +30,8 @@ function LandingPage() {
                 }}
             />
             <Cursor />
-            <div className="h-screen fixed top-0 left-0 p-4 2xl:p-16 z-30 flex items-end justify-center w-full pointer-events-none">
-                <div className='gap-8 flex items-end justify-center pointer-events-auto scale-50 2xl:scale-100'>
+            <div className="h-screen fixed top-0 left-0 p-24 md:p-4 2xl:p-16 z-30 flex items-end justify-center w-full pointer-events-none">
+                <div className='gap-8 flex items-end justify-center pointer-events-auto md:scale-50 2xl:scale-100'>
                     <UserIcon onClick={()=>{
                         openModal();
                     }}/>
@@ -43,14 +42,6 @@ function LandingPage() {
             {/* PHONE VERSION */}
             <section className={`${isModalOpen?"hidden":""} md:hidden h-screen flex flex-col justify-center items-center`}>
                 <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DECENT</h1>
-                <div className="flex flex-col gap-4 mt-8">
-                    <span onClick={()=>openModal()}>
-                            <Button className='w-64' color={'primary'}>CREATE AN ACCOUNT</Button>
-                    </span>
-                    <TransitionLink to={'/game/play'}>
-                        <Button className='w-64' color={'secondary'}>PLAYTEST NOW</Button>
-                    </TransitionLink>
-                </div>
             </section>
             {/* DESKTOP */}
             <section className="hidden md:block h-[1000vh] w-full relative z-10" ref={scrollRef}>

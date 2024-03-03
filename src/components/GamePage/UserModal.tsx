@@ -203,7 +203,7 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
     }
 
     return (
-        <div className={`${props.className} backdrop-blur bg-background/80 transition-opacity duration-500 ${props.isOpen ? "" : "opacity-0 pointer-events-none"} w-screen h-screen fixed z-40`}>
+        <div className={`${props.className} p-4 backdrop-blur bg-background/80 transition-opacity duration-500 ${props.isOpen ? "" : "opacity-0 pointer-events-none"} w-screen h-screen fixed z-40`}>
             <svg className="absolute bottom-4 2xl:bottom-16 left-1/2 -translate-x-1/2 opacity-70 w-16 h-16 hover:text-primary duration-100 cursor-pointer hover:scale-105 active:scale-95" onClick={() => props.closeModal()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
