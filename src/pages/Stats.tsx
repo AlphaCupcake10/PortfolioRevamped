@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "../axios";
+import Button from "../components/common/Button";
+import { TransitionLink } from "../contexts/PageLoaderContext";
 
 function Stats()
 {
@@ -31,6 +33,7 @@ function Stats()
             <h1>Stats</h1>
             <p>Unique Visits: {stats?.uniqueVisits}</p>
             <p>Daily Visits: {stats?.dailyVisits}</p>
+            <TransitionLink to={""}><Button color={"primary"}>HOME</Button></TransitionLink>
         </div>
     )
 }

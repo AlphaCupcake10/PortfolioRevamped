@@ -115,7 +115,7 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
                 let response = await axios.get("/stats/incrementDailyVisits");
                 if(response.status == 200)
                 {
-                    localStorage.setItem("LastVisited", new Date().getMilliseconds().toString());
+                    localStorage.setItem("LastVisited", Date.now().toString());
                 }
             }
             catch(e)
