@@ -85,7 +85,6 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
             try
             {
                 let response = await axios.get("/stats/incrementUniqueVisits");
-                console.log(response);
                 if(response.status == 200)
                 {
                     localStorage.setItem("HasVisited", "true");
@@ -100,11 +99,11 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
         if(visitedTime == null)
         {
             MakeCall();
-            visitedTime = new Date().getMilliseconds().toString();
+            visitedTime = Date.now().toString();
             localStorage.setItem("LastVisited", visitedTime);
             return;
         }
-        let timeDiff = new Date().getMilliseconds() - parseInt(visitedTime);
+        let timeDiff = Date.now() - parseInt(visitedTime);
         if(timeDiff > 1000 * 60 * 60 * 24)
         {
             MakeCall();
@@ -114,7 +113,6 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
             try
             {
                 let response = await axios.get("/stats/incrementDailyVisits");
-                console.log(response);
                 if(response.status == 200)
                 {
                     localStorage.setItem("LastVisited", new Date().getMilliseconds().toString());
