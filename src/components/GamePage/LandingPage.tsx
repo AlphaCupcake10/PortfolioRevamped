@@ -6,7 +6,7 @@ import TextButton from '../common/TextButton'
 import { useRef, useState } from 'react'
 import AbysalDecent from '../models/AbysalDecent'
 import UserModal from './UserModal'
-import { LeaderboardIcon , UserIcon , PlayIcon} from './Icons'
+import { LeaderboardIcon , UserIcon , PlayIcon, ExitIcon} from './Icons'
 import Footer from '../Footer'
 
 function LandingPage() {
@@ -32,6 +32,7 @@ function LandingPage() {
             <Cursor />
             <div className="h-screen fixed top-0 left-0 p-24 md:p-4 2xl:p-16 z-30 flex items-end justify-center w-full pointer-events-none">
                 <div className='gap-8 flex items-end justify-center pointer-events-auto md:scale-50 2xl:scale-100'>
+                    <ExitIcon />
                     <UserIcon onClick={()=>{
                         openModal();
                     }}/>
