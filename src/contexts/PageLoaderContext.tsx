@@ -4,7 +4,7 @@ import { LinkProps, To, useLocation, useNavigate } from "react-router-dom";
 import wat from "../assets/wat.png?url";
 
 type PageLoaderContextType = {
-    navigateTo: (to: To) => Promise<void>
+    navigateTo: (to: To,force?:boolean) => Promise<void>
     setHasToRefresh: React.Dispatch<React.SetStateAction<boolean>>
 }
 
@@ -56,9 +56,12 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
         "/contact": "CONTACT",
         "/game": "ABYSSAL DECENT",
     }
-    async function navigateTo(to: To) {
-        if (isLoading || isAnimating) return;
-        if (reactLocation.pathname == to) return;
+    async function navigateTo(to: To,force:boolean=false) {
+        if(!force)
+        {
+            if (isLoading || isAnimating) return;
+            if (reactLocation.pathname == to) return;
+        }
         setIsAnimating(true);
         setIsLoading(true);
         setLoadingText(to.toString());

@@ -52,7 +52,8 @@ export default function WebGLPlayer() {
     }, []);
     const handleQuit = useCallback(() => {
         console.log("Quit Game");
-        pageLoaderContext?.navigateTo("/game");
+        console.log(pageLoaderContext)
+        pageLoaderContext?.navigateTo("/game",true);
     }, []);
 
     useEffect(() => {
