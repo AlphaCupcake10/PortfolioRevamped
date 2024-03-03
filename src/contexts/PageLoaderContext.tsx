@@ -84,10 +84,40 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
         {
             try
             {
-                let response = await axios.get("/stats/increment");
+                let response = await axios.get("/stats/incrementUniqueVisits");
+                console.log(response);
                 if(response.status == 200)
                 {
                     localStorage.setItem("HasVisited", "true");
+                }
+            }
+            catch(e)
+            {
+                console.error(e);
+            }
+        }
+        let visitedTime = localStorage.getItem("LastVisited");
+        if(visitedTime == null)
+        {
+            MakeCall();
+            visitedTime = new Date().getMilliseconds().toString();
+            localStorage.setItem("LastVisited", visitedTime);
+            return;
+        }
+        let timeDiff = new Date().getMilliseconds() - parseInt(visitedTime);
+        if(timeDiff > 1000 * 60 * 60 * 24)
+        {
+            MakeCall();
+        }
+        async function MakeCall()
+        {
+            try
+            {
+                let response = await axios.get("/stats/incrementDailyVisits");
+                console.log(response);
+                if(response.status == 200)
+                {
+                    localStorage.setItem("LastVisited", new Date().getMilliseconds().toString());
                 }
             }
             catch(e)

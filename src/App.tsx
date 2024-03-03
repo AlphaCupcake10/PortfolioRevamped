@@ -6,6 +6,7 @@ import ProjectsPage from "./pages/ProjectsPage"
 import Game from "./pages/Game"
 import Page404 from "./pages/Page404"
 import { ModalProvier } from "./contexts/ModalContext"
+import Stats from "./pages/Stats"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/3D" element={<ThreeDWorld/>}/>
         <Route path="/contact" element={<ContactPage/>}/>
         <Route path="/game/*" element={<ModalProvier><Game/></ModalProvier>}/>
+        <Route path="/stats" element={<Stats/>}/>
         <Route path="/*" element={<Page404/>}/>
       </Routes>
     </>
