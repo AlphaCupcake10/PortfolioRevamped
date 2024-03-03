@@ -60,7 +60,6 @@ function Experience() {
     
     function CreateGlobalMixer()
     {
-        console.log(gltf.animations)
         if (gltf.animations.length) {
             globalMixer.current = new AnimationMixer(gltf.scene);
             gltf.animations.forEach(clip => {

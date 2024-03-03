@@ -85,7 +85,6 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
             try
             {
                 let response = await axios.get("/stats/increment");
-                console.log(response);
                 if(response.status == 200)
                 {
                     localStorage.setItem("HasVisited", "true");

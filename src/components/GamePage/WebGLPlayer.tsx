@@ -34,7 +34,6 @@ export default function WebGLPlayer() {
                 let token = GetToken();
                 let res = await axios.post('/leaderboard', { time }, { headers: { Authorization: `${token}` } });
                 if (res.status !== 200) return;
-                console.log(res.data);
             }
             catch (err: any) {
                 console.log(err);
@@ -51,8 +50,6 @@ export default function WebGLPlayer() {
         }
     }, []);
     const handleQuit = useCallback(() => {
-        console.log("Quit Game");
-        console.log(pageLoaderContext)
         pageLoaderContext?.navigateTo("/game",true);
     }, []);
 

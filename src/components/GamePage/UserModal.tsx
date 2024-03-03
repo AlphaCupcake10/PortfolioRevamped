@@ -70,7 +70,6 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
                     username: username.value,
                     password: password.value
                 });
-                console.log(res);
                 if(res.status !== 200)
                 {
                     toast.error('Failed to sign in');
