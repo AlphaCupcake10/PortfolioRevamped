@@ -19,7 +19,7 @@ export default function FeaturedSection()
     },[])
 
     const isTransitioning = useRef(false);
-    const intervalId = useRef(0);
+    const intervalId = useRef<any>(0);
 
     function resetTimer()
     {
