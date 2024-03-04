@@ -8,7 +8,9 @@ import Page404 from "./pages/Page404"
 import Stats from "./pages/Stats"
 
 import { registerSW } from "virtual:pwa-register";
-import { useModal } from "./contexts/ModalContext"
+import { useModal } from "./contexts/ModalContext";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
 
@@ -28,6 +30,8 @@ function App() {
 
   return (
     <>
+      <Analytics/>
+      <SpeedInsights/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
