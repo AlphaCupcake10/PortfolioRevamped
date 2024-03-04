@@ -3,11 +3,13 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { TransitionLink } from '../../contexts/PageLoaderContext'
 import Cursor from '../common/Cursor'
 import TextButton from '../common/TextButton'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AbysalDecent from '../models/AbysalDecent'
 import UserModal from './UserModal'
 import { LeaderboardIcon , UserIcon , PlayIcon, ExitIcon} from './Icons'
 import Footer from '../Footer'
+import axios from '../../axios'
+import { toast } from 'react-toastify'
 
 function LandingPage() {
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -17,6 +19,28 @@ function LandingPage() {
     function openModal() {
         setIsModalOpen(true);
     }
+
+    const [data,setData] = useState<{
+        username: string;
+        time: number;
+    }[]>([]);
+
+    useEffect(() => {
+        try {
+            axios.get('/leaderboard').then((res) => {
+                if(res.status !== 200)return;
+                setData(res.data);
+            });
+        }
+        catch (err) {
+            toast.error('Failed to fetch leaderboard data');
+            console.log(err);
+        }
+    }, [])
+
+    useEffect(()=>{
+        console.log(data)
+    },[data])
 
     return (
         <>
@@ -61,12 +85,22 @@ function LandingPage() {
                     </div>
                 </div>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
-                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75] strokeText">LOREM<br />IPSUM</h1>
+                    <h1 className="font-bold tracking-tighter text-[8vw] opacity-50 text-center leading-[.75] strokeText">A GAME-DEV</h1>
+                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75] strokeText">PROJECT</h1>
                 </div>
-                <div className="h-[700vh]"/>
+                <div className="h-[100vh]"/>
+                <div className="h-screen flex justify-start gap-4 container mx-auto">
+                    <div className="h-full flex flex-col justify-center">
+                        <h1 className="font-bold tracking-tighter text-[8vw] opacity-30 leading-[.75] strokeText">GENRE</h1>
+                        <h1 className="font-bold tracking-tighter text-[15vw] leading-[.75] strokeText">PARKOUR</h1>
+                        <h1 className="font-bold tracking-tighter text-[15vw] leading-[.75] strokeText">SCI-FI</h1>
+                    </div>
+                </div>
+                <div className="h-[500vh]"/>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75] strokeText">ABYSSAL<br />DECENT</h1>
                 </div>
+                
             </section>
             <div className="h-screen w-screen fixed z-0 top-0 left-0 pointer-events-none hidden md:block">
                 <Canvas
@@ -85,26 +119,37 @@ function LandingPage() {
                     <div className="flex h-0"/>
                 </div>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
-                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">LOREM<br />IPSUM</h1>
+                    <h1 className="font-bold tracking-tighter text-[8vw] opacity-50 text-center leading-[.75]">A GAME-DEV</h1>
+                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">PROJECT</h1>
                 </div>
                 <div className="h-screen flex justify-end gap-4 container mx-auto">
                     <div className="h-full w-1/2 flex flex-col justify-center">
-                        <h1 className="opacity-70 tracking-tighter text-[2vw] leading-[1]">WHAT IS</h1>
-                        <h1 className="font-bold tracking-tighter text-[4vw] leading-[1]">ABYSSAL DECENT?</h1>
+                        <h1 className="opacity-70 tracking-tighter text-[3vw] leading-[.75]">ABOUT THE</h1>
+                        <h1 className="font-bold tracking-tighter text-[6vw] leading-[.75]">PROJECT</h1>
                         <p className="mt-4 opacity-70">
                             A fast paced action thriller based on unsual physics with a Sci-Fi premise.
                             <br />
-                            It started out as a project for The Brackeys Game Jam 2023.2. I decided to keep working on it after the jam.It eventually turned into a full fledged game with a story and a lot of content.
+                            It started out as a project for The Brackeys Game Jam 2023.2. I decided to keep working on it after the jam. It eventually turned into a full fledged game with a story and a lot of content.
                         </p>
                     </div>
                 </div>
                 <div className="h-screen flex justify-start gap-4 container mx-auto">
-                    <div className="h-full w-1/2 flex flex-col justify-center">
-                        <h1 className="font-bold tracking-tighter text-[18vw] text-center leading-[.75]">LOREM<br />IPSUM</h1>
+                    <div className="h-full flex flex-col justify-center">
+                        <h1 className="font-bold tracking-tighter text-[8vw] opacity-30 leading-[.75]">GENRE</h1>
+                        <h1 className="font-bold tracking-tighter text-[15vw] leading-[.75]">PARKOUR</h1>
+                        <h1 className="font-bold tracking-tighter text-[15vw] leading-[.75]">SCI-FI</h1>
                     </div>
                 </div>
                 <div className="h-screen flex justify-start gap-4 container mx-auto">
-                    <div className="h-full w-2/5 flex flex-col justify-center">
+                    <div className="h-full w-[45%] flex flex-col justify-center">
+                        <h1 className="mb-4 font-bold text-[3.5vw] leading-[1]">THE STORY SO FAR</h1>
+                        <p className="mt-4 opacity-70">
+                            In "Abyssal Descent," players explore a collapsing sci-fi facility where they gain telekinetic powers from a botched experiment. Battling rogue drones and navigating abnormal physics, they must use their newfound abilities to survive, solve puzzles, and uncover the facility's dark secrets before it's too late.
+                        </p>
+                    </div>
+                </div>
+                <div className="h-screen flex justify-end gap-4 container mx-auto">
+                    <div className="h-full w-1/2 flex flex-col justify-center">
                         <h1 className="mb-4 font-bold tracking-tighter text-[4vw] leading-[1]">TECH STACK</h1>
                         <div className="flex gap-4">
                             <div className="bg-background/50 p-3 border rounded border-text/10 grow text-center">UNITY</div>
@@ -116,9 +161,9 @@ function LandingPage() {
                     </div>
                 </div>
                 <div className="h-screen flex justify-end gap-4 container mx-auto">
-                    <div className="h-full w-1/2 flex flex-col justify-center">
-                        <h1 className="mb-4 font-bold tracking-tighter text-[4vw] leading-[1]">MULTIPLATFORM</h1>
-                        <h1 className="mb-4 text-[1vw] leading-[1] opacity-70">All you need is a browser to run it.</h1>
+                    <div className="h-full w-2/5 flex flex-col justify-center">
+                        <h1 className="mb-4 font-bold tracking-tighter text-[3vw] leading-[1]">MULTIPLATFORM PWA</h1>
+                        <h1 className="mb-4 text-[1vw] leading-[1] opacity-70">All you need is a browser to install and run it.</h1>
                         <div className="flex gap-4">
                             <div className="bg-background/50 p-3 border rounded border-text/10 grow text-center">WINDOWS</div>
                             <div className="bg-background/50 p-3 border rounded border-text/10 grow text-center">LINUX</div>
@@ -129,18 +174,23 @@ function LandingPage() {
                 </div>
                 <div className="h-screen flex justify-end gap-4 container mx-auto">
                     <div className="h-full w-2/5 flex flex-col justify-center">
-                        <h1 className="mb-4 font-bold text-[4vw] leading-[1]">ONLINE</h1>
-                        <h1 className="mb-4 text-[1vw] leading-[1] opacity-70">Compare your records in the Leaderboard, Allow cross-save between platforms</h1>
-                        <div className="flex gap-4">
-                            <div className="bg-background/50 p-3 border rounded border-text/10 grow text-center">LEADERBOARD</div>
-                            <div className="bg-background/50 p-3 border rounded border-text/10 grow text-center">CROSS-SAVES</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="h-screen flex justify-end gap-4 container mx-auto">
-                    <div className="h-full w-2/5 flex flex-col justify-center">
-                        <h1 className="mb-4 font-bold text-[4vw] leading-[1]">FEEL THE RUSH</h1>
-                        <h1 className="mb-4 text-[1vw] leading-[1] opacity-70">Manipulate Space and Time</h1>
+                        <h1 className="mb-4 font-bold text-[4vw] leading-[1]">LEADERBOARD</h1>
+                        <h1 className="mb-4 text-[1vw] leading-[1] opacity-70">Compete with your friends. </h1>
+                        {
+                            data.length > 0 && data.map((val,index) => {
+                                if(index > 5)return;
+                                return (
+                                    <div className='flex justify-between' key={index}>
+                                        <div>
+                                            {index+1}. {val.username}
+                                        </div>
+                                        <div>
+                                        <h1 className=''>{`${(Math.floor(val.time/60)).toString().padStart(2, '0')}:${(Math.floor(val.time%60)).toString().padStart(2, '0')}`}</h1>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
                 <div className="h-screen"/>
