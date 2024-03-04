@@ -89,7 +89,7 @@ function LandingPage() {
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75] strokeText">PROJECT</h1>
                 </div>
                 <div className="h-[100vh]"/>
-                <div className="h-screen flex justify-start gap-4 container mx-auto">
+                <div className="h-screen flex justify-start gap-4 container px-8 mx-auto">
                     <div className="h-full flex flex-col justify-center">
                         <h1 className="font-bold tracking-tighter text-[8vw] opacity-30 leading-[.75] strokeText">GENRE</h1>
                         <h1 className="font-bold tracking-tighter text-[15vw] leading-[.75] strokeText">PARKOUR</h1>
@@ -122,7 +122,7 @@ function LandingPage() {
                     <h1 className="font-bold tracking-tighter text-[8vw] opacity-50 text-center leading-[.75]">A GAME-DEV</h1>
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">PROJECT</h1>
                 </div>
-                <div className="h-screen flex justify-end gap-4 container mx-auto">
+                <div className="h-screen flex justify-end gap-4 container px-8 mx-auto">
                     <div className="h-full w-1/2 flex flex-col justify-center">
                         <h1 className="opacity-70 tracking-tighter text-[3vw] leading-[.75]">ABOUT THE</h1>
                         <h1 className="font-bold tracking-tighter text-[6vw] leading-[.75]">PROJECT</h1>
@@ -133,14 +133,14 @@ function LandingPage() {
                         </p>
                     </div>
                 </div>
-                <div className="h-screen flex justify-start gap-4 container mx-auto">
+                <div className="h-screen flex justify-start gap-4 container px-8 mx-auto">
                     <div className="h-full flex flex-col justify-center">
                         <h1 className="font-bold tracking-tighter text-[8vw] opacity-30 leading-[.75]">GENRE</h1>
                         <h1 className="font-bold tracking-tighter text-[15vw] leading-[.75]">PARKOUR</h1>
                         <h1 className="font-bold tracking-tighter text-[15vw] leading-[.75]">SCI-FI</h1>
                     </div>
                 </div>
-                <div className="h-screen flex justify-start gap-4 container mx-auto">
+                <div className="h-screen flex justify-start gap-4 container px-8 mx-auto">
                     <div className="h-full w-[45%] flex flex-col justify-center">
                         <h1 className="mb-4 font-bold text-[3.5vw] leading-[1]">THE STORY SO FAR</h1>
                         <p className="mt-4 opacity-70">
@@ -148,7 +148,7 @@ function LandingPage() {
                         </p>
                     </div>
                 </div>
-                <div className="h-screen flex justify-end gap-4 container mx-auto">
+                <div className="h-screen flex justify-end gap-4 container px-8 mx-auto">
                     <div className="h-full w-1/2 flex flex-col justify-center">
                         <h1 className="mb-4 font-bold tracking-tighter text-[4vw] leading-[1]">TECH STACK</h1>
                         <div className="flex gap-4">
@@ -160,7 +160,7 @@ function LandingPage() {
                         <p className="mt-4 opacity-70">The game itself is made using Unity, but the backend is an Express Server with NodeJS and MongoDB to store information such as the leaderboard and userdata</p>
                     </div>
                 </div>
-                <div className="h-screen flex justify-end gap-4 container mx-auto">
+                <div className="h-screen flex justify-end gap-4 container px-8 mx-auto">
                     <div className="h-full w-2/5 flex flex-col justify-center">
                         <h1 className="mb-4 font-bold tracking-tighter text-[3vw] leading-[1]">MULTIPLATFORM PWA</h1>
                         <h1 className="mb-4 text-[1vw] leading-[1] opacity-70">All you need is a browser to install and run it.</h1>
@@ -172,7 +172,7 @@ function LandingPage() {
                         </div>
                     </div>
                 </div>
-                <div className="h-screen flex justify-end gap-4 container mx-auto">
+                <div className="h-screen flex justify-end gap-4 container px-8 mx-auto">
                     <div className="h-full w-2/5 flex flex-col justify-center">
                         <h1 className="mb-4 font-bold text-[4vw] leading-[1]">LEADERBOARD</h1>
                         <h1 className="mb-4 text-[1vw] leading-[1] opacity-70">Compete with your friends. </h1>
