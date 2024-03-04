@@ -10,7 +10,7 @@ import { useEffect } from "react";
 export default function Game()
 {
     useEffect(()=>{
-        document.title = 'Abyssal Decent';
+        document.title = 'Abyssal Descent';
 
         return () => {
             document.title = 'AlphaCupcake10';

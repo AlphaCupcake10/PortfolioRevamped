@@ -4,7 +4,7 @@ import { TransitionLink } from '../../contexts/PageLoaderContext'
 import Cursor from '../common/Cursor'
 import TextButton from '../common/TextButton'
 import { useEffect, useRef, useState } from 'react'
-import AbysalDecent from '../models/AbysalDecent'
+import AbysalDescent from '../models/AbysalDescent'
 import UserModal from './UserModal'
 import { LeaderboardIcon , UserIcon , PlayIcon, ExitIcon} from './Icons'
 import Footer from '../Footer'
@@ -66,12 +66,12 @@ function LandingPage() {
             </div>
             {/* PHONE VERSION */}
             <section className={`${isModalOpen?"hidden":""} md:hidden h-screen flex flex-col justify-center items-center`}>
-                <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DECENT</h1>
+                <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DESCENT</h1>
             </section>
             {/* DESKTOP */}
             <section className="hidden md:block h-[1000vh] w-full relative z-10" ref={scrollRef}>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
-                    <h1 className="font-bold tracking-tighter text-[15vw] text-center strokeText leading-[.75]">ABYSSAL<br />DECENT</h1>
+                    <h1 className="font-bold tracking-tighter text-[15vw] text-center strokeText leading-[.75]">ABYSSAL<br />DESCENT</h1>
                     <div className="flex h-0">
                         <div>
                             {
@@ -98,7 +98,7 @@ function LandingPage() {
                 </div>
                 <div className="h-[500vh]"/>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
-                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75] strokeText">ABYSSAL<br />DECENT</h1>
+                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75] strokeText">ABYSSAL<br />DESCENT</h1>
                 </div>
                 
             </section>
@@ -107,7 +107,7 @@ function LandingPage() {
                     camera={{ fov: 10, aspect: 1 }}
                     shadows
                 >
-                    <AbysalDecent scrollRef={scrollRef} />
+                    <AbysalDescent scrollRef={scrollRef} />
                     <EffectComposer>
                         <Bloom mipmapBlur intensity={1.2} />
                     </EffectComposer>
@@ -115,7 +115,7 @@ function LandingPage() {
             </div>
             <section className="hidden md:block h-[1000vh] w-full absolute top-0 left-0 bg-black -z-10" >
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
-                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DECENT</h1>
+                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DESCENT</h1>
                     <div className="flex h-0"/>
                 </div>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
@@ -195,7 +195,7 @@ function LandingPage() {
                 </div>
                 <div className="h-screen"/>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
-                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DECENT</h1>
+                    <h1 className="font-bold tracking-tighter text-[15vw] text-center leading-[.75]">ABYSSAL<br />DESCENT</h1>
                 </div>
             </section>
             <Footer/>

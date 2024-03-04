@@ -48,7 +48,7 @@ function Navbar(props: { className?: string, margin?: boolean }) {
               <TextButton defaultActive={location.pathname == '/'}>HOME</TextButton>
             </TransitionLink>
             <TransitionLink to='/game'>
-              <TextButton defaultActive={location.pathname == '/game'}>ABBYSAL DECENT</TextButton>
+              <TextButton defaultActive={location.pathname == '/game'}>ABBYSAL DESCENT</TextButton>
             </TransitionLink>
           </div>
           <div>

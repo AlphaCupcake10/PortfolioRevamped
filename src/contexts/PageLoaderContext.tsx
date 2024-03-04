@@ -55,7 +55,7 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
         "/3D": "3D",
         "/projects": "PROJECTS",
         "/contact": "CONTACT",
-        "/game": "ABYSSAL DECENT",
+        "/game": "ABYSSAL DESCENT",
     }
     async function navigateTo(to: To,force:boolean=false) {
         if(!force)

@@ -30,8 +30,8 @@ export default defineConfig({
         ],
         shortcuts:[
           {
-            name: "Abyssal Decent",
-            short_name: "Decent",
+            name: "Abyssal Descent",
+            short_name: "Descent",
             url: "/game",
             icons: [
               {

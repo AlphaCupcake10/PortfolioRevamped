@@ -5,7 +5,7 @@ import { AnimationMixer, Object3D } from 'three';
 import modelSrc from "/PlayerModel/player.gltf?url";
 import { useLenis } from '@studio-freight/react-lenis';
 
-function AbysalDecent(props:{scrollRef:RefObject<HTMLDivElement>}) {
+function AbysalDescent(props:{scrollRef:RefObject<HTMLDivElement>}) {
 
     const gltf = useGLTF(modelSrc);
     const globalMixer = useRef<AnimationMixer>();
@@ -85,4 +85,4 @@ function AbysalDecent(props:{scrollRef:RefObject<HTMLDivElement>}) {
     )
 }
 
-export default AbysalDecent
+export default AbysalDescent

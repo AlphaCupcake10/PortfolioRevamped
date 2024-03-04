@@ -94,7 +94,7 @@ function MyComponent()
                     <div className={`cursor-pointer border-2 p-4 h-64 border-white/10 rounded-lg [&>*]:z-10 [&>*]:absolute hover:before:w-full before:w-0 before:absolute before:duration-300 before:top-0 before:right-0 hover:before:left-0 before:scale-150 before:rounded-full overflow-clip before:h-full before:bg-gradient-to-tr before:from-primary before:to-accent relative z-0 bg-background/20 backdrop-blur-xl grow group`}>
                         <div className='absolute top-0 left-0 w-full h-full group-hover:opacity-0 flex flex-col justify-center items-center duration-300'>
                             <h1 className='text-xl md:text-3xl opacity-70'>LATEST PROJECT</h1>
-                            <h1 className='text-3xl md:text-5xl font-bold'>ABYSSAL DECENT</h1>
+                            <h1 className='text-3xl md:text-5xl font-bold'>ABYSSAL DESCENT</h1>
                         </div>
                         <TransitionLink to={'/game'} className='absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center duration-300'>
                             <h1 className='text-lg md:text-2xl md:font-bold'>PLAY ON YOUR</h1>
