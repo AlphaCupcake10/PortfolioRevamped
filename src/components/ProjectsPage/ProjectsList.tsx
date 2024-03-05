@@ -23,7 +23,7 @@ export default function ProjectsList() {
                     title: "REGULARISE",
                     hoverTitle: "GET STUFF DONE",
                     subTitle: "Get Stuff Done.",
-                    link: "https://project-regularise.vercel.app/"
+                    link: "https://regularise.vercel.app/"
                 },
                 {
                     title: "SPARK",
