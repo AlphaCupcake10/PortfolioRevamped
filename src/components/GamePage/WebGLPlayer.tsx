@@ -7,10 +7,10 @@ import { toast } from 'react-toastify';
 
 export default function WebGLPlayer() {
     const { unityProvider, loadingProgression, isLoaded, addEventListener, removeEventListener } = useUnityContext({
-        loaderUrl: "Build/Build/Build.loader.js",
-        dataUrl: "Build/Build/Build.data",
-        frameworkUrl: "Build/Build/Build.framework.js",
-        codeUrl: "Build/Build/Build.wasm",
+        loaderUrl: "https://html-classic.itch.zone/html/9875802/Build/Build/Build.loader.js?url",
+        dataUrl: "https://html-classic.itch.zone/html/9875802/Build/Build/Build.data",
+        frameworkUrl: 'https://html-classic.itch.zone/html/9875802/Build/Build/Build.framework.js?url',
+        codeUrl: "https://html-classic.itch.zone/html/9875802/Build/Build/Build.wasm",
     })
 
     const pageLoaderContext = usePageLoader();
