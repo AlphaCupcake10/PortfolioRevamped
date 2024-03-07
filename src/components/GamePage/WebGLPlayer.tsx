@@ -6,11 +6,12 @@ import axios from '../../axios';
 import { toast } from 'react-toastify';
 
 export default function WebGLPlayer() {
+
     const { unityProvider, loadingProgression, isLoaded, addEventListener, removeEventListener } = useUnityContext({
-        loaderUrl: "https://html-classic.itch.zone/html/9875802/Build/Build/Build.loader.js?url",
-        dataUrl: "https://html-classic.itch.zone/html/9875802/Build/Build/Build.data",
-        frameworkUrl: 'https://html-classic.itch.zone/html/9875802/Build/Build/Build.framework.js?url',
-        codeUrl: "https://html-classic.itch.zone/html/9875802/Build/Build/Build.wasm",
+        loaderUrl: "https://alphacupcake10.github.io/Diving-Tempest-Builds/v3.1.0/Build/Build.loader.js?url",
+        dataUrl: "https://alphacupcake10.github.io/Diving-Tempest-Builds/v3.1.0/Build/Build.data",
+        frameworkUrl: 'https://alphacupcake10.github.io/Diving-Tempest-Builds/v3.1.0/Build/Build.framework.js?url',
+        codeUrl: "https://alphacupcake10.github.io/Diving-Tempest-Builds/v3.1.0/Build/Build.wasm",
     })
 
     const pageLoaderContext = usePageLoader();
