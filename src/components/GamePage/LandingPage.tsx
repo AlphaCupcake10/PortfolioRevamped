@@ -38,10 +38,6 @@ function LandingPage() {
         }
     }, [])
 
-    useEffect(()=>{
-        console.log(data)
-    },[data])
-
     return (
         <>
             <UserModal 
