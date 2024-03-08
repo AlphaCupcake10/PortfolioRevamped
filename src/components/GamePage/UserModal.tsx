@@ -192,6 +192,7 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
         if (!token || isTokenExpired(token)) {
             return null;
         }
+        return token;
     }
     function RemoveToken()
     {
@@ -199,6 +200,7 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
     }
     function isTokenExpired(token:string) {
         const decodedToken:JwtPayload = jwtDecode(token);
+        console.log(decodedToken)
         if (!decodedToken?.exp) return true; // Check if there is a token and it's decoded
         return decodedToken.exp * 1000 < Date.now(); // Check if the token has expired
     }
