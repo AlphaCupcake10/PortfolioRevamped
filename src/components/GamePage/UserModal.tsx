@@ -5,6 +5,7 @@ import Input from '../common/Input';
 import TextButton from '../common/TextButton';
 import axios from '../../axios';
 import { useModal } from '../../contexts/ModalContext';
+import { JwtPayload, jwtDecode } from "jwt-decode";
 
 export default function UserModal(props: { className?: string, isOpen: boolean, closeModal: () => void, isSignedIn: boolean, setisSignedIn:(val:boolean)=>void}) {
 
@@ -187,12 +188,21 @@ export default function UserModal(props: { className?: string, isOpen: boolean, 
     }
     function GetToken()
     {
-        return localStorage.getItem('token');
+        const token = localStorage.getItem('token');
+        if (!token || isTokenExpired(token)) {
+            return null;
+        }
     }
     function RemoveToken()
     {
         localStorage.removeItem('token');
     }
+    function isTokenExpired(token:string) {
+        const decodedToken:JwtPayload = jwtDecode(token);
+        if (!decodedToken?.exp) return true; // Check if there is a token and it's decoded
+        return decodedToken.exp * 1000 < Date.now(); // Check if the token has expired
+    }
+
 
     function ClearFields()
     {
