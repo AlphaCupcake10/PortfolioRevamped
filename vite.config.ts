@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
-// https://vitejs.dev/config/
+
 export default defineConfig({
   plugins: [
     react(),
@@ -53,6 +53,18 @@ export default defineConfig({
       // add this to cache all the imports
       workbox: {
         globPatterns: ["**/*"],
+        runtimeCaching: [
+          {
+            urlPattern: /^https?.*/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "offlineCache",
+              expiration: {
+                maxEntries: 200,
+              },
+            },
+          },
+        ],
       },
       // add this to cache all the
       // static assets in the public folder
