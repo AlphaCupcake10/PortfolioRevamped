@@ -2,11 +2,10 @@ import { useGLTF, Environment, Html } from '@react-three/drei';
 import { RootState, useFrame } from '@react-three/fiber';
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { Mesh, AnimationMixer, Object3D } from 'three';
-import modelSrc from "/experience.glb?url";
 import Button from '../common/Button';
 
 function Experience() {
-    const gltf = useGLTF(modelSrc);
+    const gltf = useGLTF("https://alphacupcake10.github.io/Diving-Tempest-Builds/experience.glb");
     const ref = useRef<Mesh>();
     const globalMixer = useRef<AnimationMixer>();
     const cameraMixer = useRef<AnimationMixer>();
