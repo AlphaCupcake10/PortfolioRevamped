@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 import WorkExperience from '../components/HomePage/WorkExperience';
 import ServicesSection from '../components/HomePage/ServicesSection';
 import { SkillsSection } from '../components/HomePage/SkillsSection';
+import Cursor from '../components/common/Cursor';
 // import { useLenis } from '@studio-freight/react-lenis';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,10 +72,16 @@ function HomePage()
             </div>
         </ParallaxBG>
         <AboutMe sectionRef={aboutMeRef}/>
+        <div className='bg-gradient-to-b from-accent to-primary h-96 z-30 flex justify-center items-center'>
+            <div className='text-7xl font-bold overflow-clip'>
+                <AnimatedText loop refresh text={['CREATE', 'INSPIRE', 'INNOVATE']}/>
+            </div>
+        </div>
         <WorkExperience />
-        <SkillsSection />
+        {/* <SkillsSection />
         <ServicesSection />
-        <Footer />
+        <Footer /> */}
+        <Cursor zIndex={-1}/>
     </>
   )
 }

@@ -6,6 +6,7 @@ import Wallpaper1 from "../../assets/wallpaper1.jpg?url";
 import Wallpaper2 from "../../assets/wallpaper2.jpg?url";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollIndicator from "../common/ScrollIndicator";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ParallaxBG(props:{children:ReactNode})
