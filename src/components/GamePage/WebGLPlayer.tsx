@@ -33,7 +33,12 @@ export default function WebGLPlayer() {
         if (time) {
             try {
                 let token = GetToken();
-                let res = await axios.post('/leaderboard', { time }, { headers: { Authorization: `${token}` } });
+                // Generate a time-based, obfuscated value
+                let now = Date.now();
+                let random = Math.floor(Math.random() * 100000);
+                let raw = `${now}:${random}`;
+                let xToken = btoa(raw.split('').reverse().join(''));
+                let res = await axios.post('/leaderboard', { time }, { headers: { Authorization: `${token}`, 'x-token': xToken } });
                 if (res.status !== 200) return;
             }
             catch (err: any) {

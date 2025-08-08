@@ -53,18 +53,24 @@ export default defineConfig({
       // add this to cache all the imports
       workbox: {
         globPatterns: ["**/*"],
-        runtimeCaching: [
-          {
-            urlPattern: /^https?.*/,
-            handler: "CacheFirst",
-            options: {
-              cacheName: "offlineCache",
-              expiration: {
-                maxEntries: 200,
+          runtimeCaching: [
+            // Disable cache for API calls
+            {
+              urlPattern: /^https:\/\/diving-tempest-backend\.vercel\.app\/.*$/,
+              handler: "NetworkOnly",
+            },
+            // Cache other assets as before
+            {
+              urlPattern: /^https?.*/,
+              handler: "CacheFirst",
+              options: {
+                cacheName: "offlineCache",
+                expiration: {
+                  maxEntries: 200,
+                },
               },
             },
-          },
-        ],
+          ],
       },
       // add this to cache all the
       // static assets in the public folder
