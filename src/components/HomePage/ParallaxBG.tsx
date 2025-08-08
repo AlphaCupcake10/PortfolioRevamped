@@ -6,7 +6,6 @@ import Wallpaper1 from "../../assets/wallpaper1.jpg?url";
 import Wallpaper2 from "../../assets/wallpaper2.jpg?url";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ScrollIndicator from "../common/ScrollIndicator";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ParallaxBG(props:{children:ReactNode})
@@ -39,14 +38,16 @@ export default function ParallaxBG(props:{children:ReactNode})
 
             gsap.fromTo(
                 headingRef.current,{
-                    y:50,
+                    y:-100,
+                    skewX:0
                 },
                 {
-                    y:-500,
+                    y:100,
+                    scale:2,
                     scrollTrigger:{
                         trigger:mainDiv.current,
                         start:"30% 35%",
-                        end:"60% 0%",
+                        end:"100% 0%",
                         scrub:true,
                         // markers:true
                     }
@@ -57,6 +58,7 @@ export default function ParallaxBG(props:{children:ReactNode})
                     yPercent:0
                 },
                 {
+                    scale:1.3,
                     yPercent:-20,
                     scrollTrigger:{
                         trigger:mainDiv.current,
@@ -69,10 +71,12 @@ export default function ParallaxBG(props:{children:ReactNode})
             )
             gsap.fromTo(
                 BGFront2Ref.current,{
-                    yPercent:0
+                    yPercent:0,
+                    rotate:-25
                 },
                 {
                     yPercent:-30,
+                    rotate:45,
                     scrollTrigger:{
                         trigger:mainDiv.current,
                         start:"10% 10%",

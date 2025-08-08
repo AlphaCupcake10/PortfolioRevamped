@@ -106,7 +106,7 @@ function LandingPage() {
                 >
                     <AbysalDescent scrollRef={scrollRef} />
                     <EffectComposer>
-                        <Bloom mipmapBlur intensity={1.2} />
+                            <Bloom mipmapBlur={!(typeof navigator !== 'undefined' && navigator.userAgent.includes('Macintosh'))} intensity={1.2} />
                     </EffectComposer>
                 </Canvas>
             </div>
