@@ -10,6 +10,7 @@ import { LeaderboardIcon , UserIcon , PlayIcon, ExitIcon} from './Icons'
 import Footer from '../Footer'
 import axios from '../../axios'
 import { toast } from 'react-toastify'
+import ScrollIndicator from '../common/ScrollIndicator'
 
 function LandingPage() {
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -70,15 +71,9 @@ function LandingPage() {
                 <div className="h-screen flex items-center justify-center flex-col gap-4">
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center strokeText leading-[.75]">ABYSSAL<br />DESCENT</h1>
                     <div className="flex h-0">
-                        <div>
-                            {
-                                !isSignedIn && 
-                                <TextButton className='mt-8 w-64 inline' onClick={()=>openModal()}>CREATE AN ACCOUNT</TextButton>
-                            }
-                            <TransitionLink to={'/game/play'}>
-                                <TextButton className='mt-8 w-64'>PLAYTEST NOW</TextButton>
-                            </TransitionLink>
-                        </div>
+                        <ScrollIndicator>
+                            <h1 className="text-xs opacity-50">Scroll Down</h1>
+                        </ScrollIndicator>
                     </div>
                 </div>
                 <div className="h-screen flex items-center justify-center flex-col gap-4">

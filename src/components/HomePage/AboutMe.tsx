@@ -6,11 +6,17 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollIndicator from "../common/ScrollIndicator";
 import useIntersectionObserver from "../../hooks/useInterSectionObsever";
+import { toRoman } from "../../util";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutMe(props:{sectionRef:React.RefObject<HTMLDivElement>}) {
     const scrollIndicatorRef = useRef<HTMLDivElement>(null);
-    const age = "XXII XXII XXII XXII XXII XXII XXII XXII XXII XXII XXII XXII XXII XXII XXII XXII XXII XXII";
+    // Dynamically generate age string from birthdate
+    const birthDate = new Date("2002-11-01"); // Replace with your actual birthdate
+    const now = new Date();
+    const years = now.getFullYear() - birthDate.getFullYear() - (now < new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate()) ? 1 : 0);
+    
+    const age = Array(18).fill(toRoman(years)).join(" ");
     const about_me = "ABOUT ME ABOUT ME ABOUT ME ABOUT ME ABOUT ME";
     const alias = "IAMALPHACUPCAKE10IAMALPHACUPCAKE10IAMALPHACUPCAKE10";
     const bday = "0XA330XA330XA330XA330XA330XA330XA330XA33";

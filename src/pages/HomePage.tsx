@@ -12,7 +12,7 @@ import WorkExperience from '../components/HomePage/WorkExperience';
 import ServicesSection from '../components/HomePage/ServicesSection';
 import { SkillsSection } from '../components/HomePage/SkillsSection';
 import Cursor from '../components/common/Cursor';
-// import { useLenis } from '@studio-freight/react-lenis';
+import { useLenis } from '@studio-freight/react-lenis';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
@@ -42,7 +42,7 @@ function HomePage()
     
     }, []);
 
-    // const lenis = useLenis();
+    const lenis = useLenis();
     const aboutMeRef = useRef<HTMLDivElement>(null);
 
     return (
@@ -54,17 +54,20 @@ function HomePage()
                 <div ref={heroTextRef[1]} className='overflow-y-clip'><h1 className='text-3xl md:text-7xl font-extrabold uppercase'><AnimatedText loop refresh text={['AlphaCupcake10', 'Lakshman Sundar', 'not.lxm',"Lexy", "Sabko Nahi Milta", "Laksham"]}/></h1></div>
                 
                 <div ref={heroTextRef[0]} className='bg-red flex gap-5 mt-4'>
-                    {/* <Button onClick={()=>{
-                        aboutMeRef.current && lenis.scrollTo(aboutMeRef.current,{
+                    <Button onClick={() => {
+                        // Scroll to About Me section
+                        lenis.stop();
+                        aboutMeRef.current && lenis.scrollTo(aboutMeRef.current, {
                             duration: 2,
                             offset: -160,
-                            force: true
+                            force: true,
+                            easing: (t: number) => t === 0 ? 0 : t === 1 ? 1 : 1 - Math.pow(2, -10 * t), // exp in out
+                            onComplete: () => {
+                                // Resume Lenis after scroll
+                                lenis.start();
+                            }
                         });
-                    }} color='primary' className='md:w-48'>ABOUT ME</Button> */}
-
-                    <TransitionLink to='/3D'>
-                        <Button color='primary' className='md:w-48'>EXPLORE IN 3D</Button>
-                    </TransitionLink>
+                    }} color='primary' className='md:w-48'>ABOUT ME</Button>
                     <TransitionLink to='/projects'>
                         <Button color='secondary' className='md:w-48'>PROJECTS</Button>
                     </TransitionLink>
@@ -78,9 +81,10 @@ function HomePage()
             </div>
         </div>
         <WorkExperience />
-        {/* <SkillsSection />
-        <ServicesSection />
-        <Footer /> */}
+        {/* Parallax image carousel here */}
+        {/* Some Crazy Lottie Animation here */}
+        {/* 3D Experience Section Shown Like a story along with skills shown */}
+        <Footer />
         <Cursor zIndex={-1}/>
     </>
   )
