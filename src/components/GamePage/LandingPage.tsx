@@ -1,8 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
-import { TransitionLink } from '../../contexts/PageLoaderContext'
 import Cursor from '../common/Cursor'
-import TextButton from '../common/TextButton'
 import { useEffect, useRef, useState } from 'react'
 import AbysalDescent from '../models/AbysalDescent'
 import UserModal from './UserModal'

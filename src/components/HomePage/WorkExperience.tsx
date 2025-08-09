@@ -1,9 +1,4 @@
 
-import AnimatedText from "../common/AnimatedText";
-
-
-
-
 function WorkExperience() {
 
     return (

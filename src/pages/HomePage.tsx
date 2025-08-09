@@ -8,7 +8,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from '../components/common/AnimatedText';
 import Footer from '../components/Footer';
-import WorkExperience from '../components/HomePage/WorkExperience';
 import Cursor from '../components/common/Cursor';
 import { useLenis } from '@studio-freight/react-lenis';
 import { SkillsSection } from '../components/HomePage/SkillsSection';
