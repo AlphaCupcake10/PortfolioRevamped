@@ -1,10 +1,9 @@
 import { TransitionLink } from '../../contexts/PageLoaderContext';
 import AnimatedText from '../common/AnimatedText';
 
-function MyComponent()
+function ServicesSection()
 {
     const cardClass = "border-2 p-4 h-36 border-white/10 rounded-lg fill-hover relative z-0 flex flex-col justify-center items-center bg-background/20 backdrop-blur-xl";
-    const cardClass2 = "border-2 p-4 h-12 border-white/10 rounded-lg fill-hover relative z-0 flex flex-col justify-center items-center bg-background/20 backdrop-blur-xl";
 
     return(
         <>
@@ -106,4 +105,4 @@ function MyComponent()
     );
 }
 
-export default MyComponent;
+export default ServicesSection;

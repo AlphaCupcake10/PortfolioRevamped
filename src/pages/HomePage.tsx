@@ -9,10 +9,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from '../components/common/AnimatedText';
 import Footer from '../components/Footer';
 import WorkExperience from '../components/HomePage/WorkExperience';
-import ServicesSection from '../components/HomePage/ServicesSection';
-import { SkillsSection } from '../components/HomePage/SkillsSection';
 import Cursor from '../components/common/Cursor';
 import { useLenis } from '@studio-freight/react-lenis';
+import { SkillsSection } from '../components/HomePage/SkillsSection';
+import ServicesSection from '../components/HomePage/ServicesSection';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
@@ -28,10 +28,11 @@ function HomePage()
                 gsap.from(ref.current,
                     {
                         y:-200,
+                        scale:1.5,
                         opacity:0,
                         ease: "power4.out",
                         duration:4,
-                        delay:.5 + index*.25
+                        delay:1.5 + index*.25
                     },
                 )
             })
@@ -51,7 +52,7 @@ function HomePage()
         <ParallaxBG>
             <div className='flex flex-col justify-center items-center'>
                 <div ref={heroTextRef[2]} className='overflow-y-clip'><h1 className='text-xl md:text-4xl opacity-75'>Hey, I am</h1></div>
-                <div ref={heroTextRef[1]} className='overflow-y-clip'><h1 className='text-3xl md:text-7xl font-extrabold uppercase'><AnimatedText loop refresh text={['AlphaCupcake10', 'Lakshman Sundar', 'not.lxm',"Lexy", "Sabko Nahi Milta", "Laksham"]}/></h1></div>
+                <div ref={heroTextRef[1]} className='overflow-y-clip'><h1 className='text-3xl md:text-7xl font-extrabold uppercase'><AnimatedText loop refresh text={['AlphaCupcake10', 'Lakshman Sundar', 'not.lxm',"Lexy","An Enderman?", "Sabko Nahi Milta", "Laksham"]}/></h1></div>
                 
                 <div ref={heroTextRef[0]} className='bg-red flex gap-5 mt-4'>
                     <Button onClick={() => {
@@ -80,7 +81,9 @@ function HomePage()
                 <AnimatedText loop refresh text={['CREATE', 'INSPIRE', 'INNOVATE']}/>
             </div>
         </div>
-        <WorkExperience />
+        {/* <WorkExperience /> */}
+        <SkillsSection />
+        <ServicesSection />
         {/* Parallax image carousel here */}
         {/* Some Crazy Lottie Animation here */}
         {/* 3D Experience Section Shown Like a story along with skills shown */}

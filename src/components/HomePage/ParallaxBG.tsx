@@ -39,7 +39,6 @@ export default function ParallaxBG(props:{children:ReactNode})
             gsap.fromTo(
                 headingRef.current,{
                     y:-100,
-                    skewX:0
                 },
                 {
                     y:100,
@@ -99,6 +98,7 @@ export default function ParallaxBG(props:{children:ReactNode})
                 gsap.from(ref.current,
                     {
                         y:-200,
+                        scale:1.5 * (index + 1),
                         ease: "power4.out",
                         duration:4,
                         delay:.2*index
