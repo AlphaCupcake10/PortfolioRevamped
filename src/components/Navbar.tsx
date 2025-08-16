@@ -42,7 +42,7 @@ function Navbar(props: { className?: string, margin?: boolean }) {
     <>
       {props.margin && <div className="md:h-28"></div>}
       <header className={`hidden md:block fixed top-0 lg:top-0 left-0 w-full z-30 ${hasScrolledUp ? "" : "-translate-y-full"} ${isOnTop ? "border-text/0" : "bg-background/50 backdrop-blur-md p-4 border-text/10"} border-b-2 duration-300 px-24`}>
-        <div className={`container mx-auto flex justify-between items-center ${isOnTop ? "p-4 lg:p-8" : ""}`}>
+        <div className={`container mx-auto flex justify-between items-center duration-300 ${isOnTop ? "p-4 lg:p-8" : ""}`}>
           <div className='w-full flex justify-evenly'>
             <TransitionLink to='/'>
               <TextButton defaultActive={location.pathname == '/'}>HOME</TextButton>

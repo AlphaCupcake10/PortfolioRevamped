@@ -3,10 +3,12 @@ import { Canvas } from "@react-three/fiber"
 import Experience from "../components/models/Experience"
 import Button from "../components/common/Button";
 import { TransitionLink } from "../contexts/PageLoaderContext";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
+import Navbar from "../components/Navbar";
 
 export default function ThreeDWorld() {
-
+    const scrollRef = useRef<HTMLDivElement>(null);
+    
     function toggleFullScreen() {
         if (!document.fullscreenElement) {
             if (document.documentElement.requestFullscreen) {
@@ -21,11 +23,11 @@ export default function ThreeDWorld() {
 
     return (
         <>
-            {/* <Navbar className="z-50"/> */}
-            <div className="flex flex-col z-20 relative justify-center">
+            <Navbar className="z-50"/>
+            <div className="flex flex-col z-20 relative justify-center h-[2000vh]" ref={scrollRef}> 
                 <div className="h-64 sm:h-96 z-30 relative md:h-screen flex items-center justify-center">
                     <div
-                        className="z-10 w-full h-full"
+                        className="z-10 w-full h-full fixed top-0 left-0"
                     >
                        <Suspense fallback={
                             <div className="w-full h-full flex items-center justify-center">
@@ -36,7 +38,7 @@ export default function ThreeDWorld() {
                                 
                                 camera={{fov:35,aspect:1}}
                             >
-                                <Experience />
+                                <Experience scrollRef={scrollRef}/>
                             </Canvas>
                        </Suspense>
                     </div>
