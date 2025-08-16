@@ -87,7 +87,7 @@ export default function FeaturedSection()
             <div style={{translate:`-${(phaseIndex)}00vw 0`}} className="w-[300vw] h-full flex transition-all duration-500">
                 <div className="w-[100vw] h-full relative flex flex-col justify-center items-center">
                     <div className="absolute top-0 left-0 h-3/4 w-full bg-gradient-to-b from-background to-transparent -z-10"/>
-                    <video src={"https://github.com/AlphaCupcake10/PortfolioRevamped/raw/main/src/assets/Gaem.mp4"} className="absolute top-0 left-0 -z-20 w-full h-full object-cover" autoPlay muted loop/>
+                    <video src={"./Gaem.mp4"} className="absolute top-0 left-0 -z-20 w-full h-full object-cover" autoPlay muted loop/>
                     <h1 className='text-5xl lg:text-8xl font-bold tracking-tighter text-center'>ABYSSAL DESCENT</h1>
                     <h1 className='text-4xl lg:text-6xl font-bold opacity-70 tracking-tighter'>RUNS ON WEBGL</h1>
                     <TransitionLink to={'/game'}>
@@ -113,7 +113,7 @@ export default function FeaturedSection()
                 </div>
                 <div className="w-[100vw] h-full relative flex flex-col justify-center items-center">
                     <div className="absolute top-0 left-0 h-3/4 w-full bg-gradient-to-b from-background to-transparent -z-10"/>
-                    <video src={"https://github.com/AlphaCupcake10/PortfolioRevamped/raw/main/src/assets/Banner.mp4"} className="absolute top-0 left-0 -z-20 w-full h-full object-cover" autoPlay muted loop/>
+                    <video src={"./Banner.mp4"} className="absolute top-0 left-0 -z-20 w-full h-full object-cover" autoPlay muted loop/>
                     <h1 className='text-5xl lg:text-8xl font-bold tracking-tighter text-center'>QUANTUM THRUST</h1>
                     <h1 className='text-2xl lg:text-5xl font-bold opacity-70 tracking-tighter'>A BLENDER ANIMATION</h1>
                     <a target='_blank' href="https://youtu.be/91xYJy3Mzm4?si=r9pUXB2j3fMVU1Nq">

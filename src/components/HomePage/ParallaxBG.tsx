@@ -112,7 +112,6 @@ export default function ParallaxBG(props:{children:ReactNode})
 
     return (
         <>
-            <link rel="prefetch" href={BG} />
             <div className="overflow-x-clip flex justify-center">
                 <div ref={mainDiv} className="flex w-max gap-4 items-end">
                     <div className="h-[70vh] w-[50vw] border-2 border-white/20 rounded-2xl">

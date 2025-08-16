@@ -15,7 +15,7 @@ function ServicesSection()
         <div className="relative py-36">
             <div className="absolute right-0 top-0 h-full w-full lg:w-4/5 -z-10 flex items-center overflow-y-clip">
                 <div className="h-[300%]">
-                    <video src={'https://github.com/AlphaCupcake10/PortfolioRevamped/raw/main/src/assets/Banner.mp4'} className="w-full top-0 sticky h-screen object-cover" autoPlay muted loop/>
+                    <video src={'./Banner.mp4'} className="w-full top-0 sticky h-screen object-cover" autoPlay muted loop/>
                 </div>
                 <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-1/2 h-full"/>
             </div>
@@ -67,7 +67,7 @@ function ServicesSection()
         <div className="relative py-36">
             <div className="absolute right-0 top-0 h-full w-full lg:w-4/5 -z-10 flex items-center overflow-y-clip">
                 <div className="h-[300%]">
-                    <video src={'https://github.com/AlphaCupcake10/PortfolioRevamped/raw/main/src/assets/Gaem.mp4'} className="w-full top-0 sticky h-screen object-cover" autoPlay muted loop/>
+                    <video src={'./Gaem.mp4'} className="w-full top-0 sticky h-screen object-cover" autoPlay muted loop/>
                 </div>
                 <div className="bg-gradient-to-r from-background to-transparent top-0 left-0 absolute w-1/2 h-full"/>
             </div>
