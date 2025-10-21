@@ -70,7 +70,7 @@ function LandingPage() {
                     <h1 className="font-bold tracking-tighter text-[15vw] text-center strokeText leading-[.75]">ABYSSAL<br />DESCENT</h1>
                     <div className="flex h-0">
                         <ScrollIndicator>
-                            <h1 className="text-xs opacity-50">Scroll Down</h1>
+                            <h1 className="text-lg opacity-50">Scroll Down</h1>
                         </ScrollIndicator>
                     </div>
                 </div>

@@ -27,14 +27,16 @@ function ServicesSection()
                     <div className='flex flex-wrap gap-4'>
                         <div className={`${cardClass} w-48 grow`}>
                             <div className='font-bold'>
-                                <span className="text-4xl">5</span> <span className='text-xl'>Years</span>
+                                <span className="text-4xl">2</span> <span className='text-xl'>Years</span>
                             </div>
                             <div className='text-sm opacity-70'>
                                 of Experience
                             </div>
                         </div>
                         <div className={`${cardClass} w-72 grow text-sm px-8`}>
-                            <span className='opacity-70'>I create stylized product animations, infusing dynamic motion and vibrant colors to highlight unique features, ensuring effective brand communication.</span>
+                            <span className='opacity-70'>
+                                Back in my 1st year of college, I dove into professional 3D animation, not sure how I ended up with an SDE role but anyways...
+                            </span>
                         </div>
                     </div>
                     <div className='flex flex-wrap gap-4'>
@@ -76,13 +78,11 @@ function ServicesSection()
                 <h1 className='text-4xl lg:text-8xl font-extrabold mt-1'>GAME <span className='gradient-text'>DEVELOPMENT</span></h1>
                 <div className="max-w-2xl flex flex-col flex-wrap gap-4 mt-16">
                     <div className='flex flex-wrap gap-4'>
-                        <div className={`${cardClass} w-48 grow`}>
-                            <div className='font-bold'>
-                                <span className="text-4xl">6</span> <span className='text-xl'>Years</span>
-                            </div>
-                            <div className='text-sm opacity-70'>
-                                of Experience
-                            </div>
+                        <div className={`${cardClass} w-48 grow relative group`}>
+                            WHO EVEN READS THESE
+                            <a target='_blank' href='https://youtube.com/shorts/pilsslSJr3Y?si=L7R7lzOfE8NaVO5o' className='!absolute z-10 top-0 left-0 font-bold text-3xl w-full h-full grid place-items-center group-hover:opacity-100 opacity-0 duration-300'>
+                                YOU DO?!
+                            </a>
                         </div>
                         <div className={`${cardClass} w-72 grow text-sm px-8`}>
                             <span className='opacity-70'>Since I was 12, I've always been hooked on the idea of game development. The joy of making something interactive has kept my creativity flowing.</span>

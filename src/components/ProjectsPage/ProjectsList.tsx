@@ -60,6 +60,12 @@ export default function ProjectsList() {
             sectionTitle: "3D Animation Projects",
             data: [
                 {
+                    title: "FRESCO REVERIE",
+                    hoverTitle: "FREELANCE",
+                    subTitle: "This was a follow-up trailer for Fresco XL.",
+                    link: "https://www.youtube.com/watch?v=q0cYfEb9vFs"
+                },
+                {
                     title: "FRESCO XL",
                     hoverTitle: "FREELANCE",
                     subTitle: "The trailer was covered in reputable online articles and reached 100k + views on YouTube",

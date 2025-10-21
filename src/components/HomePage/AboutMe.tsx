@@ -169,7 +169,7 @@ export default function AboutMe(props:{sectionRef:React.RefObject<HTMLDivElement
             <div className="-translate-y-[16rem]">
                 <div ref={scrollIndicatorRef}>
                     <ScrollIndicator>
-                        <h1 className="text-xs opacity-50">Scroll :3</h1>
+                        <h1 className="text-lg opacity-50">Scroll :3</h1>
                     </ScrollIndicator>
                 </div>
             </div>
