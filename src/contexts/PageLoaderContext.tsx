@@ -138,7 +138,14 @@ export function PageLoaderProvider(props: { children: React.ReactNode }) {
                 <div className={`z-[8388636] fixed top-0 left-0 w-screen h-screen flex justify-center items-center pointer-events-none`}>
                     <div className={`bg-primary screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen`}/>
                     <div style={{ animationDelay: "100ms", translate: "100% 100%" }} className={`bg-primary screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen`}/>
-                    <div style={{ animationDelay: "50ms", translate: "100% 100%" }} className={`bg-black screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen flex justify-center items-center`}>
+                    <div
+                        style={{
+                            animationDelay: "50ms",
+                            translate: "100% 100%",
+                            background: "linear-gradient(138deg,rgba(0, 0, 0, 1) 0%, rgba(32, 36, 51, 1) 100%)"
+                        }}
+                        className={`bg-black screenWipe pointer-events-auto absolute top-0 left-0 w-screen h-screen flex justify-center items-center`}
+                    >
                         <h1 className="text-lg md:text-3xl font-bold inception-text">{displayText[loadingText]}</h1>
                     </div>
                 </div>

@@ -6,11 +6,17 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollIndicator from "../common/ScrollIndicator";
 import useIntersectionObserver from "../../hooks/useInterSectionObsever";
+import { toRoman } from "../../util";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AboutMe(props:{sectionRef:React.RefObject<HTMLDivElement>})
-{
-    const age = "XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI XXI";
+export default function AboutMe(props:{sectionRef:React.RefObject<HTMLDivElement>}) {
+    const scrollIndicatorRef = useRef<HTMLDivElement>(null);
+    // Dynamically generate age string from birthdate
+    const birthDate = new Date("2002-11-01"); // Replace with your actual birthdate
+    const now = new Date();
+    const years = now.getFullYear() - birthDate.getFullYear() - (now < new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate()) ? 1 : 0);
+    
+    const age = Array(18).fill(toRoman(years)).join(" ");
     const about_me = "ABOUT ME ABOUT ME ABOUT ME ABOUT ME ABOUT ME";
     const alias = "IAMALPHACUPCAKE10IAMALPHACUPCAKE10IAMALPHACUPCAKE10";
     const bday = "0XA330XA330XA330XA330XA330XA330XA330XA33";
@@ -26,7 +32,26 @@ export default function AboutMe(props:{sectionRef:React.RefObject<HTMLDivElement
     const tagsRef = [useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null),useRef<HTMLDivElement>(null)]
     useEffect(() => {        
         let ctx = gsap.context(() => {
-            
+            // Animate ScrollIndicator: fade in and float up and down
+            if (scrollIndicatorRef.current) {
+                gsap.fromTo(scrollIndicatorRef.current,
+                    { opacity: 0, y: -100 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 3,
+                        delay: 0.5,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: scrollIndicatorRef.current,
+                            start: "top 95%",
+                            toggleActions: "play none none none"
+                        }
+                    }
+                );
+            }
+
+            // ...existing code...
             refs.forEach((ref,index)=>{
                 gsap.fromTo(
                     ref.current,{
@@ -134,7 +159,6 @@ export default function AboutMe(props:{sectionRef:React.RefObject<HTMLDivElement
             })
 
         }); // <- optional additional param, scopes all selector text inside the context to this component (default is document)
-        
         return () => ctx.revert(); // cleanup! 
     }, []);
 
@@ -142,9 +166,13 @@ export default function AboutMe(props:{sectionRef:React.RefObject<HTMLDivElement
 
     return (
         <div ref={props.sectionRef} className="relative">
-            <ScrollIndicator>
-                <h1 className="text-xs opacity-50">Heyy Vsauce</h1>
-            </ScrollIndicator>
+            <div className="-translate-y-[16rem]">
+                <div ref={scrollIndicatorRef}>
+                    <ScrollIndicator>
+                        <h1 className="text-lg opacity-50">Scroll :3</h1>
+                    </ScrollIndicator>
+                </div>
+            </div>
             <div className='overflow-x-clip 2xl:-mb-[24rem] xl:-mb-[15rem] lg:-mb-[4rem] hidden lg:block'>
                 <div ref={parentRef} className='w-max'>
                     <div ref ={refs[0]} className="overflow-y-clip">
@@ -172,13 +200,13 @@ export default function AboutMe(props:{sectionRef:React.RefObject<HTMLDivElement
                     <hr className='border-primary border-2 mt-4'/>
                     <div className="mt-4 flex flex-wrap gap-1">
                         {
-                            ["3D Generalist","Frontend Developer","Designer","Game Developer"].map((value,index)=>{
+                            ["Software Developer","3D Artist","Game Developer","Designer"].map((value,index)=>{
                                 return <div key={index} ref={tagsRef[index]} className="cursor-pointer fill-hover relative grow border-2 border-white/10 rounded-lg flex p-2 lg:p-4 justify-center hover:grow-[2] transition-[flex-grow] duration-300 text-xs"><span>{value}</span></div>
                             })
                         }
                     </div>
                     <p ref={MeRef[1]} className='text-justify mt-6 text-xs font-light md:text-base mb-4'>
-                        Currently working as a freelance artist, constantly interested in a challenge. I am a kind of person who likes to view things from a neutrally different and virtually inclined perspective.
+                        I like cats, coding, and anything that looks cool, be it slick UI, cinematic shots, or a well-placed button. I tend to hyperfocus like a caffeinated robot and usually have music blasting like I'm the main character in a movie.
                     </p>
                 </div>
                 <div className="w-full md:w-1/2 overflow-y-clip hidden lg:block relative">

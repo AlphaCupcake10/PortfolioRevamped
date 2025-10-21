@@ -8,10 +8,10 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from '../components/common/AnimatedText';
 import Footer from '../components/Footer';
-import WorkExperience from '../components/HomePage/WorkExperience';
-import ServicesSection from '../components/HomePage/ServicesSection';
+import Cursor from '../components/common/Cursor';
+import { useLenis } from '@studio-freight/react-lenis';
 import { SkillsSection } from '../components/HomePage/SkillsSection';
-// import { useLenis } from '@studio-freight/react-lenis';
+import ServicesSection from '../components/HomePage/ServicesSection';
 gsap.registerPlugin(ScrollTrigger);
 
 function HomePage()
@@ -27,10 +27,11 @@ function HomePage()
                 gsap.from(ref.current,
                     {
                         y:-200,
+                        scale:1.5,
                         opacity:0,
                         ease: "power4.out",
                         duration:4,
-                        delay:.5 + index*.25
+                        delay:1.5 + index*.25
                     },
                 )
             })
@@ -41,7 +42,7 @@ function HomePage()
     
     }, []);
 
-    // const lenis = useLenis();
+    const lenis = useLenis();
     const aboutMeRef = useRef<HTMLDivElement>(null);
 
     return (
@@ -50,20 +51,23 @@ function HomePage()
         <ParallaxBG>
             <div className='flex flex-col justify-center items-center'>
                 <div ref={heroTextRef[2]} className='overflow-y-clip'><h1 className='text-xl md:text-4xl opacity-75'>Hey, I am</h1></div>
-                <div ref={heroTextRef[1]} className='overflow-y-clip'><h1 className='text-3xl md:text-7xl font-extrabold uppercase'><AnimatedText delay={200} text='AlphaCupcake10'/></h1></div>
+                <div ref={heroTextRef[1]} className='overflow-y-clip'><h1 className='text-3xl md:text-7xl font-extrabold uppercase'><AnimatedText loop refresh text={['AlphaCupcake10', 'Lakshman Sundar', 'not.lxm',"Lexy","An Enderman?", "Sabko Nahi Milta", "Laksham"]}/></h1></div>
                 
                 <div ref={heroTextRef[0]} className='bg-red flex gap-5 mt-4'>
-                    {/* <Button onClick={()=>{
-                        aboutMeRef.current && lenis.scrollTo(aboutMeRef.current,{
+                    <Button onClick={() => {
+                        // Scroll to About Me section
+                        lenis.stop();
+                        aboutMeRef.current && lenis.scrollTo(aboutMeRef.current, {
                             duration: 2,
                             offset: -160,
-                            force: true
+                            force: true,
+                            easing: (t: number) => t === 0 ? 0 : t === 1 ? 1 : 1 - Math.pow(2, -10 * t), // exp in out
+                            onComplete: () => {
+                                // Resume Lenis after scroll
+                                lenis.start();
+                            }
                         });
-                    }} color='primary' className='md:w-48'>ABOUT ME</Button> */}
-
-                    <TransitionLink to='/3D'>
-                        <Button color='primary' className='md:w-48'>EXPLORE IN 3D</Button>
-                    </TransitionLink>
+                    }} color='primary' className='md:w-48'>ABOUT ME</Button>
                     <TransitionLink to='/projects'>
                         <Button color='secondary' className='md:w-48'>PROJECTS</Button>
                     </TransitionLink>
@@ -71,10 +75,19 @@ function HomePage()
             </div>
         </ParallaxBG>
         <AboutMe sectionRef={aboutMeRef}/>
-        <WorkExperience />
+        <div className='bg-gradient-to-b from-accent to-primary h-96 z-30 flex justify-center items-center'>
+            <div className='text-7xl font-bold overflow-clip'>
+                <AnimatedText loop refresh text={['CREATE', 'INSPIRE', 'INNOVATE']}/>
+            </div>
+        </div>
+        {/* <WorkExperience /> */}
         <SkillsSection />
         <ServicesSection />
+        {/* Parallax image carousel here */}
+        {/* Some Crazy Lottie Animation here */}
+        {/* 3D Experience Section Shown Like a story along with skills shown */}
         <Footer />
+        <Cursor zIndex={-1}/>
     </>
   )
 }

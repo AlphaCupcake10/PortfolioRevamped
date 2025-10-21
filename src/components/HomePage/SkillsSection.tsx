@@ -12,37 +12,9 @@ export function SkillsSection()
                         {
                             title:"Frontend Development",
                             fields:{
-                                "React":.5,
-                                "React Three Fiber | ThreeJS":.7,                      
-                                "CSS":.75,                    
-                                "TailwindCSS":.9,
-                            }
-                        },
-                        {
-                            title:"Backend Development",
-                            fields:{
-                                "NODEJS":.4,
-                                "EXPRESSJS":.5,                      
-                                "MONGODB":.6,                    
-                                "SQL":.65,
-                            }
-                        },
-                        {
-                            title:"Languages",
-                            fields:{
-                                "C++":.7,
-                                "Python":.65,
-                                "Javascript":.6,
-                                "Typescript":.56,
-                            }
-                        },
-                        {
-                            title:"Game Development",
-                            fields:{
-                                "C# with Unity":.9,
-                                "2D / 3D Asset Creation":.7,
-                                "Game Design":.85,
-                                "VR / AR Development":.7,      
+                                "React":.7,
+                                "React Three Fiber | ThreeJS":.75,                      
+                                "CSS | Tailwind":.9,                    
                             }
                         },
                         {
@@ -51,6 +23,14 @@ export function SkillsSection()
                                 "UI Design":.8,
                                 "UX Design":.7,
                                 "Graphic Design":.8,                    
+                            }
+                        },
+                        {
+                            title:"Game Development",
+                            fields:{
+                                "C# with Unity":.9,
+                                "2D / 3D Asset Creation":.7,
+                                "Game Design":.85,
                             }
                         },
                         {
@@ -66,7 +46,7 @@ export function SkillsSection()
                             fields:{
                                 "Motion Graphics":.6,
                                 "Video Editing":.5,
-                                "VFX":.4,
+                                "COOKING | LET BRO COOK":.4,
                             }
                         }
                     ].map((category,index)=>{
