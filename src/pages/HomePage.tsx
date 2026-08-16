@@ -54,7 +54,7 @@ function HomePage()
                 <div ref={heroTextRef[1]} className='overflow-y-clip'><h1 className='text-3xl md:text-7xl font-extrabold uppercase'><AnimatedText loop refresh text={['AlphaCupcake10', 'Lakshman Sundar', 'not.lxm',"Lexy","An Enderman?", "Sabko Nahi Milta", "Laksham"]}/></h1></div>
                 
                 <div ref={heroTextRef[0]} className='bg-red flex gap-5 mt-4'>
-                    <Button onClick={() => {
+                    {/* <Button onClick={() => {
                         // Scroll to About Me section
                         lenis.stop();
                         aboutMeRef.current && lenis.scrollTo(aboutMeRef.current, {
@@ -67,7 +67,10 @@ function HomePage()
                                 lenis.start();
                             }
                         });
-                    }} color='primary' className='md:w-48'>ABOUT ME</Button>
+                    }} color='primary' className='md:w-48'>ABOUT ME</Button> */}
+                    <TransitionLink to='/3D'>
+                        <Button color='primary' className='md:w-48'>Expore in 3D</Button>
+                    </TransitionLink>
                     <TransitionLink to='/projects'>
                         <Button color='secondary' className='md:w-48'>PROJECTS</Button>
                     </TransitionLink>
