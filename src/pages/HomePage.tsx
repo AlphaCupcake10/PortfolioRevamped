@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from '../components/common/AnimatedText';
 import Footer from '../components/Footer';
 import Cursor from '../components/common/Cursor';
-import { useLenis } from '@studio-freight/react-lenis';
+// import { useLenis } from '@studio-freight/react-lenis';
 import { SkillsSection } from '../components/HomePage/SkillsSection';
 import ServicesSection from '../components/HomePage/ServicesSection';
 gsap.registerPlugin(ScrollTrigger);
@@ -42,7 +42,7 @@ function HomePage()
     
     }, []);
 
-    const lenis = useLenis();
+    // const lenis = useLenis();
     const aboutMeRef = useRef<HTMLDivElement>(null);
 
     return (
